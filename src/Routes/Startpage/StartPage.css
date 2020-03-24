@@ -1,0 +1,11 @@
+.startpage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.startpage-character {
+  width: 150px;
+}

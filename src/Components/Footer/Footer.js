@@ -3,10 +3,10 @@ import "./Footer.css";
 
 function Footer(props) {
   return (
-    <div className="Footer">
+    <footer>
       <span onClick={props.toggleLeaderBoard}>LeaderBoard</span>
       <span onClick={props.toggleInstruction}>Instruction</span>
-    </div>
+    </footer>
   );
 }
 export default Footer;
