@@ -35,7 +35,6 @@ export default class HomePage extends Component {
                     <p>THIS IS THE USER PAGE</p>
                     <button onClick={this.context.renderGame}>Submit</button>
                 </section> : null}
-
                 {this.context.game ? <section className='gamePage'>
                     <p>THIS IS THE GAME PAGE</p>
                 </section> : null}            

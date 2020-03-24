@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import LandingPage from "../../Routes/LandingPage/LandingPage";
-import HomePage from "../../Routes/HomePage/HomePage";
+//import HomePage from "../../Routes/HomePage/HomePage";
 import StartPage from "../../Routes/StartPage/StartPage";
 import LeaderBoard from "../LeaderBoard/LeaderBoard";
 import Instruction from "../Instruction/Instruction";
@@ -41,7 +41,7 @@ class App extends Component {
           <Switch>
             <Route exact path={"/"} component={LandingPage} />
             <Route path={"/start"} component={StartPage} />
-            <Route path={"/home"} component={HomePage} />
+            
           </Switch>
           {this.state.showLeaderBoard && <LeaderBoard />}
           {this.state.showInstruction && <Instruction />}
@@ -55,3 +55,5 @@ class App extends Component {
   }
 }
 export default App;
+
+//<Route path={"/home"} component={HomePage} />

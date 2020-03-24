@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 const PersonContext= React.createContext({
-    person:{},
+    starter:{},
     error: null,
     leader: false,
     instructions: true,
@@ -23,7 +23,7 @@ export default PersonContext
 
 export class PersonProvider extends Component {
     state = {
-      person:{},
+      starter:{},
       error: null,
       leader: false,
       instructions: true,
@@ -72,7 +72,7 @@ export class PersonProvider extends Component {
 
     render() {
       const value = {
-        person: this.state.person,
+        startlife: this.state.startlife,
         error: this.state.error,
         leader: this.state.leader,
         instructions: this.state.instructions,

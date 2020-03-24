@@ -44,7 +44,7 @@ export default class HomePage extends Component {
             ></input>
           </div>
           <button>Submit</button>
-        </form>
+        </form>      
       </div>
     );
   }
