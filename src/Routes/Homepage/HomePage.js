@@ -9,16 +9,30 @@ const person={
     food:5,
 }
 
-
-
 export default class HomePage extends Component {
+
     static contextType = PersonContext
+
+    renderUser = () => {
+        /**
+         * get userName and set it in context
+         */
+    }
+
     render() {
         return (
             <div>
-                <p>
-                    this is a home page
-                </p>
+                {/**
+                 * ternarys here for if footer popup components should render?
+                 */}
+
+                <h1>CORONA TRAIL</h1>
+                <button onClick={this.renderUser}>Start</button>
+
+                <div className='footer'>
+                    <button onClick={this.context.toggleLeader}>Leadership Board</button>
+                    <button onClick={this.context.toggleInstruct}>Instructions</button>
+                </div>
             </div>
         )
     }
