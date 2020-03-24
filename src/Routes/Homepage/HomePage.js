@@ -13,26 +13,37 @@ export default class HomePage extends Component {
 
     static contextType = PersonContext
 
-    renderUser = () => {
-        /**
-         * get userName and set it in context
-         */
-    }
-
     render() {
         return (
-            <div>
+            <div className='homePage'>
                 {/**
                  * ternarys here for if footer popup components should render?
+                 * {(this.context.leader) && <LeaderBoard /> }
+                 * {(this.context.instructions) && <Instructions /> }
                  */}
 
-                <h1>CORONA TRAIL</h1>
-                <button onClick={this.renderUser}>Start</button>
+                {/**
+                 * more ternarys for startPage, userPage, and finally the gamePage
+                 */}
 
-                <div className='footer'>
+                {this.context.start ? <section className='startPage'>
+                    <h1>CORONA TRAIL</h1>
+                    <button onClick={this.context.renderUser}>Start</button>
+                </section> : null}
+
+                {this.context.userPage ? <section className='userPage'>
+                    <p>THIS IS THE USER PAGE</p>
+                    <button onClick={this.context.renderGame}>Submit</button>
+                </section> : null}
+
+                {this.context.game ? <section className='gamePage'>
+                    <p>THIS IS THE GAME PAGE</p>
+                </section> : null}            
+
+                <section className='footer'>
                     <button onClick={this.context.toggleLeader}>Leadership Board</button>
                     <button onClick={this.context.toggleInstruct}>Instructions</button>
-                </div>
+                </section>
             </div>
         )
     }
