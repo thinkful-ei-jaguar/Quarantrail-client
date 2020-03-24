@@ -9,7 +9,7 @@ import "./StartPage.css";
 //   food: 5
 // };
 
-export default class HomePage extends Component {
+export default class StartPage extends Component {
   static contextType = PersonContext;
 
   state = {
@@ -43,7 +43,7 @@ export default class HomePage extends Component {
               required
             ></input>
           </div>
-          <button>Submit</button>
+          <button onClick={this.context.renderGame}>Submit</button>
         </form>      
       </div>
     );
