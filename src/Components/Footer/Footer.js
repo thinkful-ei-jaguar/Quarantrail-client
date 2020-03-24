@@ -1,14 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Footer.css";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="Footer">
-        <span>LeaderBoard</span>
-        <span>Instruction</span>
-      </div>
-    );
-  }
+function Footer(props) {
+  return (
+    <div className="Footer">
+      <span onClick={props.toggleLeaderBoard}>LeaderBoard</span>
+      <span onClick={props.toggleInstruction}>Instruction</span>
+    </div>
+  );
 }
-export default App;
+export default Footer;

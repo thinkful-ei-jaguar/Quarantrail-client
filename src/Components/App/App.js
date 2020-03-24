@@ -13,11 +13,23 @@ class App extends Component {
     showInstruction: false
   };
 
-  toggleLeaderboard = () => {
+  toggleLeaderBoard = () => {
+    if (
+      this.state.showInstruction === true &&
+      this.state.showLeaderBoard === false
+    ) {
+      this.setState({ showInstruction: false });
+    }
     this.setState({ showLeaderBoard: !this.state.showLeaderBoard });
   };
 
   toggleInstruction = () => {
+    if (
+      this.state.showInstruction === false &&
+      this.state.showLeaderBoard === true
+    ) {
+      this.setState({ showLeaderBoard: false });
+    }
     this.setState({ showInstruction: !this.state.showInstruction });
   };
 
@@ -31,7 +43,10 @@ class App extends Component {
           </Switch>
           {this.state.showLeaderBoard && <LeaderBoard />}
           {this.state.showInstruction && <Instruction />}
-          <Footer />
+          <Footer
+            toggleLeaderBoard={this.toggleLeaderBoard}
+            toggleInstruction={this.toggleInstruction}
+          />
         </main>
       </div>
     );
