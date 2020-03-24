@@ -1,25 +1,18 @@
-import React, { Component } from 'react'
-import PersonContext from '../../Context/PersonContext'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import PersonContext from "../../Context/PersonContext";
 //import './HomePage.css'
 
-const person={
-    health:100,
-    boredom:100,
-    toilet:5,
-    food:5,
-}
-
-
-
 export default class HomePage extends Component {
-    static contextType = PersonContext
-    render() {
-        return (
-            <div>
-                <p>
-                    this is a home page
-                </p>
-            </div>
-        )
-    }
+  static contextType = PersonContext;
+  render() {
+    return (
+      <div className="homepage">
+        <h1>Corona Trail</h1>
+        <Link to="/start">
+          <button>Start</button>
+        </Link>
+      </div>
+    );
+  }
 }
