@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import Homepage from "../../Routes/Homepage/HomePage";
-import Startpage from "../../Routes/Startpage/Startpage";
+import LandingPage from "../../Routes/LandingPage/LandingPage";
+import HomePage from "../../Routes/HomePage/HomePage";
+import StartPage from "../../Routes/StartPage/StartPage";
 import LeaderBoard from "../LeaderBoard/LeaderBoard";
 import Instruction from "../Instruction/Instruction";
 import Footer from "../Footer/Footer";
@@ -38,8 +39,9 @@ class App extends Component {
       <div className="App">
         <main>
           <Switch>
-            <Route exact path={"/"} component={Homepage} />
-            <Route exact path={"/start"} component={Startpage} />
+            <Route exact path={"/"} component={LandingPage} />
+            <Route path={"/start"} component={StartPage} />
+            <Route path={"/home"} component={HomePage} />
           </Switch>
           {this.state.showLeaderBoard && <LeaderBoard />}
           {this.state.showInstruction && <Instruction />}
