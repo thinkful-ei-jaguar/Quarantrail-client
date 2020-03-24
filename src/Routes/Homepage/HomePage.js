@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PersonContext from '../../Context/PersonContext'
 import LandingPage from '../LandingPage/LandingPage'
-import StartPage from '../StartPage/StartPage'
+import StartPage from '../StartPage/Startpage'
+import GamePage from '../GamePage/GamePage'
+
 //import './HomePage.css'
 
 const person={
@@ -10,6 +12,7 @@ const person={
     toilet:5,
     food:5,
 }
+
 
 export default class HomePage extends Component {
 
@@ -20,12 +23,8 @@ export default class HomePage extends Component {
             <div className='homePage'>
                 
                 {this.context.start && <LandingPage />}
-
                 {this.context.userPage && <StartPage />}
-
-                {this.context.game ? <section className='gamePage'>
-                    <p>THIS IS THE GAME PAGE</p>
-                </section> : null}            
+                {this.context.game ? <GamePage/> : null}            
 
             </div>
         )
