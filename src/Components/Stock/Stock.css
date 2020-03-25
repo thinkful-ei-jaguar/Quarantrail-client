@@ -1,10 +1,6 @@
 .bot{
-   
     position: fixed;
     width: 100%;
     bottom: 155px;
-    display: flex;
- 
-    height: 11vh;
-          
+    display: flex;          
 }
