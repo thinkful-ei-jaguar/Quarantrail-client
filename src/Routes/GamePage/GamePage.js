@@ -1,25 +1,24 @@
 import React, { Component } from 'react'
 import PersonContext from '../../Context/PersonContext'
-//import './HomePage.css'
-
-const person={
-    health:100,
-    boredom:100,
-    toilet:5,
-    food:5,
-}
-
+import StatusBar from '../../Components/StatusBar/StatusBar'
+import Day from '../../Components/Day/Day'
 
 export default class GamePage extends Component {
+    person = {
+        health: 80,
+        boredom: 20,
+        toilet: 5,
+        food: 5,
+        day: 15
+    }
 
     static contextType = PersonContext
 
     render() {
         return(
-        <div>
-        {this.context.game ? <section className='gamePage'>
-            <p>THIS IS THE GAME PAGE</p>
-        </section> : null}            
+        <div className='gamePage'>
+            <StatusBar person={this.person}/>
+            <Day person={this.person}/>
         </div>
         )
     }

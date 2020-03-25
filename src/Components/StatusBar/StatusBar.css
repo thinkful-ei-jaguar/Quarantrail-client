@@ -1,0 +1,19 @@
+.bar{
+  width: 200px;
+  height: 20px;
+  border: 2px black solid;
+  margin: 1em;
+}
+
+.remaining, #corona, #boredom {
+  display: inline-block;
+  vertical-align: top;
+}
+
+#corona {
+  background-color: red;
+}
+
+#boredom {
+  background-color: blue;
+}
