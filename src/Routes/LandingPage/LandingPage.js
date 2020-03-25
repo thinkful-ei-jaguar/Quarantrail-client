@@ -8,7 +8,8 @@ export default class LandingPage extends Component {
     return (
       <div className="landingpage">
         <h1>Corona Trail</h1>
-          <button onClick={this.context.renderUser}>Start</button>
+        <p>Covid-19</p>
+        <button onClick={this.context.renderUser}>Start</button>
       </div>
     );
   }
