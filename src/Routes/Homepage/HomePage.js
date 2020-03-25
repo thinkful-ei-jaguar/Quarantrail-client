@@ -3,6 +3,7 @@ import PersonContext from '../../Context/PersonContext'
 import LandingPage from '../LandingPage/LandingPage'
 import StartPage from '../StartPage/Startpage'
 import GamePage from '../GamePage/GamePage'
+import gameService from '../../services/gameService'
 
 //import './HomePage.css'
 
@@ -15,9 +16,17 @@ const person={
 
 
 export default class HomePage extends Component {
-
     static contextType = PersonContext
-
+    componentDidMount(){
+        gameService.getGameinfo()
+        .then(info=>{
+            console.log(info);
+            this.context.setPersonInfo(info);
+            console.log(this.context.starter);
+        }) 
+        .catch(this.context.setError)  
+     
+    }
     render() {
         return (
             <div className='homePage'>

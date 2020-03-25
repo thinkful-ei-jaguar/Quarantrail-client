@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
+import Stock from '../../Components/Stock/Stock'
+import Activities from '../../Components/Activities/Activities'
 import PersonContext from '../../Context/PersonContext'
-//import './HomePage.css'
+
+import './GamePage.css'
+/*<Stock></Stock>
+<Activities></Activities>*/
+
 
 const person={
     health:100,
@@ -10,6 +16,10 @@ const person={
 }
 
 
+
+
+
+
 export default class GamePage extends Component {
 
     static contextType = PersonContext
@@ -17,10 +27,14 @@ export default class GamePage extends Component {
     render() {
         return(
         <div>
+    
         {this.context.game ? <section className='gamePage'>
             <p>THIS IS THE GAME PAGE</p>
+            <Stock/>
+            <Activities/>
         </section> : null}            
         </div>
         )
     }
+
 }

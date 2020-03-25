@@ -9,6 +9,7 @@ const PersonContext= React.createContext({
     start: true,
     userPage: false,
     game: false,
+    setPersonInfo:()=>{},
     renderGame: () => {},
     renderUser: () => {},
     setName: () => {},
@@ -48,6 +49,9 @@ export class PersonProvider extends Component {
     setName = user => {
       this.setState({name: user})
     }
+    setPersonInfo = info =>{
+      this.setState({starter:info})
+    }
 
     toggleLeader = () => {
       this.setState({leader: !this.state.leader})
@@ -72,7 +76,7 @@ export class PersonProvider extends Component {
 
     render() {
       const value = {
-        startlife: this.state.startlife,
+        starter: this.state.starter,
         error: this.state.error,
         leader: this.state.leader,
         instructions: this.state.instructions,
@@ -80,6 +84,7 @@ export class PersonProvider extends Component {
         start: this.state.start,
         userPage: this.state.userPage,
         game: this.state.game,
+        setPersonInfo:this.setPersonInfo,
         renderGame: this.renderGame,
         renderUser: this.renderUser,
         setName: this.setName,

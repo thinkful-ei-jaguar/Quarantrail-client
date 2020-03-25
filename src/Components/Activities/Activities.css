@@ -1,0 +1,13 @@
+.none{
+    position: fixed;
+    width: 100%;
+    bottom: 85px;
+    display: flex;
+    flex-direction: row;
+    height:65px;
+}
+.mybutton{
+    width:80px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
