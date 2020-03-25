@@ -6,3 +6,16 @@
 * {
   font-family: "PixelFont";
 }
+
+button {
+  cursor: pointer;
+  width: 150px;
+  font-size: 30px;
+}
+
+button:hover {
+  background-color: rgb(148, 148, 148);
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(224, 224, 224);
+  font-size: 28px;
+}
