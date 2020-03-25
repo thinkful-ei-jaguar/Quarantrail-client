@@ -6,6 +6,7 @@ import PersonContext from "../../Context/PersonContext";
 import "./GamePage.css";
 import StatusBar from "../../Components/StatusBar/StatusBar";
 import Day from "../../Components/Day/Day";
+import gameService from '../../services/gameService'
 
 export default class GamePage extends Component {
   person = {
@@ -19,9 +20,9 @@ export default class GamePage extends Component {
   componentDidMount(){
     gameService.getGameinfo()
     .then(info=>{
-        console.log(info);
+        //console.log(info);
         this.context.setPersonInfo(info);
-        console.log(this.context.starter);
+        //console.log(this.context.starter);
     }) 
     .catch(this.context.setError)  
 }
