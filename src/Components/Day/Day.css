@@ -1,0 +1,10 @@
+.Day {
+  width: 70px;
+  border: 2px solid black;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0 0 1em #222;
+}

@@ -1,16 +1,11 @@
 import React, { Component } from "react";
-import PersonContext from "../../Context/PersonContext";
+import BooleanContext from "../../Context/BooleanContext";
+import PersonContext from '../../Context/PersonContext'
 import "./StartPage.css";
 
-// const person = {
-//   health: 100,
-//   boredom: 100,
-//   toilet: 5,
-//   food: 5
-// };
-
 export default class StartPage extends Component {
-  static contextType = PersonContext;
+  static contextType = BooleanContext;
+  //static contextType = PersonContext
 
   state = {
     name: ""
@@ -22,6 +17,7 @@ export default class StartPage extends Component {
 
   updateName = event => {
     this.setState({ name: event.currentTarget.value });
+    //this.context.setName(event.currentTarget.value)
   };
 
   render() {
@@ -38,6 +34,7 @@ export default class StartPage extends Component {
             <input
               id="name"
               type="text"
+              //value={this.context.name}
               value={this.state.name}
               onChange={this.updateName}
               required

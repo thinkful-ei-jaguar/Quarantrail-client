@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import PersonContext from "../../Context/PersonContext";
+import BooleanContext from "../../Context/BooleanContext";
 import "./LandingPage.css";
 import Virus from "../../Images/virus.png";
 
 export default class LandingPage extends Component {
-  static contextType = PersonContext;
+  static contextType = BooleanContext;
   render() {
     return (
       <div className="landingpage">

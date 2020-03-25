@@ -5,11 +5,14 @@ import App from "./Components/App/App";
 import { BrowserRouter } from "react-router-dom";
 import { PersonProvider } from "./Context/PersonContext";
 import "./Fonts/PixelFont.ttf";
+import { BooleanProvider } from "./Context/BooleanContext";
 
 ReactDOM.render(
   <BrowserRouter>
     <PersonProvider>
-      <App />
+      <BooleanProvider>
+        <App />
+      </BooleanProvider>
     </PersonProvider>
   </BrowserRouter>,
   document.getElementById("root")
