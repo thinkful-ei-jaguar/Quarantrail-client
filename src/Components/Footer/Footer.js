@@ -4,8 +4,8 @@ import "./Footer.css";
 function Footer(props) {
   return (
     <footer>
-      <span onClick={props.toggleLeaderBoard}>LeaderBoard</span>
-      <span onClick={props.toggleInstruction}>Instruction</span>
+      <div className='footer-item' onClick={props.toggleLeaderBoard}><p>LeaderBoard</p></div>
+      <div className='footer-item' onClick={props.toggleInstruction}><p>Instruction</p></div>
     </footer>
   );
 }

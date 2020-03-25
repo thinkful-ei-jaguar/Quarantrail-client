@@ -1,0 +1,9 @@
+.instruction h2, .instruction p {
+  padding: 5px 20px;
+}
+
+.instruction {
+  border: 1px solid black;
+  width: 500px;
+  background-color: hsla(120, 100%, 88%, 0.75);
+}
