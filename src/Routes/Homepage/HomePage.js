@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PersonContext from '../../Context/PersonContext'
 import LandingPage from '../LandingPage/LandingPage'
-import StartPage from '../StartPage/StartPage'
+import StartPage from '../Startpage/StartPage'
 //import './HomePage.css'
 
 const person={

@@ -9,3 +9,20 @@ footer {
   height: 10vh;
   background-color: red;
 }
+
+.footer-item{
+  height: 100%;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-item:hover {
+  background-color: lightcoral;
+  cursor: pointer;
+}
+
+.footer-item:active {
+  background-color: darkred;
+}
