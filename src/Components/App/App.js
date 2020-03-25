@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "../../Routes/HomePage/HomePage";
+import MarketPage from "../../Routes/MarketPage/MarketPage";
 import LeaderBoard from "../LeaderBoard/LeaderBoard";
 import Instruction from "../Instruction/Instruction";
 import Footer from "../Footer/Footer";
-import BooleanContext from '../../Context/BooleanContext'
+import BooleanContext from "../../Context/BooleanContext";
 import "./App.css";
 
 class App extends Component {
-  static contextType = BooleanContext
+  static contextType = BooleanContext;
 
   render() {
     return (
@@ -16,6 +17,7 @@ class App extends Component {
         <main>
           <Switch>
             <Route exact path={"/"} component={HomePage} />
+            <Route path={"/market"} component={MarketPage} />
           </Switch>
           {this.context.leader && <LeaderBoard />}
           {this.context.instructions && <Instruction />}
