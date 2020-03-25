@@ -15,8 +15,16 @@ export default class GamePage extends Component {
     food: 5,
     day: 15
   };
-
   static contextType = PersonContext;
+  componentDidMount(){
+    gameService.getGameinfo()
+    .then(info=>{
+        console.log(info);
+        this.context.setPersonInfo(info);
+        console.log(this.context.starter);
+    }) 
+    .catch(this.context.setError)  
+}
 
   render() {
     return (
