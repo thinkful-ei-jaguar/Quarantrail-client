@@ -1,0 +1,42 @@
+.shop-button {
+  position: fixed;
+  bottom: 116px;
+  left: 0;
+}
+
+.store {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.store .checkout-button {
+  align-self: center;
+  margin: 10px 0;
+}
+
+.store-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.store-food, .store-toilet-paper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  width: 250px;
+  margin: auto;
+}
+
+.store-food button, .store-toilet-paper button {
+  width: 50px;
+}
+
+.store-food p, .store-toilet-paper p {
+align-content: flex-start;
+}
