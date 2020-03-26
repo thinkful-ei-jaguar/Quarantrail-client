@@ -7,18 +7,10 @@ export default class Stock extends Component {
     constructor(props) {
     super(props);
     this.state = {
-        food:0,
-        toiletpaper:0,
         showStocks:false,
         };
     }
-    componentDidMount(){
-        this.setState({
-            food:this.context.starter.food,
-            toiletpaper:this.context.starter.toiletpaper
-        })
-    }
-
+   
     handleClick =() =>{
         console.log(this.state);
         let show=!this.state.showStocks;
@@ -30,8 +22,8 @@ export default class Stock extends Component {
         return (
         <div>
             <h1>Stocks</h1>
-            <p>Food:{this.state.food}</p>
-            <p>ToiletPaper:{this.state.toiletpaper}</p>
+            <p>Food:{this.context.starter.food}</p>
+            <p>ToiletPaper:{this.context.starter.toiletpaper}</p>
         </div>
         )
     }
