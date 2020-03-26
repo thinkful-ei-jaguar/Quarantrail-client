@@ -13,27 +13,18 @@ import gameService from '../../services/gameService'
 
 export default class GamePage extends Component {
   static contextType = PersonContext;
-  constructor(props) {
-    super(props);
-    this.state = {
-        firstday:false,
-        };
-    }
-
   componentDidMount(){
-    gameService.getGameinfo()
-    .then(info=>{
-        this.context.setPersonInfo(info);
-        console.log(this.context)
-    }) 
-    .catch(this.context.setError)  
+    if(this.context.day===0){
+      gameService.getGameinfo()
+      .then(info=>{
+          this.context.setPersonInfo(info);
+          console.log(this.context)
+      }) 
+      .catch(this.context.setError)
+    }  
   }
-  handleClickFirstDay =() =>{
-    let show=!this.state.firstday;
-    this.setState({
-      firstday:show,
-    })
-  }
+
+
 
   render() {
     return (
