@@ -1,12 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
+import PersonContext from "../../Context/PersonContext";
 import './Day.css'
 
-function Day(props) {
-  return (
-    <section className="Day">
-      <h2>Day </h2> 
-      {props.person.day}
-    </section>
-  )
+export default class Day extends Component{
+  static contextType = PersonContext;
+
+  render(){
+    return (
+        <section className="Day">
+          <h2>Day </h2> 
+          {this.context.day}
+        </section>
+      )
+  }
 }
-export default Day;
