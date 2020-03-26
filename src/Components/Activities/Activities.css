@@ -1,13 +1,22 @@
-.none{
+.activity-bar{
     position: fixed;
     width: 100%;
-    bottom: 85px;
+    bottom: 90px;
     display: flex;
     flex-direction: row;
     height:65px;
 }
+
+.activity-bar img {
+    height: 50px;
+}
+
 .mybutton{
     width:80px;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+.activity-bar .mybutton:disabled{
+    background: #ff0000
 }

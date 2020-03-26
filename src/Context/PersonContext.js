@@ -5,6 +5,7 @@ const PersonContext= React.createContext({
     error: null,
     name: '',
     day:1,
+    dailyActivities: 0,
     setName: () => {},
     setPersonInfo: () => {},
     setError: () => {},
@@ -13,7 +14,8 @@ const PersonContext= React.createContext({
     addToFood:()=>{},
     addToToilet:()=>{},
     incrementDay:()=>{},
-    addToFoodandToilet:()=>{}
+    addToFoodandToilet:()=>{},
+    addToBoredom:() => {}
 })
 
 export default PersonContext
@@ -24,6 +26,7 @@ export class PersonProvider extends Component {
       error: null,
       name: '',
       day:0,
+      dailyActivities: 0,
     }
 
     setName = user => {
@@ -43,11 +46,34 @@ export class PersonProvider extends Component {
     }
     addToHealth = health => {
       let newHealth = this.state.starter.health;
+      if(health>0 && newHealth === 100) {
+        return
+      }
+      if(health<0 && newHealth === 0) {
+        return
+      }
       newHealth+=health;
       this.setState({
         starter:{
           ...this.state.starter,
           health:newHealth
+        }
+      })
+    }
+
+    addToBoredom = value => {
+      let newBoredom = this.state.starter.boredom;
+      if(value>0 && newBoredom === 100) {
+        return
+      }
+      if(value<0 && newBoredom === 0) {
+        return
+      }
+      newBoredom+=value;
+      this.setState({
+        starter:{
+          ...this.state.starter,
+          boredom:newBoredom
         }
       })
     }
@@ -97,12 +123,28 @@ export class PersonProvider extends Component {
       this.setState({day:newday})
     }
 
+    incrementActivity = () => {
+      let newCount = this.state.dailyActivities
+      newCount += 1;
+      this.setState({
+        dailyActivities: newCount
+      })
+      // if(this.state.dailyActivities === 3) {
+      //   this.setState({
+      //     dailyActivities: 0
+      //   })
+      //   this.incrementDay()
+      // }
+    }
+
     render() {
       const value = {
         starter: this.state.starter,
         error: this.state.error,
         name: '',
         day:this.state.day,
+        dailyActivities: this.state.dailyActivities,
+        incrementActivity: this.incrementActivity,
         setName: this.setName,
         setPersonInfo: this.setPersonInfo,
         setError: this.setError,
@@ -112,6 +154,7 @@ export class PersonProvider extends Component {
         addToFood:this.addToFood,
         addToToilet:this.addToToilet,
         incrementDay:this.incrementDay,
+        addToBoredom:this.addToBoredom
       }
 
       return (
