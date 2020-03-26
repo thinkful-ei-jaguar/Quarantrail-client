@@ -8,13 +8,6 @@ import Stock from '../../Components/Stock/Stock'
 import Store from '../../Components/Store/Store'
 
 
-const person = {
-  health: 80,
-  boredom: 20,
-  toilet: 5,
-  food: 5,
-  day: 15
-};
 
 export default class MarketPage extends Component {
   static contextType = PersonContext;
@@ -32,8 +25,8 @@ export default class MarketPage extends Component {
     return (
       <section className="marketpage">
         <img src={TraderLogo} alt="trader jone's" />
-        <StatusBar person={person} />
-        <Day person={person} />
+        <StatusBar />
+        <Day />
         <Stock />
         <Link to="/">
           <button>Home</button>

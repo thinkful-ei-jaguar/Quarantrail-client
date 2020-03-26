@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import BooleanContext from "../../Context/BooleanContext";
-import PersonContext from '../../Context/PersonContext'
 import "./StartPage.css";
 
 export default class StartPage extends Component {
   static contextType = BooleanContext;
-  //static contextType = PersonContext
 
   state = {
     name: ""
