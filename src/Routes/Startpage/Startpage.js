@@ -39,7 +39,7 @@ export default class StartPage extends Component {
             ></input>
           </div>
           <button onClick={this.context.renderGame}>Submit</button>
-        </form>      
+        </form>
       </div>
     );
   }
