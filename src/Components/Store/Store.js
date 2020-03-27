@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import PersonContext from "../../Context/PersonContext";
 import "./Store.css"
 
-export default class Stock extends Component {
+export default class Store extends Component {
     static contextType = PersonContext;
 
     state ={
       foodCounter: 0,
-      toiletPaperCounter: 0
+      toiletPaperCounter: 0,
+      foodLimit: 6,
+      toiletLimit: 6,
     }
 
     handlePlusFood = () => {
@@ -39,10 +41,18 @@ export default class Stock extends Component {
       this.setState({toiletPaperCounter: this.state.toiletPaperCounter-1})
     }
 
-    handleCheckout = () => {
-      const {foodCounter, toiletPaperCounter} = this.state
-      console.log(`You bought ${foodCounter} cups of noodles and ${toiletPaperCounter} rolls of toilet paper!`)
-    }
+    // handleCheckout = () => {
+    //   const {foodCounter, toiletPaperCounter} = this.state
+    //   const { food, toiletpaper } = this.context.starter
+    //   //console.log(`You bought ${foodCounter} cups of noodles and ${toiletPaperCounter} rolls of toilet paper!`)
+    //   if(foodCounter + food > 6) {
+
+    //   }
+    //   if(toiletPaperCounter + toiletpaper > 6) {
+
+    //   }
+
+    // }
 
     render() {
       const {foodCounter, toiletPaperCounter } = this.state
