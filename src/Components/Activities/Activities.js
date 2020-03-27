@@ -35,24 +35,30 @@ export default class Activities extends Component {
 
     renderSleep = () => {
       this.setState({activites:0, disabled:true})
-      console.log('disabled: true')
     }
 
     handleNextDay = () => {
       this.setState({disabled:false})
+      if(this.context.curveball === false) {
+        this.context.updateRenderCurve(true)
+      }
       this.context.incrementDay()
+      // this.context.addToFood(-1)
+      // this.context.addToToilet(-0.5)
+      this.context.dailyTakeAwayFoodandToilet(1,0.5)
     }
+
     render() {
       const { activites, disabled } = this.state
       if(activites === 3) {
         this.renderSleep()
       }
-        return <div class="activity-bar">
+        return <div className="activity-bar">
             <h1>Activities:</h1>
-            <button class="mybutton" disabled={disabled} onClick={this.handleVideoGame}><img src={Controller} alt='controller icon' /></button>
-            <button class="mybutton" disabled={disabled} onClick={this.handlePhone}><img src={Smartphone} alt='phone icon' /></button>
-            <button class="mybutton" disabled={disabled} onClick={this.handleFriends}><img src={Friends} alt='friend icon' /></button>
-            <button class="mybutton" disabled={!disabled} onClick={this.handleNextDay}><img src={Sleep} alt='sleep icon' /></button>
+            <button className="mybutton" disabled={disabled} onClick={this.handleVideoGame}><img src={Controller} alt='controller icon' /></button>
+            <button className="mybutton" disabled={disabled} onClick={this.handlePhone}><img src={Smartphone} alt='phone icon' /></button>
+            <button className="mybutton" disabled={disabled} onClick={this.handleFriends}><img src={Friends} alt='friend icon' /></button>
+            <button className="mybutton" disabled={!disabled} onClick={this.handleNextDay}><img src={Sleep} alt='sleep icon' /></button>
         </div>
       }
 }

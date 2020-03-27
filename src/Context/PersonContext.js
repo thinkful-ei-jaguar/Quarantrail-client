@@ -6,6 +6,11 @@ const PersonContext= React.createContext({
     name: '',
     day:1,
     dailyActivities: 0,
+    curveball: false,
+    location: 'home',
+    renderCurve: false,
+    dead:'',
+    setDeath:()=>{},
     setName: () => {},
     setPersonInfo: () => {},
     setError: () => {},
@@ -15,7 +20,11 @@ const PersonContext= React.createContext({
     addToToilet:()=>{},
     incrementDay:()=>{},
     addToFoodandToilet:()=>{},
-    addToBoredom:() => {}
+    addToBoredom:() => {},
+    dailyTakeAwayFoodandToilet: () => {},
+    updateLocation: () => {},
+    updateCurve: () => {},
+    updateRenderCurve: () => {},
 })
 
 export default PersonContext
@@ -27,11 +36,17 @@ export class PersonProvider extends Component {
       name: '',
       day:0,
       dailyActivities: 0,
+      curveball: false,
+      location: 'home',
+      dead:'',
     }
-
+    setDeath = death =>{
+      this.setState({dead:death})
+    }
     setName = user => {
       this.setState({name: user})
     }
+
     setPersonInfo = info =>{
       this.setState({starter:info})
     }
@@ -44,6 +59,7 @@ export class PersonProvider extends Component {
     clearError = () => {
       this.setState({ error: null })
     }
+
     addToHealth = health => {
       let newHealth = this.state.starter.health;
       if(health>0 && newHealth === 100) {
@@ -77,19 +93,21 @@ export class PersonProvider extends Component {
         }
       })
     }
+
     addToFood = foods =>{
       let newerFood = this.state.starter.food;
       console.log(newerFood);
       newerFood+=foods;
-      console.log(newerFood);
+      console.log('newerFood(after adding to old food):', newerFood);
       this.setState({
         starter:{
           ...this.state.starter,
           food:newerFood
         }
       })
-      console.log(this.state.starter.food)
+      console.log('state(after):', this.state.starter.food)
     }
+
     addToToilet = toilet =>{
       let newToilet = this.state.starter.toiletpaper;
       newToilet+=toilet;
@@ -100,6 +118,7 @@ export class PersonProvider extends Component {
         }
       })
     }
+
     addToFoodandToilet = (f,t)=>{
       let F=parseInt(f);
       let T=parseInt(t);
@@ -114,9 +133,24 @@ export class PersonProvider extends Component {
           food:nF,
         }
       })
-      
-
     }
+
+    dailyTakeAwayFoodandToilet = (f,t)=>{
+      // let F=parseInt(f);
+      // let T=parseInt(t);
+      let nT=this.state.starter.toiletpaper;
+      let nF= this.state.starter.food;
+      nT-=t;
+      nF-=f;
+      this.setState({
+        starter:{
+          ...this.state.starter,
+          toiletpaper:nT,
+          food:nF,
+        }
+      })
+    }
+
     incrementDay = () =>{
       let newday =this.state.day;
       newday +=1;
@@ -129,12 +163,24 @@ export class PersonProvider extends Component {
       this.setState({
         dailyActivities: newCount
       })
-      // if(this.state.dailyActivities === 3) {
-      //   this.setState({
-      //     dailyActivities: 0
-      //   })
-      //   this.incrementDay()
-      // }
+    }
+
+    updateLocation = place => {
+      this.setState({
+        location: place
+      })
+    }
+
+    updateCurve = bool => {
+      this.setState({
+        curveball: bool
+      })
+    }
+
+    updateRenderCurve = bool => {
+      this.setState({
+        renderCurve: bool
+      })
     }
 
     render() {
@@ -142,9 +188,14 @@ export class PersonProvider extends Component {
         starter: this.state.starter,
         error: this.state.error,
         name: '',
-        day:this.state.day,
         dailyActivities: this.state.dailyActivities,
+        curveball: this.state.curveball,
+        location: this.state.location,
+        renderCurve: this.state.renderCurve,
         incrementActivity: this.incrementActivity,
+        day:this.state.day,
+        dead:this.state.dead,
+        setDeath:this.setDeath,
         setName: this.setName,
         setPersonInfo: this.setPersonInfo,
         setError: this.setError,
@@ -154,7 +205,17 @@ export class PersonProvider extends Component {
         addToFood:this.addToFood,
         addToToilet:this.addToToilet,
         incrementDay:this.incrementDay,
-        addToBoredom:this.addToBoredom
+        addToBoredom:this.addToBoredom,
+        dailyTakeAwayFoodandToilet: this.dailyTakeAwayFoodandToilet,
+        addToFoodandToilet: this.addToFoodandToilet,
+        addToHealth: this.addToHealth,
+        addToFood: this.addToFood,
+        addToToilet: this.addToToilet,
+        incrementDay: this.incrementDay,
+        addToBoredom: this.addToBoredom,
+        updateLocation: this.updateLocation,
+        updateCurve: this.updateCurve,
+        updateRenderCurve: this.updateRenderCurve,
       }
 
       return (

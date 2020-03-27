@@ -5,6 +5,7 @@ import MarketPage from "../../Routes/MarketPage/MarketPage";
 import LeaderBoard from "../LeaderBoard/LeaderBoard";
 import Instruction from "../Instruction/Instruction";
 import Footer from "../Footer/Footer";
+import EndPage from '../../Routes/EndPage/EndPage'
 import BooleanContext from "../../Context/BooleanContext";
 import "./App.css";
 
@@ -18,6 +19,7 @@ class App extends Component {
           <Switch>
             <Route exact path={"/"} component={HomePage} />
             <Route path={"/market"} component={MarketPage} />
+            <Route path={"/end"} component={EndPage}/>
           </Switch>
           {this.context.leader && <LeaderBoard />}
           {this.context.instructions && <Instruction />}
