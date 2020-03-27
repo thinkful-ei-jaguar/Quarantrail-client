@@ -1,0 +1,8 @@
+.gamePage {
+  background-image: url("../../Images/home.svg");
+  background-size: cover;
+  width: 100vw;
+  height: 90vh;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
