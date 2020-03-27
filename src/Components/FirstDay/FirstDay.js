@@ -43,18 +43,28 @@ export default class FirstDay extends Component {
     }
   };
 
-  Toomuch = () => {
-    return (
-      <div class="middle">
-        <div class="box">
-          <h1>You have too much</h1>
-          <p>
-            You have too much and you're neighbors decided to rob you so bye-bye
-            good luck
-          </p>
-          <button onClick={e => this.handleSubmitforTooMuch(e)}>wow</button>
+    checkifTomuch = () =>{
+        if(this.state.food >= 5 || this.state.Toilet>=5){
+            this.setState({
+                tooMuch:false
+            })   
+        }
+        else{
+            this.context.incrementDay();
+        }
+    }
+
+
+    Toomuch =() =>{
+        return(
+        <div class="middle">
+            <div className="box">
+            <h1>You have too much</h1>
+            <p>You have too much and you're neighbors decided to rob you so bye-bye good luck
+            </p>
+            <button onClick={e=>this.handleSubmitforTooMuch(e)}>wow</button>
+            </div>
         </div>
-      </div>
     );
   };
 

@@ -29,7 +29,7 @@ export default class Stock extends Component {
     }
 
     render() {
-        return <div class="bot">
+        return <div className="bot">
             <button onClick={this.handleClick}>Stock</button>
             {this.state.showStocks ?this.stockFormat():<></>}
         </div>

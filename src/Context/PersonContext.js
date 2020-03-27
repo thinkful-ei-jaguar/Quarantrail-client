@@ -6,6 +6,9 @@ const PersonContext= React.createContext({
     name: '',
     day:1,
     dailyActivities: 0,
+    curveball: false,
+    location: 'home',
+    renderCurve: false,
     setName: () => {},
     setPersonInfo: () => {},
     setError: () => {},
@@ -17,6 +20,9 @@ const PersonContext= React.createContext({
     addToFoodandToilet:()=>{},
     addToBoredom:() => {},
     dailyTakeAwayFoodandToilet: () => {},
+    updateLocation: () => {},
+    updateCurve: () => {},
+    updateRenderCurve: () => {},
 })
 
 export default PersonContext
@@ -28,11 +34,14 @@ export class PersonProvider extends Component {
       name: '',
       day:0,
       dailyActivities: 0,
+      curveball: false,
+      location: 'home',
     }
 
     setName = user => {
       this.setState({name: user})
     }
+
     setPersonInfo = info =>{
       this.setState({starter:info})
     }
@@ -45,6 +54,7 @@ export class PersonProvider extends Component {
     clearError = () => {
       this.setState({ error: null })
     }
+
     addToHealth = health => {
       let newHealth = this.state.starter.health;
       if(health>0 && newHealth === 100) {
@@ -103,6 +113,7 @@ export class PersonProvider extends Component {
         }
       })
     }
+
     addToFoodandToilet = (f,t)=>{
       let F=parseInt(f);
       let T=parseInt(t);
@@ -149,13 +160,34 @@ export class PersonProvider extends Component {
       })
     }
 
+    updateLocation = place => {
+      this.setState({
+        location: place
+      })
+    }
+
+    updateCurve = bool => {
+      this.setState({
+        curveball: bool
+      })
+    }
+
+    updateRenderCurve = bool => {
+      this.setState({
+        renderCurve: bool
+      })
+    }
+
     render() {
       const value = {
         starter: this.state.starter,
         error: this.state.error,
         name: '',
-        day:this.state.day,
+        day: this.state.day,
         dailyActivities: this.state.dailyActivities,
+        curveball: this.state.curveball,
+        location: this.state.location,
+        renderCurve: this.state.renderCurve,
         incrementActivity: this.incrementActivity,
         setName: this.setName,
         setPersonInfo: this.setPersonInfo,
@@ -168,6 +200,15 @@ export class PersonProvider extends Component {
         incrementDay:this.incrementDay,
         addToBoredom:this.addToBoredom,
         dailyTakeAwayFoodandToilet: this.dailyTakeAwayFoodandToilet,
+        addToFoodandToilet: this.addToFoodandToilet,
+        addToHealth: this.addToHealth,
+        addToFood: this.addToFood,
+        addToToilet: this.addToToilet,
+        incrementDay: this.incrementDay,
+        addToBoredom: this.addToBoredom,
+        updateLocation: this.updateLocation,
+        updateCurve: this.updateCurve,
+        updateRenderCurve: this.updateRenderCurve,
       }
 
       return (
