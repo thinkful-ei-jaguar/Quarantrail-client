@@ -45,7 +45,7 @@ export default class GamePage extends Component {
     }
     return (
       <section className="gamePage">
-        {/*this.context.day===0?<FirstDay/>:<></>*/}
+        {this.context.day===0?<FirstDay/>:<></>}
         <StatusBar/>
         <Day/>
         <Stock />
