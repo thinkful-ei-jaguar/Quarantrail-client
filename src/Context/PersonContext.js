@@ -6,6 +6,9 @@ const PersonContext= React.createContext({
     name: '',
     day:1,
     dailyActivities: 0,
+    curveball: false,
+    location: 'home',
+    renderCurve: false,
     setName: () => {},
     setPersonInfo: () => {},
     setError: () => {},
@@ -15,7 +18,10 @@ const PersonContext= React.createContext({
     addToToilet:()=>{},
     incrementDay:()=>{},
     addToFoodandToilet:()=>{},
-    addToBoredom:() => {}
+    addToBoredom:() => {},
+    updateLocation: () => {},
+    updateCurve: () => {},
+    updateRenderCurve: () => {},
 })
 
 export default PersonContext
@@ -27,11 +33,14 @@ export class PersonProvider extends Component {
       name: '',
       day:0,
       dailyActivities: 0,
+      curveball: false,
+      location: 'home',
     }
 
     setName = user => {
       this.setState({name: user})
     }
+
     setPersonInfo = info =>{
       this.setState({starter:info})
     }
@@ -44,6 +53,7 @@ export class PersonProvider extends Component {
     clearError = () => {
       this.setState({ error: null })
     }
+
     addToHealth = health => {
       let newHealth = this.state.starter.health;
       if(health>0 && newHealth === 100) {
@@ -77,6 +87,7 @@ export class PersonProvider extends Component {
         }
       })
     }
+
     addToFood = foods =>{
       let newerFood = this.state.starter.food;
       console.log(newerFood);
@@ -90,6 +101,7 @@ export class PersonProvider extends Component {
       })
       console.log(this.state.starter.food)
     }
+
     addToToilet = toilet =>{
       let newToilet = this.state.starter.toiletpaper;
       newToilet+=toilet;
@@ -100,6 +112,7 @@ export class PersonProvider extends Component {
         }
       })
     }
+
     addToFoodandToilet = (f,t)=>{
       let F=parseInt(f);
       let T=parseInt(t);
@@ -117,6 +130,7 @@ export class PersonProvider extends Component {
       
 
     }
+
     incrementDay = () =>{
       let newday =this.state.day;
       newday +=1;
@@ -137,24 +151,48 @@ export class PersonProvider extends Component {
       // }
     }
 
+    updateLocation = place => {
+      this.setState({
+        location: place
+      })
+    }
+
+    updateCurve = bool => {
+      this.setState({
+        curveball: bool
+      })
+    }
+
+    updateRenderCurve = bool => {
+      this.setState({
+        renderCurve: bool
+      })
+    }
+
     render() {
       const value = {
         starter: this.state.starter,
         error: this.state.error,
         name: '',
-        day:this.state.day,
+        day: this.state.day,
         dailyActivities: this.state.dailyActivities,
+        curveball: this.state.curveball,
+        location: this.state.location,
+        renderCurve: this.state.renderCurve,
         incrementActivity: this.incrementActivity,
         setName: this.setName,
         setPersonInfo: this.setPersonInfo,
         setError: this.setError,
         clearError: this.clearError,
-        addToFoodandToilet:this.addToFoodandToilet,
-        addToHealth:this.addToHealth,
-        addToFood:this.addToFood,
-        addToToilet:this.addToToilet,
-        incrementDay:this.incrementDay,
-        addToBoredom:this.addToBoredom
+        addToFoodandToilet: this.addToFoodandToilet,
+        addToHealth: this.addToHealth,
+        addToFood: this.addToFood,
+        addToToilet: this.addToToilet,
+        incrementDay: this.incrementDay,
+        addToBoredom: this.addToBoredom,
+        updateLocation: this.updateLocation,
+        updateCurve: this.updateCurve,
+        updateRenderCurve: this.updateRenderCurve,
       }
 
       return (

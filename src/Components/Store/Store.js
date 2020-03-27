@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PersonContext from "../../Context/PersonContext";
 import "./Store.css"
 
-export default class Stock extends Component {
+export default class Store extends Component {
     static contextType = PersonContext;
 
     state ={

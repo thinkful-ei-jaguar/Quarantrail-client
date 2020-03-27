@@ -15,7 +15,7 @@ export default class HomePage extends Component {
             <div className='homePage'>
                 {this.context.start && <LandingPage />}
                 {this.context.userPage && <StartPage />}
-                {this.context.game ? <GamePage/> : null}
+                {this.context.game && <GamePage/>}
             </div>
         )
     }
