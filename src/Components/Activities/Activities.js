@@ -35,13 +35,16 @@ export default class Activities extends Component {
 
     renderSleep = () => {
       this.setState({activites:0, disabled:true})
-      console.log('disabled: true')
     }
 
     handleNextDay = () => {
       this.setState({disabled:false})
       this.context.incrementDay()
+      // this.context.addToFood(-1)
+      // this.context.addToToilet(-0.5)
+      this.context.dailyTakeAwayFoodandToilet(1,0.5)
     }
+
     render() {
       const { activites, disabled } = this.state
       if(activites === 3) {

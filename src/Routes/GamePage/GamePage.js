@@ -28,6 +28,7 @@ export default class GamePage extends Component {
     }) 
     .catch(this.context.setError)  
   }
+  
   handleClickFirstDay =() =>{
     let show=!this.state.firstday;
     this.setState({

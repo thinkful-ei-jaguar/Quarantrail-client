@@ -15,7 +15,8 @@ const PersonContext= React.createContext({
     addToToilet:()=>{},
     incrementDay:()=>{},
     addToFoodandToilet:()=>{},
-    addToBoredom:() => {}
+    addToBoredom:() => {},
+    dailyTakeAwayFoodandToilet: () => {},
 })
 
 export default PersonContext
@@ -77,19 +78,21 @@ export class PersonProvider extends Component {
         }
       })
     }
+
     addToFood = foods =>{
       let newerFood = this.state.starter.food;
       console.log(newerFood);
       newerFood+=foods;
-      console.log(newerFood);
+      console.log('newerFood(after adding to old food):', newerFood);
       this.setState({
         starter:{
           ...this.state.starter,
           food:newerFood
         }
       })
-      console.log(this.state.starter.food)
+      console.log('state(after):', this.state.starter.food)
     }
+
     addToToilet = toilet =>{
       let newToilet = this.state.starter.toiletpaper;
       newToilet+=toilet;
@@ -114,9 +117,24 @@ export class PersonProvider extends Component {
           food:nF,
         }
       })
-      
-
     }
+
+    dailyTakeAwayFoodandToilet = (f,t)=>{
+      // let F=parseInt(f);
+      // let T=parseInt(t);
+      let nT=this.state.starter.toiletpaper;
+      let nF= this.state.starter.food;
+      nT-=t;
+      nF-=f;
+      this.setState({
+        starter:{
+          ...this.state.starter,
+          toiletpaper:nT,
+          food:nF,
+        }
+      })
+    }
+
     incrementDay = () =>{
       let newday =this.state.day;
       newday +=1;
@@ -129,12 +147,6 @@ export class PersonProvider extends Component {
       this.setState({
         dailyActivities: newCount
       })
-      // if(this.state.dailyActivities === 3) {
-      //   this.setState({
-      //     dailyActivities: 0
-      //   })
-      //   this.incrementDay()
-      // }
     }
 
     render() {
@@ -154,7 +166,8 @@ export class PersonProvider extends Component {
         addToFood:this.addToFood,
         addToToilet:this.addToToilet,
         incrementDay:this.incrementDay,
-        addToBoredom:this.addToBoredom
+        addToBoredom:this.addToBoredom,
+        dailyTakeAwayFoodandToilet: this.dailyTakeAwayFoodandToilet,
       }
 
       return (
