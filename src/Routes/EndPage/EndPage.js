@@ -12,7 +12,7 @@ export default class EndPage extends Component {
   render() {
     return (
       <section className="EndPage">
-          
+        <h1>{this.context.dead}</h1>
         <Link to="/">
           <button>Try again</button>
         </Link>

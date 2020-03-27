@@ -5,6 +5,8 @@ const PersonContext= React.createContext({
     error: null,
     name: '',
     day:1,
+    dead:'',
+    setDeath:()=>{},
     setName: () => {},
     setPersonInfo: () => {},
     setError: () => {},
@@ -24,8 +26,11 @@ export class PersonProvider extends Component {
       error: null,
       name: '',
       day:0,
+      dead:'',
     }
-
+    setDeath = death =>{
+      this.setState({dead:death})
+    }
     setName = user => {
       this.setState({name: user})
     }
@@ -51,6 +56,7 @@ export class PersonProvider extends Component {
         }
       })
     }
+
     addToFood = foods =>{
       let newerFood = this.state.starter.food;
       console.log(newerFood);
@@ -103,6 +109,8 @@ export class PersonProvider extends Component {
         error: this.state.error,
         name: '',
         day:this.state.day,
+        dead:this.state.dead,
+        setDeath:this.setDeath,
         setName: this.setName,
         setPersonInfo: this.setPersonInfo,
         setError: this.setError,

@@ -32,11 +32,23 @@ export default class GamePage extends Component {
   checkIfYadied=()=>{
     if(this.context.starter.health >=100){
       console.log("dead");
+      this.context.setDeath("you caught the disease gg");
+      this.setState({lose:true});
+    }else if(this.context.starter.boredom>=100){
+      console.log("dead2");
+      this.context.setDeath("you literally died of boredom");
+      this.setState({lose:true});
+    }else if( this.context.starter.food === 0){
+      console.log("dead3");
+      this.context.setDeath("you ran out of food had to go home and got the disease during the trip");
+      this.setState({lose:true});
+    }
+    else if(this.context.starter.toiletpaper===0){
+      this.context.setDeath("you ran out of toilet paper you have been stuck in the bathroom for days");
+      console.log("dead4");
+      this.setState({lose:true});
     }
   }
-
-
-
   render() {
     this.checkIfYadied();
     if(this.state.lose===true){
@@ -44,7 +56,7 @@ export default class GamePage extends Component {
     }
     return (
       <section className="gamePage">
-        {this.context.day===0?<FirstDay/>:<></>}
+        {this.context.day===0 ? <FirstDay/>:<></>}
         <StatusBar/>
         <Day/>
         <Stock />
