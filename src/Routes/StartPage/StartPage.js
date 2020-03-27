@@ -11,11 +11,13 @@ export default class StartPage extends Component {
 
   handleStartGame = event => {
     event.preventDefault();
+    this.context.renderGame();
   };
 
   updateName = event => {
     this.setState({ name: event.currentTarget.value });
     //this.context.setName(event.currentTarget.value)
+    
   };
 
   render() {
@@ -26,7 +28,7 @@ export default class StartPage extends Component {
           src="https://vignette.wikia.nocookie.net/caillou/images/b/b5/Cailloupose4.png/revision/latest/scale-to-width-down/340?cb=20160225062906"
           alt="character"
         />
-        <form onSubmit={this.handleStartGame}>
+        <form onSubmit={e =>this.handleStartGame(e)}>
           <div className="startpage-inputbox">
             <label htmlFor="name">Name </label>
             <input
@@ -38,7 +40,7 @@ export default class StartPage extends Component {
               required
             ></input>
           </div>
-          <button onClick={this.context.renderGame}>Submit</button>
+          <button>Submit</button>
         </form>
       </div>
     );
