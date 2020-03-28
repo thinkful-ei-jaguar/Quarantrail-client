@@ -1,10 +1,29 @@
 .Day {
   width: 70px;
-  border: 2px solid black;
+  height: 55px;
+  border: 2px rgb(158, 158, 158) solid;
+  color: rgb(116, 116, 116);
+  background-color: rgba(255, 255, 255, 0.52);
   position: absolute;
   top: 0px;
   right: 0px;
   text-align: center;
-  border-radius: 25px;
-  box-shadow: 0 0 1em #222;
+  border-radius: 3px;
+}
+
+@media screen and (min-width: 720px) {
+  .Day {
+    width: 80px;
+    height: 65px;
+    border: 3px rgb(158, 158, 158) solid;
+    top: 12px;
+    right: 5px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .Day {
+    width: 100px;
+    padding: 5px;
+  }
 }
