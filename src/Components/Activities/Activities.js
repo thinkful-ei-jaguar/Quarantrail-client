@@ -11,7 +11,7 @@ export default class Activities extends Component {
 
     state = {
       activites: 0,
-      disabled: false
+      disabled: false,
     }
 
     handleVideoGame = () => {
@@ -43,9 +43,11 @@ export default class Activities extends Component {
         this.context.updateRenderCurve(true)
       }
       this.context.incrementDay()
+      this.context.updateCurve(false)
       // this.context.addToFood(-1)
       // this.context.addToToilet(-0.5)
       this.context.dailyTakeAwayFoodandToilet(1,0.5)
+      this.context.addToBoredom(20)
     }
 
     render() {

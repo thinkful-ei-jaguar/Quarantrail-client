@@ -8,6 +8,10 @@ const BooleanContext = React.createContext({
   userPage: false,
   game: false,
   endgame:false,
+  curveball: false,
+  renderCurve: false,
+  updateCurve: () => {},
+  updateRenderCurve: () => {},
   renderGame: () => {},
   renderEndGame:()=>{},
   renderUser: () => {},
@@ -27,8 +31,22 @@ export class BooleanProvider extends Component {
     start: true,
     userPage: false,
     game: false,
-    endgame: false
+    endgame: false,
+    curveball: false,
+    renderCurve: false,
   };
+
+  updateCurve = bool => {
+    this.setState({
+      curveball: bool
+    })
+  }
+
+  updateRenderCurve = bool => {
+    this.setState({
+      renderCurve: bool
+    })
+  }
 
   renderGame = () => {
     this.setState({
@@ -82,6 +100,10 @@ export class BooleanProvider extends Component {
       start: this.state.start,
       userPage: this.state.userPage,
       game: this.state.game,
+      curveball: this.state.curveball,
+      renderCurve: this.state.renderCurve,
+      updateCurve: this.updateCurve,
+      updateRenderCurve: this.updateRenderCurve,
       renderGame: this.renderGame,
       renderEndGame:this.renderEndGame,
       renderUser: this.renderUser,

@@ -1,23 +1,17 @@
 import React, { Component } from "react";
-import BooleanContext from "../../Context/BooleanContext";
+import PersonContext from "../../Context/PersonContext";
 import "./StartPage.css";
 
 export default class StartPage extends Component {
-  static contextType = BooleanContext;
-
-  state = {
-    name: ""
-  };
+  static contextType = PersonContext;
 
   handleStartGame = event => {
     event.preventDefault();
-    this.context.renderGame();
+    this.props.context.renderGame();
   };
 
   updateName = event => {
-    this.setState({ name: event.currentTarget.value });
-    //this.context.setName(event.currentTarget.value)
-    
+    this.context.setName(event.currentTarget.value)
   };
 
   render() {
@@ -34,8 +28,7 @@ export default class StartPage extends Component {
             <input
               id="name"
               type="text"
-              //value={this.context.name}
-              value={this.state.name}
+              value={this.context.name}
               onChange={this.updateName}
               required
             ></input>

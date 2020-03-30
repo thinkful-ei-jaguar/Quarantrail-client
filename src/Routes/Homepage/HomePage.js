@@ -8,15 +8,12 @@ import BooleanContext from "../../Context/BooleanContext";
 export default class HomePage extends Component {
     static contextType = BooleanContext
 
-
-
-
     render() {
         return (
             <div className='homePage'>
                 {this.context.start && <LandingPage />}
-                {this.context.userPage && <StartPage />}
-                {this.context.game && <GamePage/>}
+                {this.context.userPage && <StartPage context={this.context}/>}
+                {this.context.game && <GamePage />}
             </div>
         )
     }

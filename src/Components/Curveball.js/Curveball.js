@@ -34,7 +34,12 @@ export default class Curveball extends Component {
       render: false
     })
     this.context.updateRenderCurve(false)
-    this.context.updateCurve(true)
+    if(this.context.location === 'market') {
+      this.context.updateCurve(true)
+    }
+    else{
+      this.context.updateCurve(false)
+    }
   }
 
   reject = () => {
@@ -50,7 +55,12 @@ export default class Curveball extends Component {
       render: false
     })
     this.context.updateRenderCurve(false)
-    this.context.updateCurve(true)
+    if(this.context.location === 'market') {
+      this.context.updateCurve(true)
+    }
+    else{
+      this.context.updateCurve(false)
+    }
   }
 
   render() {

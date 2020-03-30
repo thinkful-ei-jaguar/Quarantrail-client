@@ -57,8 +57,8 @@ export default class FirstDay extends Component {
 
     Toomuch =() =>{
         return(
-        <div class="middle">
-            <div className="box">
+        <div className="middle">
+            <div classNameName="box">
             <h1>You have too much</h1>
             <p>You have too much and you're neighbors decided to rob you so bye-bye good luck
             </p>
@@ -70,30 +70,30 @@ export default class FirstDay extends Component {
 
   originalbox = () => {
     return (
-      <div class="middle">
-        <div class="box">
+      <div className="middle">
+        <div className="box">
           <h1>This is the First Day</h1>
           <h2>How much food: {this.state.food}</h2>
-          <div class="slidecontainer">
+          <div className="slidecontainer">
             <input
               onChange={this.handleChangeFood}
               value={this.state.food}
               type="range"
               min="0"
               max="6"
-              class="slider"
+              className="slider"
               id="myRange"
             />
           </div>
           <h2>How much ToiletPaper: {this.state.Toilet}</h2>
-          <div class="slidecontainer">
+          <div className="slidecontainer">
             <input
               onChange={this.handleChangeToilet}
               value={this.state.Toilet}
               type="range"
               min="0"
               max="6"
-              class="slider"
+              className="slider"
               id="myRange"
             />
           </div>
