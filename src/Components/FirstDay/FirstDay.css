@@ -1,19 +1,25 @@
 .middle {
-  /* position: fixed; */
-  width: 100%;
+  position: fixed; 
+  width: 80%;
+  height:40%;
   top: 150px;
+  margin-left: 10%;
+  margin-right:10%;
   display: flex;
   align-items: middle;
   justify-content: center;
+  flex:1 1;
 }
 .box {
   display: flex;
+  flex:1 1;
   align-items: center;
   background-color: rebeccapurple;
-  width: 40%;
-  height: 350px;
+  width: 75%;
+  height: 100%;
   flex-direction: column;
   justify-content: space-evenly;
+
 }
 .slidecontainer {
   width: 80%;

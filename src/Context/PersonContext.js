@@ -9,6 +9,8 @@ const PersonContext= React.createContext({
     curveball: false,
     location: 'home',
     renderCurve: false,
+    dead:'',
+    setDeath:()=>{},
     setName: () => {},
     setPersonInfo: () => {},
     setError: () => {},
@@ -23,6 +25,7 @@ const PersonContext= React.createContext({
     updateLocation: () => {},
     updateCurve: () => {},
     updateRenderCurve: () => {},
+    resetDay:()=>{},
 })
 
 export default PersonContext
@@ -36,8 +39,11 @@ export class PersonProvider extends Component {
       dailyActivities: 0,
       curveball: false,
       location: 'home',
+      dead:'',
     }
-
+    setDeath = death =>{
+      this.setState({dead:death})
+    }
     setName = user => {
       this.setState({name: user})
     }
@@ -151,6 +157,10 @@ export class PersonProvider extends Component {
       newday +=1;
       this.setState({day:newday})
     }
+    resetDay=()=>{
+      let restartday =0;
+      this.setState({day:restartday})
+    }
 
     incrementActivity = () => {
       let newCount = this.state.dailyActivities
@@ -183,12 +193,14 @@ export class PersonProvider extends Component {
         starter: this.state.starter,
         error: this.state.error,
         name: '',
-        day: this.state.day,
         dailyActivities: this.state.dailyActivities,
         curveball: this.state.curveball,
         location: this.state.location,
         renderCurve: this.state.renderCurve,
         incrementActivity: this.incrementActivity,
+        day:this.state.day,
+        dead:this.state.dead,
+        setDeath:this.setDeath,
         setName: this.setName,
         setPersonInfo: this.setPersonInfo,
         setError: this.setError,
@@ -203,6 +215,7 @@ export class PersonProvider extends Component {
         updateLocation: this.updateLocation,
         updateCurve: this.updateCurve,
         updateRenderCurve: this.updateRenderCurve,
+        resetDay:this.resetDay,
       }
 
       return (

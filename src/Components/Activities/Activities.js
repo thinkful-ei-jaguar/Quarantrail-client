@@ -45,7 +45,7 @@ export default class Activities extends Component {
       this.context.incrementDay()
       // this.context.addToFood(-1)
       // this.context.addToToilet(-0.5)
-      this.context.dailyTakeAwayFoodandToilet(1,0.5)
+      this.context.dailyTakeAwayFoodandToilet(0.5,1)
     }
 
     render() {
