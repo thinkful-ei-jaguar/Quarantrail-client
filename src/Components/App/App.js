@@ -5,9 +5,42 @@ import MarketPage from "../../Routes/MarketPage/MarketPage";
 import LeaderBoard from "../LeaderBoard/LeaderBoard";
 import Instruction from "../Instruction/Instruction";
 import Footer from "../Footer/Footer";
-import EndPage from '../../Routes/EndPage/EndPage'
+import EndPage from "../../Routes/EndPage/EndPage";
 import BooleanContext from "../../Context/BooleanContext";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faMapMarkedAlt,
+  faStore,
+  faTreeAlt,
+  faHomeLg,
+  faBoxHeart,
+  faGameConsoleHandheld,
+  faPhoneRotary,
+  faUserFriends,
+  faBed
+} from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
+library.add(
+  faMapMarkedAlt,
+  faStore,
+  // faTreeAlt,
+  // faHomeLg,
+  // faBoxHeart,
+  // faGameConsoleHandheld,
+  // faPhoneRotary,
+  faUserFriends,
+  faBed
+);
+
+// <i class="fad fa-map-marked-alt"></i>
+// <i class="fad fa-store"></i>;
+// <i class="fad fa-tree-alt"></i>
+// <i class="fad fa-home-lg"></i>
+// <i class="fad fa-box-heart"></i>
+// <i class="fad fa-game-console-handheld"></i>
+// <i class="fad fa-phone-rotary"></i>
+// <i class="fad fa-user-friends"></i>
+// <i class="fad fa-bed"></i>
 
 class App extends Component {
   static contextType = BooleanContext;
@@ -19,7 +52,7 @@ class App extends Component {
           <Switch>
             <Route exact path={"/"} component={HomePage} />
             <Route path={"/market"} component={MarketPage} />
-            <Route path={"/end"} component={EndPage}/>
+            <Route path={"/end"} component={EndPage} />
           </Switch>
           {this.context.leader && <LeaderBoard />}
           {this.context.instructions && <Instruction />}
