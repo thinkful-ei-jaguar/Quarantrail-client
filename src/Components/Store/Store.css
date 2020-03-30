@@ -38,5 +38,6 @@
 }
 
 .store-food p, .store-toilet-paper p {
-align-content: flex-start;
+  align-content: flex-start;
+  width: 130px;
 }

@@ -15,13 +15,13 @@ export default class Activities extends Component {
     }
 
     handleVideoGame = () => {
-      this.context.addToBoredom(10)
+      this.context.addToBoredom(-10)
       this.context.incrementActivity()
       this.setState({activites: this.state.activites +1})
     }
 
     handlePhone = () => {
-      this.context.addToBoredom(10)
+      this.context.addToBoredom(-10)
       this.context.incrementActivity()
       this.setState({activites: this.state.activites +1})
     }
