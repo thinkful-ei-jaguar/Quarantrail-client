@@ -1,7 +1,8 @@
 .bot{
     position: fixed;
-    /* width: 100%; */
     bottom: 155px;
     left: 0;
+    bottom: 20%;
+    height: 7vh;
     display: flex;          
 }
