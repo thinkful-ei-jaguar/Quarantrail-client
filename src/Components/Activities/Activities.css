@@ -1,10 +1,11 @@
 .activity-bar{
     position: fixed;
     width: 100%;
-    bottom: 90px;
+    bottom: 10%;
     display: flex;
     flex-direction: row;
-    height:65px;
+    height: 7vh;
+    
 }
 
 .activity-bar img {
@@ -20,3 +21,5 @@
 .activity-bar .mybutton:disabled{
     background: #ff0000
 }
+
+

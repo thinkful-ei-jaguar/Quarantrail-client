@@ -16,8 +16,7 @@ export default class StartPage extends Component {
 
   updateName = event => {
     this.setState({ name: event.currentTarget.value });
-    //this.context.setName(event.currentTarget.value)
-    
+    //this.context.setName(event.currentTarget.value) 
   };
 
   render() {
