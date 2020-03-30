@@ -76,17 +76,11 @@ export default class GamePage extends Component {
     }
     return (
       <section className="gamePage">
-<<<<<<< HEAD
         {this.context.day === 0 ? <FirstDay /> : <></>}
         <div className="top">
           <StatusBar />
           <Day />
         </div>
-=======
-        {this.context.day===0 ? <FirstDay/>:<></>}
-        <StatusBar/>
-        <Day/>
->>>>>>> ab9609fc0eb87f9cf5a166e428ed060cde6a2b22
         <Stock />
         <Activities />
         <Link to="/market">
