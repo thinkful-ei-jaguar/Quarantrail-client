@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PersonContext from "../../Context/PersonContext";
 import "./StartPage.css";
+import Character from "../../Components/Character/Character";
 
 export default class StartPage extends Component {
   static contextType = PersonContext;
@@ -11,18 +12,14 @@ export default class StartPage extends Component {
   };
 
   updateName = event => {
-    this.context.setName(event.currentTarget.value)
+    this.context.setName(event.currentTarget.value);
   };
 
   render() {
     return (
       <div className="startpage">
-        <img
-          className="startpage-character"
-          src="https://vignette.wikia.nocookie.net/caillou/images/b/b5/Cailloupose4.png/revision/latest/scale-to-width-down/340?cb=20160225062906"
-          alt="character"
-        />
-        <form onSubmit={e =>this.handleStartGame(e)}>
+        <Character />
+        <form onSubmit={e => this.handleStartGame(e)}>
           <div className="startpage-inputbox">
             <label htmlFor="name">Name </label>
             <input
