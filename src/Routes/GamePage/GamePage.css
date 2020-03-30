@@ -6,3 +6,39 @@
   background-repeat: no-repeat;
   background-position: bottom center;
 }
+
+.gamePage .top {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 50px;
+}
+
+.map {
+  position: absolute;
+  bottom: 25%;
+  right: 1%;
+  border-radius: 3px;
+}
+
+.map button {
+  width: 60px;
+  height: 60px;
+  border-radius: 3px;
+  background-color: rgb(241, 248, 137);
+}
+
+.map button:hover {
+  background-color: rgb(216, 140, 70);
+}
+
+@media screen and (min-width: 720px) {
+  .gamePage .top {
+    height: 80px;
+  }
+  .map button {
+    width: 80px;
+    height: 80px;
+  }
+}

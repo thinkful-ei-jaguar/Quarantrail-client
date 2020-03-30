@@ -25,6 +25,7 @@ const PersonContext= React.createContext({
     addToBoredom:() => {},
     dailyTakeAwayFoodandToilet: () => {},
     updateLocation: () => {},
+    resetDay:()=>{},
 })
 
 export default PersonContext
@@ -161,6 +162,10 @@ export class PersonProvider extends Component {
         day:newday
       })
     }
+    resetDay=()=>{
+      let restartday =0;
+      this.setState({day:restartday})
+    }
 
     incrementActivity = () => {
       let newCount = this.state.dailyActivities
@@ -214,13 +219,8 @@ export class PersonProvider extends Component {
         incrementDay:this.incrementDay,
         addToBoredom:this.addToBoredom,
         dailyTakeAwayFoodandToilet: this.dailyTakeAwayFoodandToilet,
-        addToFoodandToilet: this.addToFoodandToilet,
-        addToHealth: this.addToHealth,
-        addToFood: this.addToFood,
-        addToToilet: this.addToToilet,
-        incrementDay: this.incrementDay,
-        addToBoredom: this.addToBoredom,
         updateLocation: this.updateLocation,
+        resetDay:this.resetDay,
       }
 
       return (
