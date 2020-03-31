@@ -21,7 +21,9 @@ import {
   faUtensils,
   faUserFriends,
   faBed,
-  faBoxOpen
+  faBoxOpen,
+  faShoppingCart,
+  faHome
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
@@ -36,7 +38,9 @@ library.add(
   faUtensils,
   faUserFriends,
   faBed,
-  faBoxOpen
+  faBoxOpen,
+  faShoppingCart,
+  faHome
 );
 
 class App extends Component {

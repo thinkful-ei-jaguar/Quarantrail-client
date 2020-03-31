@@ -1,15 +1,16 @@
-.shop-button {
-  position: fixed;
-  bottom: 116px;
-  left: 0;
-}
-
 .store {
   display: flex;
   flex-direction: column;
-  width: 500px;
-  padding: 10px;
+  padding: 15px;
   border: 1px solid black;
+  position: absolute;
+  left: 10%;
+  top: 20%;
+  width: 80%;
+  height: 60%;
+  background-color: rgb(241, 248, 137);
+  color: rgb(134, 133, 133);
+  border: 1px solid rgb(158, 158, 158);
 }
 
 .store .checkout-button {
@@ -23,7 +24,8 @@
   align-items: center;
 }
 
-.store-food, .store-toilet-paper {
+.store-food,
+.store-toilet-paper {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -33,11 +35,23 @@
   margin: auto;
 }
 
-.store-food button, .store-toilet-paper button {
+.store-food button,
+.store-toilet-paper button {
   width: 50px;
 }
 
-.store-food p, .store-toilet-paper p {
+.store-food p,
+.store-toilet-paper p {
   align-content: flex-start;
   width: 130px;
+}
+
+@media screen and (min-width: 720px) {
+  .store {
+    left: 20%;
+    top: 20%;
+    width: 60%;
+    height: 50%;
+    border: 3px solid rgb(158, 158, 158);
+  }
 }
