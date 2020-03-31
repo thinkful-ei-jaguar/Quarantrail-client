@@ -30,8 +30,19 @@ export default class GamePage extends Component {
     }
   }
 
-  updateLocation = () => {
+  updateLocationM = () => {
     this.context.updateLocation('market')
+    this.context.addToHealth(5)
+    if(this.context.curveball === false) {
+      const rand = Math.random()
+      if(rand < 0.5) {
+        this.context.updateRenderCurve(true)
+      }
+    }
+  }
+
+  updateLocationP = () => {
+    this.context.updateLocation('park')
     this.context.addToHealth(5)
     if(this.context.curveball === false) {
       const rand = Math.random()
@@ -91,8 +102,13 @@ export default class GamePage extends Component {
         <Activities />
         <div className="map">
           <Link to="/market">
-            <button disabled={disabled} onClick={this.updateLocation}>
+            <button disabled={disabled} onClick={this.updateLocationM}>
               <FontAwesomeIcon icon="store" />
+            </button>
+          </Link>
+          <Link to="/park">
+            <button disabled={disabled} onClick={this.updateLocationP}>
+              <FontAwesomeIcon icon="tree" />
             </button>
           </Link>
         </div>

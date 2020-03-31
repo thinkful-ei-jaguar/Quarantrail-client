@@ -72,7 +72,13 @@ export class PersonProvider extends Component {
       if(health<0 && newHealth === 0) {
         return
       }
-      newHealth+=health;
+      newHealth+=health
+      if(newHealth < 0) {
+        newHealth = 0
+      }
+      if(newHealth > 100) {
+        newHealth = 100
+      }
       this.setState({
         starter:{
           ...this.state.starter,
@@ -89,7 +95,13 @@ export class PersonProvider extends Component {
       if(value<0 && newBoredom === 0) {
         return
       }
-      newBoredom+=value;
+      newBoredom+=value
+      if(newBoredom < 0) {
+        newBoredom = 0
+      }
+      if(newBoredom > 100) {
+        newBoredom = 100
+      }
       this.setState({
         starter:{
           ...this.state.starter,

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "../../Routes/HomePage/HomePage";
 import MarketPage from "../../Routes/MarketPage/MarketPage";
+import ParkPage from "../../Routes/ParkPage/ParkPage";
 import LeaderBoard from "../LeaderBoard/LeaderBoard";
 import Instruction from "../Instruction/Instruction";
 import Footer from "../Footer/Footer";
@@ -11,6 +12,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faMapMarkedAlt,
   faStore,
+  faTree,
   faTreeAlt,
   faHomeLg,
   faBoxHeart,
@@ -23,7 +25,8 @@ import "./App.css";
 library.add(
   faMapMarkedAlt,
   faStore,
-  // faTreeAlt,
+  faTree,
+  //faTreeAlt,
   // faHomeLg,
   // faBoxHeart,
   // faGameConsoleHandheld,
@@ -52,6 +55,7 @@ class App extends Component {
           <Switch>
             <Route exact path={"/"} component={HomePage} />
             <Route path={"/market"} component={MarketPage} />
+            <Route path={"/park"} component={ParkPage} />
             <Route path={"/end"} component={EndPage} />
           </Switch>
           {this.context.leader && <LeaderBoard />}
