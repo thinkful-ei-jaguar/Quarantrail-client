@@ -85,7 +85,7 @@ export default class Activities extends Component {
             <button className="mybutton" disabled={disabled} onClick={this.handlePhone}><FontAwesomeIcon icon='mobile-alt'/></button>
             <button className="mybutton" disabled={disabled} onClick={this.handleFriends}><FontAwesomeIcon icon='users'/></button>
             <button className="mybutton" disabled={disabled} onClick={this.handleTakeout}><FontAwesomeIcon icon='utensils'/></button>
-            <button className="mybutton" disabled={washHands} onClick={this.handleWashHands}><FontAwesomeIcon icon='soap'/></button>
+            <button className="mybutton" disabled={washHands || disabled} onClick={this.handleWashHands}><FontAwesomeIcon icon='soap'/></button>
             <button className="mybutton" disabled={!disabled} onClick={this.handleNextDay}><FontAwesomeIcon icon='bed'/></button>
         </div>
       }
