@@ -10,6 +10,7 @@ import FirstDay from "../../Components/FirstDay/FirstDay";
 import Day from "../../Components/Day/Day";
 import gameService from "../../services/gameService";
 import Curveball from "../../Components/Curveball.js/Curveball";
+import Character from "../../Components/Character/Character";
 export default class GamePage extends Component {
   static contextType = PersonContext;
   constructor(props) {
@@ -31,23 +32,23 @@ export default class GamePage extends Component {
   }
 
   updateLocation = () => {
-    this.context.updateLocation('market')
-    this.context.addToHealth(5)
-    if(this.context.curveball === false) {
-      const rand = Math.random()
-      if(rand < 0.5) {
-        this.context.updateRenderCurve(true)
+    this.context.updateLocation("market");
+    this.context.addToHealth(5);
+    if (this.context.curveball === false) {
+      const rand = Math.random();
+      if (rand < 0.5) {
+        this.context.updateRenderCurve(true);
       }
     }
-  }
-   
-  checkIfYadied=()=>{
-    const rand = Math.floor(Math.random() * 100) + 1
-    if(this.context.day > 5 && rand < this.context.starter.health) {
+  };
+
+  checkIfYadied = () => {
+    const rand = Math.floor(Math.random() * 100) + 1;
+    if (this.context.day > 5 && rand < this.context.starter.health) {
       this.context.setDeath("you caught the disease gg");
-      this.setState({lose:true});
+      this.setState({ lose: true });
     }
-    if(this.context.starter.health >=100){
+    if (this.context.starter.health >= 100) {
       console.log("dead");
       this.context.setDeath("you caught the disease gg");
       this.setState({ lose: true });
@@ -81,12 +82,13 @@ export default class GamePage extends Component {
       disabled = false;
     }
     return (
-      <section className="gamePage">
+      <section className="gamePage gameSetting">
         {this.context.day === 0 ? <FirstDay /> : <></>}
         <div className="top">
           <StatusBar />
           <Day />
         </div>
+        <Character />
         <Stock />
         <Activities />
         <div className="map">

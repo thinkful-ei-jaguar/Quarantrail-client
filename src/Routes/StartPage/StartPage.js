@@ -17,10 +17,10 @@ export default class StartPage extends Component {
 
   render() {
     return (
-      <div className="startpage">
+      <div className="startPage">
         <Character />
-        <form onSubmit={e => this.handleStartGame(e)}>
-          <div className="startpage-inputbox">
+        <form className="nameForm" onSubmit={e => this.handleStartGame(e)}>
+          <div className="startPage-inputbox">
             <label htmlFor="name">Name </label>
             <input
               id="name"

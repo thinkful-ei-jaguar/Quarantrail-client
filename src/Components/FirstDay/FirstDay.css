@@ -1,26 +1,28 @@
 .middle {
-  position: fixed; 
+  position: absolute;
+  left: 10%;
+  top: 25%;
   width: 80%;
-  height:40%;
-  top: 150px;
-  margin-left: 10%;
-  margin-right:10%;
+  height: 40%;
   display: flex;
   align-items: middle;
   justify-content: center;
-  flex:1 1;
+  flex: 1 1;
 }
+
 .box {
   display: flex;
-  flex:1 1;
+  flex: 1 1;
   align-items: center;
-  background-color: rebeccapurple;
+  background-color: rgb(241, 248, 137);
+  color: rgb(134, 133, 133);
   width: 75%;
   height: 100%;
   flex-direction: column;
   justify-content: space-evenly;
-
+  border: 1px solid rgb(158, 158, 158);
 }
+
 .slidecontainer {
   width: 80%;
 }
@@ -55,4 +57,10 @@
   height: 25px;
   background: #4caf50;
   cursor: pointer;
+}
+
+@media screen and (min-width: 720px) {
+  .box {
+    border: 3px solid rgb(158, 158, 158);
+  }
 }

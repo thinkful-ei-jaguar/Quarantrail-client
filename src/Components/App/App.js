@@ -11,36 +11,20 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faMapMarkedAlt,
   faStore,
-  faTreeAlt,
-  faHomeLg,
-  faBoxHeart,
-  faGameConsoleHandheld,
-  faPhoneRotary,
+  faToiletPaper,
   faUserFriends,
-  faBed
+  faBed,
+  faBoxOpen
 } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
 library.add(
   faMapMarkedAlt,
   faStore,
-  // faTreeAlt,
-  // faHomeLg,
-  // faBoxHeart,
-  // faGameConsoleHandheld,
-  // faPhoneRotary,
+  faToiletPaper,
   faUserFriends,
-  faBed
+  faBed,
+  faBoxOpen
 );
-
-// <i class="fad fa-map-marked-alt"></i>
-// <i class="fad fa-store"></i>;
-// <i class="fad fa-tree-alt"></i>
-// <i class="fad fa-home-lg"></i>
-// <i class="fad fa-box-heart"></i>
-// <i class="fad fa-game-console-handheld"></i>
-// <i class="fad fa-phone-rotary"></i>
-// <i class="fad fa-user-friends"></i>
-// <i class="fad fa-bed"></i>
 
 class App extends Component {
   static contextType = BooleanContext;
