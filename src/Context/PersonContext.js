@@ -140,19 +140,23 @@ export class PersonProvider extends Component {
     }
 
     dailyTakeAwayFoodandToilet = (f,t)=>{
-      // let F=parseInt(f);
-      // let T=parseInt(t);
-      let nT=this.state.starter.toiletpaper;
-      let nF= this.state.starter.food;
-      nT-=t;
-      nF-=f;
+      let F=Number(f);
+      let T=Number(t);
+      let nT = this.state.starter.toiletpaper;
+      let nF = this.state.starter.food;
+      console.log('before | nF | nT: ', nF, ' | ', nT)
+      nT -= T;
+      nF -= F;
+      console.log('before: ', this.state.starter)
+      console.log('nF | nT: ', nF, ' | ', nT)
       this.setState({
         starter:{
           ...this.state.starter,
-          toiletpaper:nT,
-          food:nF,
+          toiletpaper: nT,
+          food: nF
         }
       })
+      console.log('after: ', this.state.starter)
     }
 
     incrementDay = () =>{

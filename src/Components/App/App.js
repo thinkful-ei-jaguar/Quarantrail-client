@@ -11,6 +11,11 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faMapMarkedAlt,
   faStore,
+  faGamepad,
+  faMobileAlt,
+  faUsers,
+  faSoap,
+  faUtensils,
   faTreeAlt,
   faHomeLg,
   faBoxHeart,
@@ -23,6 +28,11 @@ import "./App.css";
 library.add(
   faMapMarkedAlt,
   faStore,
+  faGamepad,
+  faUsers,
+  faMobileAlt,
+  faSoap,
+  faUtensils,
   // faTreeAlt,
   // faHomeLg,
   // faBoxHeart,
