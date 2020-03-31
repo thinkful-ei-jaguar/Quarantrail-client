@@ -24,12 +24,24 @@ export default class Curveball extends Component {
 
   accept = () => {
     const { health, boredom, toiletpaper, food } = this.state.curveball.yes;
-    const newData = {
+    let newData = {
       health: this.context.starter.health + health,
       boredom: this.context.starter.boredom + boredom,
       toiletpaper: this.context.starter.toiletpaper + toiletpaper,
       food: this.context.starter.food + food
     };
+    if (newData.health < 0) {
+      newData = {
+        ...newData,
+        health: 0
+      };
+    }
+    if (newData.boredom < 0) {
+      newData = {
+        ...newData,
+        boredom: 0
+      };
+    }
     this.context.setPersonInfo(newData);
     this.setState({
       render: false
@@ -44,12 +56,24 @@ export default class Curveball extends Component {
 
   reject = () => {
     const { health, boredom, toiletpaper, food } = this.state.curveball.no;
-    const newData = {
+    let newData = {
       health: this.context.starter.health + health,
       boredom: this.context.starter.boredom + boredom,
       toiletpaper: this.context.starter.toiletpaper + toiletpaper,
       food: this.context.starter.food + food
     };
+    if (newData.health < 0) {
+      newData = {
+        ...newData,
+        health: 0
+      };
+    }
+    if (newData.boredom < 0) {
+      newData = {
+        ...newData,
+        boredom: 0
+      };
+    }
     this.context.setPersonInfo(newData);
     this.setState({
       render: false

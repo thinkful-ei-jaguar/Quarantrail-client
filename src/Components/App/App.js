@@ -6,21 +6,33 @@ import LeaderBoard from "../LeaderBoard/LeaderBoard";
 import Instruction from "../Instruction/Instruction";
 import Footer from "../Footer/Footer";
 import EndPage from "../../Routes/EndPage/EndPage";
+import SimpleGame from "../../Components/SimpleGame/SimpleGame";
+
 import BooleanContext from "../../Context/BooleanContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faMapMarkedAlt,
   faStore,
   faToiletPaper,
+  faGamepad,
+  faMobileAlt,
+  faUsers,
+  faSoap,
+  faUtensils,
   faUserFriends,
-  faBed,
-  faBoxOpen
+  faBed
 } from "@fortawesome/free-solid-svg-icons";
+
 import "./App.css";
 library.add(
   faMapMarkedAlt,
   faStore,
   faToiletPaper,
+  faGamepad,
+  faUsers,
+  faMobileAlt,
+  faSoap,
+  faUtensils,
   faUserFriends,
   faBed,
   faBoxOpen
@@ -36,7 +48,16 @@ class App extends Component {
           <Switch>
             <Route exact path={"/"} component={HomePage} />
             <Route path={"/market"} component={MarketPage} />
-            <Route path={"/end"} component={EndPage} />
+            <Route
+              path={"/end"}
+              render={props => (
+                <EndPage
+                  {...props}
+                  renderRestart={this.context.renderRestart}
+                />
+              )}
+            />
+            <Route exact path={"/game"} component={SimpleGame} />
           </Switch>
           {this.context.leader && <LeaderBoard />}
           {this.context.instructions && <Instruction />}
