@@ -20,7 +20,8 @@ import {
   faSoap,
   faUtensils,
   faUserFriends,
-  faBed
+  faBed,
+  faBoxOpen
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
