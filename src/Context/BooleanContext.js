@@ -14,6 +14,7 @@ const BooleanContext = React.createContext({
   updateRenderCurve: () => {},
   renderGame: () => {},
   renderEndGame:()=>{},
+  renderRestart:()=>{},
   renderUser: () => {},
   toggleLeader: () => {},
   toggleInstruct: () => {},
@@ -68,6 +69,16 @@ export class BooleanProvider extends Component {
       userPage: true
     });
   };
+  renderRestart = () => {
+    this.setState({
+      start: true,
+      userPage: false,
+      game: false,
+      endgame: false,
+      renderCurve: false,
+    },()=>console.log(this.state));
+  };
+
 
   toggleLeader = () => {
     if (this.instructions === true) {
@@ -106,6 +117,7 @@ export class BooleanProvider extends Component {
       updateRenderCurve: this.updateRenderCurve,
       renderGame: this.renderGame,
       renderEndGame:this.renderEndGame,
+      renderRestart:this.renderRestart,
       renderUser: this.renderUser,
       toggleLeader: this.toggleLeader,
       toggleInstruct: this.toggleInstruct,

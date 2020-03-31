@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import LeaderboardService from "../../services/leaderboard-service"
 import "./EndPage.css";
@@ -9,14 +9,17 @@ import "./EndPage.css";
 
 export default class EndPage extends Component {
   static contextType = PersonContext;
+
   handleRestart=()=>{
     this.context.resetDay();
     const post={
         name:this.context.name,
         score:this.context.day,
     }
+    this.context.updateRenderCurve(false);
     //LeaderboardService.postScore(post)
-
+    this.props.renderRestart();
+    return (<Redirect to ='/'/>)
   }
   render() {
     return (

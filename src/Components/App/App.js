@@ -6,6 +6,9 @@ import LeaderBoard from "../LeaderBoard/LeaderBoard";
 import Instruction from "../Instruction/Instruction";
 import Footer from "../Footer/Footer";
 import EndPage from "../../Routes/EndPage/EndPage";
+import SimpleGame from "../../Components/GameEngine1/GameEngine1"
+
+
 import BooleanContext from "../../Context/BooleanContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -52,7 +55,8 @@ class App extends Component {
           <Switch>
             <Route exact path={"/"} component={HomePage} />
             <Route path={"/market"} component={MarketPage} />
-            <Route path={"/end"} component={EndPage} />
+            <Route path={"/end"} render={(props) => <EndPage {...props} renderRestart={this.context.renderRestart}/>}/>
+            <Route exact path={"/game"} component={SimpleGame} />
           </Switch>
           {this.context.leader && <LeaderBoard />}
           {this.context.instructions && <Instruction />}

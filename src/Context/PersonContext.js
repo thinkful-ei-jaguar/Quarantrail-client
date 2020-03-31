@@ -73,6 +73,9 @@ export class PersonProvider extends Component {
         return
       }
       newHealth+=health;
+      if(newHealth<0){
+        newHealth=0;
+      }
       this.setState({
         starter:{
           ...this.state.starter,
@@ -86,10 +89,13 @@ export class PersonProvider extends Component {
       if(value>0 && newBoredom === 100) {
         return
       }
-      if(value<0 && newBoredom === 0) {
+      if(value < 0 && newBoredom === 0) {
         return
       }
       newBoredom+=value;
+      if(newBoredom<0){
+        newBoredom=0;
+      }
       this.setState({
         starter:{
           ...this.state.starter,
@@ -139,20 +145,21 @@ export class PersonProvider extends Component {
       })
     }
 
-    dailyTakeAwayFoodandToilet = (f,t)=>{
+    dailyTakeAwayFoodandToilet = (f,t) =>{
       // let F=parseInt(f);
       // let T=parseInt(t);
       let nT=this.state.starter.toiletpaper;
       let nF= this.state.starter.food;
       nT-=t;
       nF-=f;
+      console.log(nT+"and"+nF);
       this.setState({
         starter:{
           ...this.state.starter,
-          toiletpaper:nT,
+          toiletpaper:this.nT,
           food:nF,
         }
-      })
+      },()=>console.log(this.state))
     }
 
     incrementDay = () =>{

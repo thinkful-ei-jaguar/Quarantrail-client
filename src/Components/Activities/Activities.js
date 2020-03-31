@@ -42,12 +42,16 @@ export default class Activities extends Component {
       if(this.context.curveball === false) {
         this.context.updateRenderCurve(true)
       }
-      this.context.incrementDay()
-      this.context.updateCurve(false)
-      // this.context.addToFood(-1)
-      // this.context.addToToilet(-0.5)
-      this.context.dailyTakeAwayFoodandToilet(1,0.5)
-      this.context.addToBoredom(20)
+      this.context.incrementDay();
+      this.context.updateCurve(false);
+      let newData={
+        id: this.context.starter.id,
+        health:this.context.starter.health,
+        boredom:this.context.starter.boredom+20,
+        toiletpaper:this.context.starter.toiletpaper-0.5,
+        food:this.context.starter.food -1
+      }
+      this.context.setPersonInfo(newData)
     }
 
     render() {
