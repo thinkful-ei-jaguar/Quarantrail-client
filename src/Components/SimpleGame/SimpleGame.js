@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { GameEngine } from "react-game-engine";
-import { Box } from "../../renderers/renderers";
-import { MoveBox } from "../../systems/systems"
+import { Box } from "../../renderers/Box";
+import { MoveBox } from "../../systems/boxMove"
  
 export default class SimpleGame extends PureComponent {
   render() {

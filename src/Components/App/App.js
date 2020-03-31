@@ -6,7 +6,7 @@ import LeaderBoard from "../LeaderBoard/LeaderBoard";
 import Instruction from "../Instruction/Instruction";
 import Footer from "../Footer/Footer";
 import EndPage from "../../Routes/EndPage/EndPage";
-import SimpleGame from "../../Components/GameEngine1/GameEngine1"
+import SimpleGame from "../../Components/SimpleGame/SimpleGame"
 
 
 import BooleanContext from "../../Context/BooleanContext";
