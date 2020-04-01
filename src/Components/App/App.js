@@ -32,6 +32,8 @@ import {
   faDog,
   faBone,
   faBrush,
+  faVirus,
+  faFlushed
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
@@ -56,6 +58,8 @@ library.add(
   faDog,
   faBone,
   faBrush,
+  faVirus,
+  faFlushed
 );
 
 class App extends Component {
