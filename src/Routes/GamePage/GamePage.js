@@ -11,6 +11,8 @@ import Day from "../../Components/Day/Day";
 import gameService from "../../services/gameService";
 import Curveball from "../../Components/Curveball.js/Curveball";
 import Character from "../../Components/Character/Character";
+import Sound from 'react-sound'
+import soundGame from '../../Sound/8bitsurf.mp3'
 export default class GamePage extends Component {
   static contextType = PersonContext;
   constructor(props) {
@@ -31,20 +33,31 @@ export default class GamePage extends Component {
     }
   }
 
-  updateLocation = () => {
-    this.context.updateLocation("market");
-    this.context.addToHealth(5);
-    if (this.context.curveball === false) {
-      const rand = Math.random();
-      if (rand < 0.5) {
-        this.context.updateRenderCurve(true);
+  updateLocationM = () => {
+    this.context.updateLocation('market')
+    this.context.addToHealth(5)
+    if(this.context.curveball === false) {
+      const rand = Math.random()
+      if(rand < 0.5) {
+        this.context.updateRenderCurve(true)
       }
     }
-  };
+  }
 
-  checkIfYadied = () => {
-    const rand = Math.floor(Math.random() * 100) + 1;
-    if (this.context.day > 5 && rand < this.context.starter.health) {
+  // updateLocationP = () => {
+  //   this.context.updateLocation('park')
+  //   this.context.addToHealth(5)
+  //   if(this.context.curveball === false) {
+  //     const rand = Math.random()
+  //     if(rand < 0.5) {
+  //       this.context.updateRenderCurve(true)
+  //     }
+  //   }
+  // }
+   
+  checkIfYadied=()=>{
+    const rand = Math.floor(Math.random() * 100) + 1
+    if(this.context.day > 5 && rand < this.context.starter.health) {
       this.context.setDeath("you caught the disease gg");
       this.setState({ lose: true });
     }
@@ -93,12 +106,25 @@ export default class GamePage extends Component {
         <Activities />
         <div className="map">
           <Link to="/market">
-            <button disabled={disabled} onClick={this.updateLocation}>
+            <button disabled={disabled} onClick={this.updateLocationM}>
               <FontAwesomeIcon icon="store" />
+            </button>
+          </Link>
+          <Link to="/park">
+            {/* <button disabled={disabled} onClick={this.updateLocationP}>
+              <FontAwesomeIcon icon="tree" />
+            </button> */}
+            <button disabled={disabled}>
+              <FontAwesomeIcon icon="tree" />
             </button>
           </Link>
         </div>
         {this.context.renderCurve && <Curveball />}
+        <Sound
+          url={soundGame}
+          playStatus={Sound.status.PLAYING}
+          loop={true}
+        />
       </section>
     );
   }

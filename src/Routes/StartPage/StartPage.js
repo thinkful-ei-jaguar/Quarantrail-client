@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import PersonContext from "../../Context/PersonContext";
 import "./StartPage.css";
 import Character from "../../Components/Character/Character";
+import Sound from 'react-sound'
+import soundMenu from '../../Sound/8bitmenu.mp3'
+import keyboard from '../../Sound/keyboard.mp3'
+import UIfx from 'uifx';
 
+const beep = new UIfx({asset: keyboard});
 export default class StartPage extends Component {
   static contextType = PersonContext;
 
@@ -13,6 +18,7 @@ export default class StartPage extends Component {
 
   updateName = event => {
     this.context.setName(event.currentTarget.value);
+    beep.play()
   };
 
   render() {
@@ -32,6 +38,11 @@ export default class StartPage extends Component {
           </div>
           <button>Submit</button>
         </form>
+        <Sound
+          url={soundMenu}
+          playStatus={Sound.status.PLAYING}
+          loop={true}
+        />
       </div>
     );
   }
