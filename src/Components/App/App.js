@@ -27,13 +27,11 @@ import {
   faShoppingCart,
   faHome,
   faRunning,
-  faCamera,
-  faBreadSlice,
-  faDog,
   faBone,
-  faBrush,
   faVirus,
-  faFlushed
+  faFlushed,
+  faIcons,
+  faComment
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
@@ -53,13 +51,11 @@ library.add(
   faShoppingCart,
   faHome,
   faRunning,
-  faCamera,
-  faBreadSlice,
-  faDog,
   faBone,
-  faBrush,
   faVirus,
-  faFlushed
+  faFlushed,
+  faIcons,
+  faComment
 );
 
 class App extends Component {
