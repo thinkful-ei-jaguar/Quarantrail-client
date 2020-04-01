@@ -3,7 +3,6 @@ import femaleChar from "../../Images/FemaleChar.svg";
 import "./Character.css";
 // import styled, { keyframes } from 'styled-components';
 // import { bounce } from 'react-animations';
-import { render } from "@testing-library/react";
 
 // const bounceAnimation = keyframes`${bounce}`;
 
