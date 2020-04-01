@@ -27,7 +27,8 @@ export default class ParkPage extends Component {
         <Day />
         <Stock />
         <Link to="/">
-          <button disabled={disabled} onClick={this.updateLocation}>Home</button>
+          {/* <button disabled={disabled} onClick={this.updateLocation}>Home</button> */}
+          <button onClick={this.updateLocation}>Home</button>
         </Link>
         {/*this.context.renderCurve && <Curveball />*/}
 

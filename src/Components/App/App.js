@@ -7,43 +7,40 @@ import LeaderBoard from "../LeaderBoard/LeaderBoard";
 import Instruction from "../Instruction/Instruction";
 import Footer from "../Footer/Footer";
 import EndPage from "../../Routes/EndPage/EndPage";
+import SimpleGame from "../../Components/SimpleGame/SimpleGame";
+
 import BooleanContext from "../../Context/BooleanContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faMapMarkedAlt,
   faStore,
   faTree,
-  faTreeAlt,
-  faHomeLg,
-  faBoxHeart,
-  faGameConsoleHandheld,
-  faPhoneRotary,
+  faToiletPaper,
+  faGamepad,
+  faMobileAlt,
+  faUsers,
+  faSoap,
+  faUtensils,
   faUserFriends,
-  faBed
+  faBed,
+  faBoxOpen
 } from "@fortawesome/free-solid-svg-icons";
+
 import "./App.css";
 library.add(
   faMapMarkedAlt,
   faStore,
   faTree,
-  //faTreeAlt,
-  // faHomeLg,
-  // faBoxHeart,
-  // faGameConsoleHandheld,
-  // faPhoneRotary,
+  faToiletPaper,
+  faGamepad,
+  faUsers,
+  faMobileAlt,
+  faSoap,
+  faUtensils,
   faUserFriends,
-  faBed
+  faBed,
+  faBoxOpen
 );
-
-// <i class="fad fa-map-marked-alt"></i>
-// <i class="fad fa-store"></i>;
-// <i class="fad fa-tree-alt"></i>
-// <i class="fad fa-home-lg"></i>
-// <i class="fad fa-box-heart"></i>
-// <i class="fad fa-game-console-handheld"></i>
-// <i class="fad fa-phone-rotary"></i>
-// <i class="fad fa-user-friends"></i>
-// <i class="fad fa-bed"></i>
 
 class App extends Component {
   static contextType = BooleanContext;
@@ -56,7 +53,16 @@ class App extends Component {
             <Route exact path={"/"} component={HomePage} />
             <Route path={"/market"} component={MarketPage} />
             <Route path={"/park"} component={ParkPage} />
-            <Route path={"/end"} component={EndPage} />
+            <Route
+              path={"/end"}
+              render={props => (
+                <EndPage
+                  {...props}
+                  renderRestart={this.context.renderRestart}
+                />
+              )}
+            />
+            <Route exact path={"/game"} component={SimpleGame} />
           </Switch>
           {this.context.leader && <LeaderBoard />}
           {this.context.instructions && <Instruction />}

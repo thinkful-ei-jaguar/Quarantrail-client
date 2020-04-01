@@ -1,11 +1,17 @@
-.startpage {
+.homePage,
+.startPage,
+.marketPage {
+  height: 90vh;
+}
+
+.startPage,
+.nameForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 
-.startpage-character {
-  width: 150px;
+form {
+  height: 100px;
 }

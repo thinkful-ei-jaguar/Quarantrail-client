@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import PersonContext from "../../Context/PersonContext";
-import Controller from '../../Images/Game-Icon.svg'
-import Smartphone from '../../Images/Smartphone.svg'
-import Friends from '../../Images/friends.svg'
-import Sleep from '../../Images/sleep.png'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './Activities.css'
 
 export default class Activities extends Component {
@@ -12,18 +9,42 @@ export default class Activities extends Component {
     state = {
       activites: 0,
       disabled: false,
+      washHands: false
+    }
+
+    handleWashHands = () => {
+      this.context.addToHealth(-5)
+      this.setState({washHands: true, activites: this.state.activites +1})
+      if(this.state.activites === 2) {
+        this.renderSleep()
+      }
+    }
+
+    handleTakeout = () => {
+      this.context.addToHealth(10)
+      this.context.addToBoredom(-10)
+      this.setState({activites: this.state.activites +1})
+      if(this.state.activites === 2) {
+        this.renderSleep()
+      }
     }
 
     handleVideoGame = () => {
       this.context.addToBoredom(-10)
       this.context.incrementActivity()
       this.setState({activites: this.state.activites +1})
+      if(this.state.activites === 2) {
+        this.renderSleep()
+      }
     }
 
     handlePhone = () => {
       this.context.addToBoredom(-10)
       this.context.incrementActivity()
       this.setState({activites: this.state.activites +1})
+      if(this.state.activites === 2) {
+        this.renderSleep()
+      }
     }
 
     handleFriends = () => {
@@ -31,6 +52,9 @@ export default class Activities extends Component {
       this.context.addToBoredom(-20)
       this.context.incrementActivity()
       this.setState({activites: this.state.activites +1})
+      if(this.state.activites === 2) {
+        this.renderSleep()
+      }
     }
 
     renderSleep = () => {
@@ -42,25 +66,29 @@ export default class Activities extends Component {
       if(this.context.curveball === false) {
         this.context.updateRenderCurve(true)
       }
-      this.context.incrementDay()
-      this.context.updateCurve(false)
-      // this.context.addToFood(-1)
-      // this.context.addToToilet(-0.5)
-      this.context.dailyTakeAwayFoodandToilet(1,0.5)
-      this.context.addToBoredom(20)
+      this.context.incrementDay();
+      this.context.updateCurve(false);
+      let newData={
+        id: this.context.starter.id,
+        health:this.context.starter.health,
+        boredom:this.context.starter.boredom+20,
+        toiletpaper:this.context.starter.toiletpaper-0.5,
+        food:this.context.starter.food -1
+      }
+      this.context.setPersonInfo(newData);
+      this.setState({washHands: false});
     }
 
     render() {
-      const { activites, disabled } = this.state
-      if(activites === 3) {
-        this.renderSleep()
-      }
+      const { disabled,washHands } = this.state
         return <div className="activity-bar">
             <h1>Activities:</h1>
-            <button className="mybutton" disabled={disabled} onClick={this.handleVideoGame}><img src={Controller} alt='controller icon' /></button>
-            <button className="mybutton" disabled={disabled} onClick={this.handlePhone}><img src={Smartphone} alt='phone icon' /></button>
-            <button className="mybutton" disabled={disabled} onClick={this.handleFriends}><img src={Friends} alt='friend icon' /></button>
-            <button className="mybutton" disabled={!disabled} onClick={this.handleNextDay}><img src={Sleep} alt='sleep icon' /></button>
+            <button className="mybutton" disabled={disabled} onClick={this.handleVideoGame}><FontAwesomeIcon icon='gamepad'/></button>
+            <button className="mybutton" disabled={disabled} onClick={this.handlePhone}><FontAwesomeIcon icon='mobile-alt'/></button>
+            <button className="mybutton" disabled={disabled} onClick={this.handleFriends}><FontAwesomeIcon icon='users'/></button>
+            <button className="mybutton" disabled={disabled} onClick={this.handleTakeout}><FontAwesomeIcon icon='utensils'/></button>
+            <button className="mybutton" disabled={washHands || disabled} onClick={this.handleWashHands}><FontAwesomeIcon icon='soap'/></button>
+            <button className="mybutton" disabled={!disabled} onClick={this.handleNextDay}><FontAwesomeIcon icon='bed'/></button>
         </div>
       }
 }

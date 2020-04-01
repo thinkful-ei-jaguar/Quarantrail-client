@@ -1,8 +1,39 @@
-.bot{
-    position: fixed;
-    bottom: 155px;
-    left: 0;
-    bottom: 20%;
-    height: 7vh;
-    display: flex;          
+.stock {
+  position: absolute;
+  bottom: 25%;
+  left: 1%;
+  border-radius: 3px;
+  display: flex;
+}
+
+.stock button {
+  width: 60px;
+  height: 60px;
+  border-radius: 3px;
+  background-color: rgb(241, 248, 137);
+}
+
+.stock button:hover {
+  background-color: rgb(216, 140, 70);
+}
+
+.stock div {
+  color: rgb(116, 116, 116);
+  background-color: rgba(255, 255, 255, 0.582);
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 720px) {
+  .stock button {
+    width: 80px;
+    height: 80px;
+  }
+
+  .stock div {
+    font-size: 16px;
+  }
 }

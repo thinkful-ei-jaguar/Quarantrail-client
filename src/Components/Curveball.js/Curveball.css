@@ -1,13 +1,23 @@
 .curveball {
-  width: 500px;
   padding: 20px;
-  border: 1px solid black;
   margin: auto;
+  background-color: rgb(241, 248, 137);
+  color: rgb(134, 133, 133);
+  width: 75%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 1px solid rgb(158, 158, 158);
 }
 
 .curveballButtons {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 720px) {
+  .curveball {
+    border: 3px solid rgb(158, 158, 158);
+  }
 }

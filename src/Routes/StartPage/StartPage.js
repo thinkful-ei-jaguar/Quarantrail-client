@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PersonContext from "../../Context/PersonContext";
 import "./StartPage.css";
 import Character from "../../Components/Character/Character";
+import Sound from 'react-sound'
+import soundMenu from '../../Sound/8bitmenu.mp3'
 
 export default class StartPage extends Component {
   static contextType = PersonContext;
@@ -17,10 +19,10 @@ export default class StartPage extends Component {
 
   render() {
     return (
-      <div className="startpage">
+      <div className="startPage">
         <Character />
-        <form onSubmit={e => this.handleStartGame(e)}>
-          <div className="startpage-inputbox">
+        <form className="nameForm" onSubmit={e => this.handleStartGame(e)}>
+          <div className="startPage-inputbox">
             <label htmlFor="name">Name </label>
             <input
               id="name"
@@ -32,6 +34,11 @@ export default class StartPage extends Component {
           </div>
           <button>Submit</button>
         </form>
+        <Sound
+          url={soundMenu}
+          playStatus={Sound.status.PLAYING}
+          loop={true}
+        />
       </div>
     );
   }
