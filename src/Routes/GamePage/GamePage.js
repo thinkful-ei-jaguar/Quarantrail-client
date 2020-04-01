@@ -16,7 +16,8 @@ export default class GamePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lose: false
+      lose: false,
+      active:false
     };
   }
   componentDidMount() {
@@ -29,6 +30,9 @@ export default class GamePage extends Component {
         })
         .catch(this.context.setError);
     }
+    this.setState({
+      active:true
+    })
   }
 
   updateLocation = () => {
@@ -88,7 +92,7 @@ export default class GamePage extends Component {
           <StatusBar />
           <Day />
         </div>
-        <Character />
+        <Character active={this.state.active} />
         <Stock />
         <Activities />
         <div className="map">
