@@ -8,6 +8,9 @@ import Stock from "../../Components/Stock/Stock";
 import Store from "../../Components/Store/Store";
 import Curveball from "../../Components/Curveball.js/Curveball";
 import Character from "../../Components/Character/Character";
+import Sound from 'react-sound'
+import soundMarket from '../../Sound/feelsgood.mp3'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MarketPage.css";
 
 export default class MarketPage extends Component {
@@ -45,7 +48,7 @@ export default class MarketPage extends Component {
         <div className="map">
           <Link to="/">
             <button disabled={disabled} onClick={this.updateLocation}>
-              Home
+              <FontAwesomeIcon icon="home" />
             </button>
           </Link>
         </div>
@@ -58,6 +61,11 @@ export default class MarketPage extends Component {
           Shop
         </button>
         <div className="store-section">{shopping && <Store />}</div>
+        <Sound
+          url={soundMarket}
+          playStatus={Sound.status.PLAYING}
+          loop={true}
+        />
       </section>
     );
   }

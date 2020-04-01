@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import LeaderboardService from "../../services/leaderboard-service"
+import Sound from 'react-sound'
+import soundEnd from '../../Sound/seeyouagain.mp3'
 import "./EndPage.css";
-
-
-
-
 export default class EndPage extends Component {
   static contextType = PersonContext;
 
@@ -31,6 +29,11 @@ export default class EndPage extends Component {
             <Link to="/">
               <button onClick={this.handleRestart}>Try again</button>
             </Link>
+            <Sound
+              url={soundEnd}
+              playStatus={Sound.status.PLAYING}
+              loop={true}
+            />
             </div>
         </div>
       </section>

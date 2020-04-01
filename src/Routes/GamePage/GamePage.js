@@ -11,6 +11,8 @@ import Day from "../../Components/Day/Day";
 import gameService from "../../services/gameService";
 import Curveball from "../../Components/Curveball.js/Curveball";
 import Character from "../../Components/Character/Character";
+import Sound from 'react-sound'
+import soundGame from '../../Sound/8bitsurf.mp3'
 export default class GamePage extends Component {
   static contextType = PersonContext;
   constructor(props) {
@@ -118,6 +120,11 @@ export default class GamePage extends Component {
           </Link>
         </div>
         {this.context.renderCurve && <Curveball />}
+        <Sound
+          url={soundGame}
+          playStatus={Sound.status.PLAYING}
+          loop={true}
+        />
       </section>
     );
   }

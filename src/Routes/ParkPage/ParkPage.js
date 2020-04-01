@@ -5,6 +5,10 @@ import StatusBar from '../../Components/StatusBar/StatusBar';
 import Day from '../../Components/Day/Day';
 import Stock from '../../Components/Stock/Stock'
 import Curveball from "../../Components/Curveball.js/Curveball";
+import Sound from 'react-sound'
+import soundPark from '../../Sound/morningmagic.mp3'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PetActivities from "../../Components/PetActivities/PetActivities";
 
 export default class ParkPage extends Component {
   static contextType = PersonContext;
@@ -27,12 +31,16 @@ export default class ParkPage extends Component {
         <Day />
         <Stock />
         <Link to="/">
-          {/* <button disabled={disabled} onClick={this.updateLocation}>Home</button> */}
-          <button onClick={this.updateLocation}>Home</button>
+          {/* <button disabled={disabled} onClick={this.updateLocation}><FontAwesomeIcon icon="home" /></button> */}
+          <button onClick={this.updateLocation}><FontAwesomeIcon icon="home" /></button>
         </Link>
         {/*this.context.renderCurve && <Curveball />*/}
-
-        <h2>PARK</h2>
+        <PetActivities />
+        <Sound
+          url={soundPark}
+          playStatus={Sound.status.PLAYING}
+          loop={true}
+        />
       </section>
     )
   }
