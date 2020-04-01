@@ -2,24 +2,44 @@
     position: fixed;
     width: 100%;
     bottom: 10%;
+    left: 0;
     display: flex;
     flex-direction: row;
     height: 7vh;
-    
+    padding-left: 10px;
+    background-color: rgba(255, 255, 255, 0.582);
+    justify-content: space-between;
+    align-items: center;
 }
 
 .activity-bar img {
     height: 50px;
 }
 
-.mybutton{
-    width:80px;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
 .activity-bar .mybutton:disabled{
     background: #ff0000
 }
 
+.activity-bar h1 {
+    color: rgb(116, 116, 116);
+    padding: 2px;
+}
 
+.mybutton{
+    width:80px;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 80%;
+}
+
+@media screen and (min-width: 720px) {
+    .activity-bar {
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .activity-bar {
+        width: 50%;
+    }
+}

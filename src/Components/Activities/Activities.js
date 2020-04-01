@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 import PersonContext from "../../Context/PersonContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './Activities.css'
@@ -9,7 +10,7 @@ export default class Activities extends Component {
     state = {
       activites: 0,
       disabled: false,
-      washHands: false
+      washHands: false 
     }
 
     handleWashHands = () => {
@@ -18,6 +19,10 @@ export default class Activities extends Component {
       if(this.state.activites === 2) {
         this.renderSleep()
       }
+    }
+
+    testChangeWashHands = () => {
+      this.setState({washHands: true})
     }
 
     handleTakeout = () => {
@@ -87,7 +92,14 @@ export default class Activities extends Component {
             <button className="mybutton" disabled={disabled} onClick={this.handlePhone}><FontAwesomeIcon icon='mobile-alt'/></button>
             <button className="mybutton" disabled={disabled} onClick={this.handleFriends}><FontAwesomeIcon icon='users'/></button>
             <button className="mybutton" disabled={disabled} onClick={this.handleTakeout}><FontAwesomeIcon icon='utensils'/></button>
+            <Link to={{
+              pathname: "/washHands",
+              state: {
+                test: this.testChangeWashHands
+              }
+            }} >
             <button className="mybutton" disabled={washHands || disabled} onClick={this.handleWashHands}><FontAwesomeIcon icon='soap'/></button>
+            </Link>
             <button className="mybutton" disabled={!disabled} onClick={this.handleNextDay}><FontAwesomeIcon icon='bed'/></button>
         </div>
       }
