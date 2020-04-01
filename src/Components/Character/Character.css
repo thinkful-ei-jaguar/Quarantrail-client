@@ -4,16 +4,17 @@
   animation-duration: 6s;
   animation-play-state: running;
   animation-iteration-count: 300;
-  position: fixed;
+  position: initial;
+  border:1px solid black;
 }
 
 
 
 
 @keyframes myfirst {
-  0%  {margin-left: 35%; margin-right: 0%;}
-  50%   {margin-left: 0%; margin-right: 95%;}
-  100%  {margin-left: 35%; margin-right: 0%;}
+  0%  {margin-left: 45%; margin-right: 0%;}
+  50%   {margin-left: 0%; margin-right: 45%;}
+  100%  {margin-left: 45%; margin-right: 0%;}
 }
 
 @media screen and (min-width: 720px) {
