@@ -8,6 +8,7 @@ import Instruction from "../Instruction/Instruction";
 import Footer from "../Footer/Footer";
 import EndPage from "../../Routes/EndPage/EndPage";
 import SimpleGame from "../../Components/SimpleGame/SimpleGame";
+import miniGame from '../../Components/minigame/minigame'
 
 import BooleanContext from "../../Context/BooleanContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -23,6 +24,7 @@ import {
   faUtensils,
   faUserFriends,
   faBed,
+<<<<<<< HEAD
   faBoxOpen,
   faShoppingCart,
   faHome,
@@ -32,6 +34,9 @@ import {
   faDog,
   faBone,
   faBrush,
+=======
+  faBoxOpen
+>>>>>>> minigame
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
@@ -79,6 +84,7 @@ class App extends Component {
               )}
             />
             <Route exact path={"/game"} component={SimpleGame} />
+            <Route exact path={"/washHands"} component={miniGame} />
           </Switch>
           {this.context.leader && <LeaderBoard />}
           {this.context.instructions && <Instruction />}

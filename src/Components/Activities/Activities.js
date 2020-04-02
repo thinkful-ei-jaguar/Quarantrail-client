@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 import PersonContext from "../../Context/PersonContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './Activities.css'
@@ -7,15 +8,14 @@ export default class Activities extends Component {
     static contextType = PersonContext;
 
     state = {
-      activites: 0,
-      disabled: false,
-      washHands: false
+      disabled: false
     }
 
     handleWashHands = () => {
       this.context.addToHealth(-5)
-      this.setState({washHands: true, activites: this.state.activites +1})
-      if(this.state.activites === 2) {
+      this.context.setWash(true)
+      this.context.incrementActivity()
+      if(this.context.dailyActivities === 2) {
         this.renderSleep()
       }
     }
@@ -23,8 +23,7 @@ export default class Activities extends Component {
     handleTakeout = () => {
       this.context.addToHealth(10)
       this.context.addToBoredom(-10)
-      this.setState({activites: this.state.activites +1})
-      if(this.state.activites === 2) {
+      if(this.context.dailyActivities === 2) {
         this.renderSleep()
       }
     }
@@ -32,8 +31,7 @@ export default class Activities extends Component {
     handleVideoGame = () => {
       this.context.addToBoredom(-10)
       this.context.incrementActivity()
-      this.setState({activites: this.state.activites +1})
-      if(this.state.activites === 2) {
+      if(this.context.dailyActivities === 2) {
         this.renderSleep()
       }
     }
@@ -41,8 +39,7 @@ export default class Activities extends Component {
     handlePhone = () => {
       this.context.addToBoredom(-10)
       this.context.incrementActivity()
-      this.setState({activites: this.state.activites +1})
-      if(this.state.activites === 2) {
+      if(this.context.dailyActivities === 2) {
         this.renderSleep()
       }
     }
@@ -51,14 +48,14 @@ export default class Activities extends Component {
       this.context.addToHealth(10)
       this.context.addToBoredom(-20)
       this.context.incrementActivity()
-      this.setState({activites: this.state.activites +1})
-      if(this.state.activites === 2) {
+      if(this.context.dailyActivities === 2) {
         this.renderSleep()
       }
     }
 
     renderSleep = () => {
-      this.setState({activites:0, disabled:true})
+      this.setState({disabled:true})
+      this.context.clearActivites()
     }
 
     handleNextDay = () => {
@@ -76,18 +73,21 @@ export default class Activities extends Component {
         food:this.context.starter.food -1
       }
       this.context.setPersonInfo(newData);
-      this.setState({washHands: false});
+      this.context.setWash(false)
     }
 
     render() {
-      const { disabled,washHands } = this.state
+      const { disabled } = this.state
+      const { washHands } = this.context
         return <div className="activity-bar">
             <h1>Activities:</h1>
             <button className="mybutton" disabled={disabled} onClick={this.handleVideoGame}><FontAwesomeIcon icon='gamepad'/></button>
             <button className="mybutton" disabled={disabled} onClick={this.handlePhone}><FontAwesomeIcon icon='mobile-alt'/></button>
             <button className="mybutton" disabled={disabled} onClick={this.handleFriends}><FontAwesomeIcon icon='users'/></button>
             <button className="mybutton" disabled={disabled} onClick={this.handleTakeout}><FontAwesomeIcon icon='utensils'/></button>
+            <Link to={'/washHands'} >
             <button className="mybutton" disabled={washHands || disabled} onClick={this.handleWashHands}><FontAwesomeIcon icon='soap'/></button>
+            </Link>
             <button className="mybutton" disabled={!disabled} onClick={this.handleNextDay}><FontAwesomeIcon icon='bed'/></button>
         </div>
       }

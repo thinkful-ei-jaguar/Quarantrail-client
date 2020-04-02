@@ -1,0 +1,35 @@
+.display-box {
+  border: 1px solid black;
+  background-color: white;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mini-game-timer-filler {
+  height: 24px;
+  width: 1%;
+  background-color: green;
+  border-radius: 10px;
+  transition: .5s;
+}
+
+.mini-game-timer-container {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.minigame-end-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

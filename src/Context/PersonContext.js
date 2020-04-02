@@ -10,6 +10,7 @@ const PersonContext= React.createContext({
     dead:'',
     curveball: false,
     renderCurve: false,
+    washHands: false,
     updateCurve: () => {},
     updateRenderCurve: () => {},
     setDeath:()=>{},
@@ -26,6 +27,8 @@ const PersonContext= React.createContext({
     dailyTakeAwayFoodandToilet: () => {},
     updateLocation: () => {},
     resetDay:()=>{},
+    setWash:()=>{},
+    clearActivites:()=>{},
 })
 
 export default PersonContext
@@ -41,6 +44,7 @@ export class PersonProvider extends Component {
       dead:'',
       curveball: false,
       renderCurve: false,
+      washHands: false,
     }
 
     setDeath = death =>{
@@ -62,6 +66,12 @@ export class PersonProvider extends Component {
 
     clearError = () => {
       this.setState({ error: null })
+    }
+
+    setWash = (bool) => {
+      this.setState({
+        washHands: bool
+      })
     }
 
     addToHealth = health => {
@@ -182,6 +192,12 @@ export class PersonProvider extends Component {
       })
     }
 
+    clearActivites = () => {
+      this.setState({
+        dailyActivities: 0
+      })
+    }
+
     updateLocation = place => {
       this.setState({
         location: place
@@ -211,6 +227,7 @@ export class PersonProvider extends Component {
         dead:this.state.dead,
         curveball: this.state.curveball,
         renderCurve: this.state.renderCurve,
+        washHands: this.state.washHands,
         updateCurve: this.updateCurve,
         updateRenderCurve: this.updateRenderCurve,
         incrementActivity: this.incrementActivity,
@@ -228,6 +245,8 @@ export class PersonProvider extends Component {
         dailyTakeAwayFoodandToilet: this.dailyTakeAwayFoodandToilet,
         updateLocation: this.updateLocation,
         resetDay:this.resetDay,
+        setWash:this.setWash,
+        clearActivites:this.clearActivites
       }
 
       return (
