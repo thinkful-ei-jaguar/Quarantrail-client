@@ -6,7 +6,9 @@ export default class Pet extends Component {
   render(){
   return (  
     <div className="TV">
+      <div className="TV-container">
       <p>okdwad</p>
+      </div>
     </div>
     )
   }

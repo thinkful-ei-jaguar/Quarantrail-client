@@ -1,10 +1,17 @@
 .TV{
     display: flex;
     position: fixed;
-    top:10%;
+    border: 1px solid black;
+    margin: auto;
+    top: 25%;
+    width:50%;
+    height: 60%;
+   
+    
+}
+.TV-container{
     background-image: url(../../Images/TV.svg);
-    background-size: cover;
-    height: 75%;
-    width: 50%;
+    background-size: contain;
     background-repeat: no-repeat;
+    width: 100%;
 }

@@ -1,4 +1,12 @@
 .pet{
 display: flex;
 position: inherit;
+width:  150px;
 }
+
+@media screen and (min-width: 720px) {
+    .pet img {
+      width: 450px;
+    }
+  }
+  
