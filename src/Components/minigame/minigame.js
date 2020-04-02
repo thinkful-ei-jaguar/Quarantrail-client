@@ -43,19 +43,19 @@ export default class BestGameEver extends Component {
     }
     const { count } = this.state
     let phrase;
-    if (count>90){
+    if (count>=90){
       phrase = 'Great Job your hands are super clean!'
     }
-    else if (count>80){
+    else if (count>=80){
       phrase = 'Pretty Good!'
     }
-    else if (count>70){
+    else if (count>=70){
       phrase = 'Not bad, but scrub more next time.'
     }
-    else if (count>60){
+    else if (count>=60){
       phrase = 'Could do better...'
     }
-    else if (count<40){
+    else if (count<60){
       phrase = 'Dirty af.'
     }
     return (
