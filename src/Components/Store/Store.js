@@ -10,7 +10,8 @@ export default class Store extends Component {
     toiletPaperCounter: 0,
     foodLimit: 6,
     toiletLimit: 6,
-    tooMuch: false
+    tooMuch: false,
+    disabled: this.context.buyOnce,
   };
 
   handlePlusFood = () => {
@@ -56,8 +57,10 @@ export default class Store extends Component {
     this.context.addToFoodandToilet(foodCounter, toiletPaperCounter);
     this.setState({
       foodCounter: 0,
-      toiletPaperCounter: 0
+      toiletPaperCounter: 0,
+      disabled: true
     });
+    this.context.updateBuy(true)
   };
 
   tooMuch = () => {
@@ -82,7 +85,7 @@ export default class Store extends Component {
   };
 
   original = () => {
-    const { foodCounter, toiletPaperCounter } = this.state;
+    const { foodCounter, toiletPaperCounter, disabled } = this.state;
     return (
       <div className="store">
         <p>
@@ -102,7 +105,7 @@ export default class Store extends Component {
           <button onClick={this.handlePlusTp}>+</button>
           <button onClick={this.handleMinusTp}>-</button>
         </div>
-        <button className="checkout-button" onClick={this.handleCheckout}>
+        <button disabled={disabled} className="checkout-button" onClick={this.handleCheckout}>
           Buy
         </button>
       </div>
