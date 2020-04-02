@@ -52,7 +52,7 @@ export default class MarketPage extends Component {
         </div>
         {this.context.renderCurve && <Curveball />}
         <div className="cart">
-          <button disabled={disabled} onClick={this.handleShop}>
+          <button disabled={disabled || this.context.buyOnce} onClick={this.handleShop}>
             <FontAwesomeIcon icon="shopping-cart" />
           </button>
         </div>

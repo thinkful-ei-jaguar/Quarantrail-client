@@ -31,12 +31,12 @@ export default class ParkPage extends Component {
           <Day />
         </div>
         <Stock />
-        <Link to="/">
-          {/* <button disabled={disabled} onClick={this.updateLocation}><FontAwesomeIcon icon="home" /></button> */}
-          <button onClick={this.updateLocation}>
-            <FontAwesomeIcon icon="home" />
-          </button>
-        </Link>
+        <div className='map'>
+          <Link to="/">
+            {/* <button disabled={disabled} onClick={this.updateLocation}><FontAwesomeIcon icon="home" /></button> */}
+            <button onClick={this.updateLocation}><FontAwesomeIcon icon="home" /></button>
+          </Link>
+        </div>
         {/*this.context.renderCurve && <Curveball />*/}
         <PetActivities />
         <Sound url={soundPark} playStatus={Sound.status.PLAYING} loop={true} />

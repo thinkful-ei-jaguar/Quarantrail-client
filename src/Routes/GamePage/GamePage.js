@@ -15,6 +15,7 @@ import Sound from 'react-sound'
 import soundGame from '../../Sound/8bitsurf.mp3'
 import Pet from '../../Components/Pet/Pet'
 //import TV from '../../Components/TV/TV'
+import Phone from '../../Components/Phone/Phone'
 export default class GamePage extends Component {
   static contextType = PersonContext;
   constructor(props) {
@@ -107,6 +108,7 @@ export default class GamePage extends Component {
           <StatusBar />
           <Day />
         </div>
+        {this.context.renderPhone && <Phone />}
         <Character active={this.state.active} />
         <Pet/>
         <Stock />

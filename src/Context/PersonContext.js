@@ -11,6 +11,10 @@ const PersonContext= React.createContext({
     curveball: false,
     renderCurve: false,
     washHands: false,
+    buyOnce: false,
+    renderPhone: false,
+    updatePhone: () => {},
+    updateBuy: () => {},
     updateCurve: () => {},
     updateRenderCurve: () => {},
     setDeath:()=>{},
@@ -45,6 +49,16 @@ export class PersonProvider extends Component {
       curveball: false,
       renderCurve: false,
       washHands: false,
+      buyOnce: false,
+      renderPhone: false
+    }
+
+    updatePhone = bool => {
+      this.setState({renderPhone: bool})
+    }
+
+    updateBuy = bool => {
+      this.setState({buyOnce: bool})
     }
 
     setDeath = death =>{
@@ -228,6 +242,10 @@ export class PersonProvider extends Component {
         curveball: this.state.curveball,
         renderCurve: this.state.renderCurve,
         washHands: this.state.washHands,
+        buyOnce: this.state.buyOnce,
+        renderPhone: this.state.renderPhone,
+        updatePhone: this.updatePhone,
+        updateBuy: this.updateBuy,
         updateCurve: this.updateCurve,
         updateRenderCurve: this.updateRenderCurve,
         incrementActivity: this.incrementActivity,

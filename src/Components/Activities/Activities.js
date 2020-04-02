@@ -39,6 +39,7 @@ export default class Activities extends Component {
   handlePhone = () => {
     this.context.addToBoredom(-10);
     this.context.incrementActivity();
+    this.context.updatePhone(true)
     if (this.context.dailyActivities === 2) {
       this.renderSleep();
     }
@@ -76,6 +77,7 @@ export default class Activities extends Component {
       toiletpaper: this.context.starter.toiletpaper - 0.5,
       food: this.context.starter.food - 1
     };
+    this.context.updateBuy(false)
     this.context.setPersonInfo(newData);
     this.context.setWash(false);
   };
