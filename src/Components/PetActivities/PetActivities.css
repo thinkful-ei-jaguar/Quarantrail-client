@@ -1,0 +1,17 @@
+.activityBar div button img,
+.activityBar div button svg {
+  width: 20px;
+  height: auto;
+}
+
+.activityBar div button:disabled #row {
+  fill: rgb(116, 116, 116);
+}
+
+@media screen and (min-width: 720px) {
+  .activityBar div button img,
+  .activityBar div button svg {
+    width: 30px;
+    height: auto;
+  }
+}

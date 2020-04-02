@@ -8,7 +8,7 @@ import Instruction from "../Instruction/Instruction";
 import Footer from "../Footer/Footer";
 import EndPage from "../../Routes/EndPage/EndPage";
 import SimpleGame from "../../Components/SimpleGame/SimpleGame";
-import miniGame from '../../Components/minigame/minigame'
+import miniGame from "../../Components/minigame/minigame";
 
 import BooleanContext from "../../Context/BooleanContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -24,19 +24,15 @@ import {
   faUtensils,
   faUserFriends,
   faBed,
-<<<<<<< HEAD
   faBoxOpen,
   faShoppingCart,
   faHome,
   faRunning,
-  faCamera,
-  faBreadSlice,
-  faDog,
   faBone,
-  faBrush,
-=======
-  faBoxOpen
->>>>>>> minigame
+  faVirus,
+  faFlushed,
+  faIcons,
+  faComment
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
@@ -56,11 +52,11 @@ library.add(
   faShoppingCart,
   faHome,
   faRunning,
-  faCamera,
-  faBreadSlice,
-  faDog,
   faBone,
-  faBrush,
+  faVirus,
+  faFlushed,
+  faIcons,
+  faComment
 );
 
 class App extends Component {
