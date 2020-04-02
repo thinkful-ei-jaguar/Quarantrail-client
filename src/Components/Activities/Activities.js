@@ -8,7 +8,12 @@ export default class Activities extends Component {
   static contextType = PersonContext;
 
   state = {
-    disabled: false
+    disabled: false,
+    viewActivities: false
+  };
+
+  handleClickViewActivities = () => {
+    this.setState({ viewActivities: !this.state.viewActivities });
   };
 
   handleWashHands = () => {
@@ -23,6 +28,7 @@ export default class Activities extends Component {
   handleTakeout = () => {
     this.context.addToHealth(10);
     this.context.addToBoredom(-10);
+    this.context.incrementActivity();
     if (this.context.dailyActivities === 2) {
       this.renderSleep();
     }
@@ -39,7 +45,7 @@ export default class Activities extends Component {
   handlePhone = () => {
     this.context.addToBoredom(-10);
     this.context.incrementActivity();
-    this.context.updatePhone(true)
+    this.context.updatePhone(true);
     if (this.context.dailyActivities === 2) {
       this.renderSleep();
     }
@@ -59,10 +65,6 @@ export default class Activities extends Component {
     this.context.clearActivites();
   };
 
-  renderSleep = () => {
-    this.setState({ activites: 0, disabled: true });
-  };
-
   handleNextDay = () => {
     this.setState({ disabled: false });
     if (this.context.curveball === false) {
@@ -77,61 +79,66 @@ export default class Activities extends Component {
       toiletpaper: this.context.starter.toiletpaper - 0.5,
       food: this.context.starter.food - 1
     };
-    this.context.updateBuy(false)
+    this.context.updateBuy(false);
     this.context.setPersonInfo(newData);
     this.context.setWash(false);
   };
 
   render() {
-    const { disabled } = this.state;
+    const { disabled, viewActivities } = this.state;
     const { washHands } = this.context;
     return (
-      <div className="activity-bar">
-        <h1>Activities:</h1>
-        <button
-          className="mybutton"
-          disabled={disabled}
-          onClick={this.handleVideoGame}
-        >
-          <FontAwesomeIcon icon="gamepad" />
+      <div className="activityBar">
+        <button onClick={this.handleClickViewActivities}>
+          <FontAwesomeIcon icon="icons" />
         </button>
-        <button
-          className="mybutton"
-          disabled={disabled}
-          onClick={this.handlePhone}
-        >
-          <FontAwesomeIcon icon="mobile-alt" />
-        </button>
-        <button
-          className="mybutton"
-          disabled={disabled}
-          onClick={this.handleFriends}
-        >
-          <FontAwesomeIcon icon="users" />
-        </button>
-        <button
-          className="mybutton"
-          disabled={disabled}
-          onClick={this.handleTakeout}
-        >
-          <FontAwesomeIcon icon="utensils" />
-        </button>
-        <Link to={"/washHands"}>
-          <button
-            className="mybutton"
-            disabled={washHands || disabled}
-            onClick={this.handleWashHands}
-          >
-            <FontAwesomeIcon icon="soap" />
-          </button>
-        </Link>
-        <button
-          className="mybutton"
-          disabled={!disabled}
-          onClick={this.handleNextDay}
-        >
-          <FontAwesomeIcon icon="bed" />
-        </button>
+        {viewActivities && (
+          <div>
+            <p>Activities</p>
+            <button
+              className="mybutton"
+              disabled={disabled}
+              onClick={this.handleVideoGame}
+            >
+              <FontAwesomeIcon icon="gamepad" />
+            </button>
+            <button
+              className="mybutton"
+              disabled={disabled}
+              onClick={this.handlePhone}
+            >
+              <FontAwesomeIcon icon="mobile-alt" />
+            </button>
+            <button
+              className="mybutton"
+              disabled={disabled}
+              onClick={this.handleFriends}
+            >
+              <FontAwesomeIcon icon="users" />
+            </button>
+            <button
+              className="mybutton"
+              disabled={disabled}
+              onClick={this.handleTakeout}
+            >
+              <FontAwesomeIcon icon="utensils" />
+            </button>
+            <button
+              className="mybutton"
+              disabled={washHands || disabled}
+              onClick={this.handleWashHands}
+            >
+              <FontAwesomeIcon icon="soap" />
+            </button>
+            <button
+              className="mybutton"
+              disabled={!disabled}
+              onClick={this.handleNextDay}
+            >
+              <FontAwesomeIcon icon="bed" />
+            </button>
+          </div>
+        )}
       </div>
     );
   }

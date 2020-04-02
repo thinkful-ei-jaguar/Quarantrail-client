@@ -1,4 +1,76 @@
-.activity-bar {
+.activityBar {
+  position: absolute;
+  left: 1%;
+  bottom: 14%;
+  border-radius: 3px;
+  display: flex;
+}
+
+.activityBar > button {
+  width: 60px;
+  height: 60px;
+  border-radius: 3px;
+  background-color: rgb(241, 248, 137);
+}
+
+.activityBar > button:hover {
+  background-color: rgb(216, 140, 70);
+}
+
+.activityBar div {
+  color: rgb(116, 116, 116);
+  background-color: rgba(255, 255, 255, 0.582);
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.activityBar div p {
+  margin-bottom: 4px;
+}
+
+.activityBar div button {
+  border: none;
+  border-radius: 3px;
+  width: 30px;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+.activityBar div button:hover {
+  background-color: rgb(216, 140, 70);
+}
+
+.activityBar div button:disabled {
+  color: rgb(116, 116, 116);
+  background-color: transparent;
+  cursor: default;
+}
+
+@media screen and (min-width: 720px) {
+  .activityBar {
+    bottom: 12%;
+  }
+
+  .activityBar > button {
+    width: 80px;
+    height: 80px;
+  }
+
+  .activityBar div p {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .activityBar div button {
+    width: 50px;
+    font-size: 30px;
+    margin: 0 10px;
+  }
+}
+
+/* .activity-bar {
   position: fixed;
   width: 100%;
   bottom: 10%;
@@ -45,4 +117,4 @@
   .activity-bar {
     width: 50%;
   }
-}
+} */

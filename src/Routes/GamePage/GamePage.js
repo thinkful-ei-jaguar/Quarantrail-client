@@ -11,18 +11,18 @@ import Day from "../../Components/Day/Day";
 import gameService from "../../services/gameService";
 import Curveball from "../../Components/Curveball.js/Curveball";
 import Character from "../../Components/Character/Character";
-import Sound from 'react-sound'
-import soundGame from '../../Sound/8bitsurf.mp3'
-import Pet from '../../Components/Pet/Pet'
+import Sound from "react-sound";
+import soundGame from "../../Sound/8bitsurf.mp3";
+import Pet from "../../Components/Pet/Pet";
 //import TV from '../../Components/TV/TV'
-import Phone from '../../Components/Phone/Phone'
+import Phone from "../../Components/Phone/Phone";
 export default class GamePage extends Component {
   static contextType = PersonContext;
   constructor(props) {
     super(props);
     this.state = {
       lose: false,
-      active:false
+      active: false
     };
   }
   componentDidMount() {
@@ -36,20 +36,20 @@ export default class GamePage extends Component {
         .catch(this.context.setError);
     }
     this.setState({
-      active:true
-    })
+      active: true
+    });
   }
 
   updateLocationM = () => {
-    this.context.updateLocation('market')
-    this.context.addToHealth(5)
-    if(this.context.curveball === false) {
-      const rand = Math.random()
-      if(rand < 0.5) {
-        this.context.updateRenderCurve(true)
+    this.context.updateLocation("market");
+    this.context.addToHealth(5);
+    if (this.context.curveball === false) {
+      const rand = Math.random();
+      if (rand < 0.5) {
+        this.context.updateRenderCurve(true);
       }
     }
-  }
+  };
 
   // updateLocationP = () => {
   //   this.context.updateLocation('park')
@@ -61,10 +61,10 @@ export default class GamePage extends Component {
   //     }
   //   }
   // }
-   
-  checkIfYadied=()=>{
-    const rand = Math.floor(Math.random() * 100) + 1
-    if(this.context.day > 5 && rand < this.context.starter.health) {
+
+  checkIfYadied = () => {
+    const rand = Math.floor(Math.random() * 100) + 1;
+    if (this.context.day > 5 && rand < this.context.starter.health) {
       this.context.setDeath("you caught the disease gg");
       this.setState({ lose: true });
     }
@@ -110,7 +110,7 @@ export default class GamePage extends Component {
         </div>
         {this.context.renderPhone && <Phone />}
         <Character active={this.state.active} />
-        <Pet/>
+        <Pet />
         <Stock />
         <Activities />
         <div className="map">
@@ -129,11 +129,11 @@ export default class GamePage extends Component {
           </Link>
         </div>
         {this.context.renderCurve && <Curveball />}
-        <Sound
+        {/* <Sound
           url={soundGame}
           playStatus={Sound.status.PLAYING}
           loop={true}
-        />
+        /> */}
       </section>
     );
   }
