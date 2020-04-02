@@ -107,7 +107,7 @@ export default class GamePage extends Component {
           <Day />
         </div>
         {this.context.renderPhone && <Phone />}
-        {/* <Character active={this.state.active} /> */}
+        <Character active={this.state.active} />
         <Stock />
         <Activities />
         <div className="map">
