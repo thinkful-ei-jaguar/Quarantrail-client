@@ -9,7 +9,7 @@ export default class Activities extends Component {
     state = {
       activites: 0,
       disabled: false,
-      washHands: false
+      washHands: false,
     }
 
     handleWashHands = () => {
@@ -41,7 +41,10 @@ export default class Activities extends Component {
     handlePhone = () => {
       this.context.addToBoredom(-10)
       this.context.incrementActivity()
-      this.setState({activites: this.state.activites +1})
+      this.context.updatePhone(true)
+      this.setState({
+        activites: this.state.activites +1,
+      })
       if(this.state.activites === 2) {
         this.renderSleep()
       }

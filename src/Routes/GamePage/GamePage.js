@@ -13,6 +13,7 @@ import Curveball from "../../Components/Curveball.js/Curveball";
 import Character from "../../Components/Character/Character";
 import Sound from 'react-sound'
 import soundGame from '../../Sound/8bitsurf.mp3'
+import Phone from '../../Components/Phone/Phone'
 export default class GamePage extends Component {
   static contextType = PersonContext;
   constructor(props) {
@@ -105,7 +106,8 @@ export default class GamePage extends Component {
           <StatusBar />
           <Day />
         </div>
-        <Character active={this.state.active} />
+        {this.context.renderPhone && <Phone />}
+        {/* <Character active={this.state.active} /> */}
         <Stock />
         <Activities />
         <div className="map">
