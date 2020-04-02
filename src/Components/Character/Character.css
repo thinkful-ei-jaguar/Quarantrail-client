@@ -1,5 +1,25 @@
+
+.character-active{
+  animation-name: myfirst;
+  animation-duration: 6s;
+  animation-play-state: running;
+  animation-iteration-count: 300;
+  position: initial;
+  border:1px solid black;
+}
+
+
+
+
+@keyframes myfirst {
+  0%  {margin-left: 45%; margin-right: 0%;}
+  50%   {margin-left: 0%; margin-right: 45%;}
+  100%  {margin-left: 45%; margin-right: 0%;}
+}
+
 @media screen and (min-width: 720px) {
   .character img {
     width: 450px;
   }
 }
+
