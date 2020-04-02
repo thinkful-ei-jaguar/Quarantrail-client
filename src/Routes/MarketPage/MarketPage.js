@@ -4,11 +4,11 @@ import PersonContext from "../../Context/PersonContext";
 import StatusBar from "../../Components/StatusBar/StatusBar";
 import Day from "../../Components/Day/Day";
 import Stock from "../../Components/Stock/Stock";
+import Music from "../../Components/Music/Music";
 import Store from "../../Components/Store/Store";
 import Curveball from "../../Components/Curveball.js/Curveball";
 import Character from "../../Components/Character/Character";
-import Sound from 'react-sound'
-import soundMarket from '../../Sound/feelsgood.mp3'
+import Song from "../../Sound/feelsgood.mp3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MarketPage.css";
 
@@ -52,16 +52,15 @@ export default class MarketPage extends Component {
         </div>
         {this.context.renderCurve && <Curveball />}
         <div className="cart">
-          <button disabled={disabled || this.context.buyOnce} onClick={this.handleShop}>
+          <button
+            disabled={disabled || this.context.buyOnce}
+            onClick={this.handleShop}
+          >
             <FontAwesomeIcon icon="shopping-cart" />
           </button>
         </div>
         <div className="store-section">{shopping && <Store />}</div>
-        <Sound
-          url={soundMarket}
-          playStatus={Sound.status.PLAYING}
-          loop={true}
-        />
+        <Music song={Song} />
       </section>
     );
   }

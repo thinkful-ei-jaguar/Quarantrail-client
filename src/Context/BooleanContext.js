@@ -7,14 +7,16 @@ const BooleanContext = React.createContext({
   start: true,
   userPage: false,
   game: false,
-  endgame:false,
+  endgame: false,
   curveball: false,
   renderCurve: false,
+  mute: false,
+  updateMute: () => {},
   updateCurve: () => {},
   updateRenderCurve: () => {},
   renderGame: () => {},
-  renderEndGame:()=>{},
-  renderRestart:()=>{},
+  renderEndGame: () => {},
+  renderRestart: () => {},
   renderUser: () => {},
   toggleLeader: () => {},
   toggleInstruct: () => {},
@@ -35,19 +37,24 @@ export class BooleanProvider extends Component {
     endgame: false,
     curveball: false,
     renderCurve: false,
+    mute: false
+  };
+
+  updateMute = () => {
+    this.setState({ mute: !this.state.mute });
   };
 
   updateCurve = bool => {
     this.setState({
       curveball: bool
-    })
-  }
+    });
+  };
 
   updateRenderCurve = bool => {
     this.setState({
       renderCurve: bool
-    })
-  }
+    });
+  };
 
   renderGame = () => {
     this.setState({
@@ -55,13 +62,12 @@ export class BooleanProvider extends Component {
       game: true
     });
   };
-  renderEndGame=()=>{
+  renderEndGame = () => {
     this.setState({
       game: false,
       endgame: true
     });
-    console.log("ok")
-  }
+  };
 
   renderUser = () => {
     this.setState({
@@ -70,15 +76,17 @@ export class BooleanProvider extends Component {
     });
   };
   renderRestart = () => {
-    this.setState({
-      start: true,
-      userPage: false,
-      game: false,
-      endgame: false,
-      renderCurve: false,
-    },()=>console.log(this.state));
+    this.setState(
+      {
+        start: true,
+        userPage: false,
+        game: false,
+        endgame: false,
+        renderCurve: false
+      },
+      () => console.log(this.state)
+    );
   };
-
 
   toggleLeader = () => {
     if (this.instructions === true) {
@@ -113,11 +121,13 @@ export class BooleanProvider extends Component {
       game: this.state.game,
       curveball: this.state.curveball,
       renderCurve: this.state.renderCurve,
+      mute: this.state.mute,
+      updateMute: this.updateMute,
       updateCurve: this.updateCurve,
       updateRenderCurve: this.updateRenderCurve,
       renderGame: this.renderGame,
-      renderEndGame:this.renderEndGame,
-      renderRestart:this.renderRestart,
+      renderEndGame: this.renderEndGame,
+      renderRestart: this.renderRestart,
       renderUser: this.renderUser,
       toggleLeader: this.toggleLeader,
       toggleInstruct: this.toggleInstruct,
