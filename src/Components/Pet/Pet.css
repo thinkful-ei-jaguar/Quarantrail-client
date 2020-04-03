@@ -1,4 +1,33 @@
 .pet{
 display: flex;
-position: inherit;
+position: absolute;
+bottom: 13%;
+right: 0%;
+z-index: 0;
 }
+.pet img {
+    width: 100px;
+    border-radius: 3px;
+}
+
+
+@media screen and (min-width: 720px) {
+    .pet{
+        bottom: 2%;
+        right: 3%;
+        }
+    .pet img {
+      width: 250px;
+    }
+  }
+  
+@media screen and (min-width: 1020px) {
+    .pet{
+        bottom: 7%;
+        right: 10%;
+        }
+    .pet img {
+      width: 250px;
+    }
+  }
+  

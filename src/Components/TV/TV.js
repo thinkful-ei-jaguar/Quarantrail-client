@@ -1,13 +1,19 @@
 import React, { Component } from "react";
-import TV from "../../Images/TV.svg";
+import PersonContext from "../../Context/PersonContext";
 import './TV.css'
 
 export default class Pet extends Component {
+  static contextType = PersonContext;
+  
   render(){
-  return (  
+  return ( 
+    <> 
     <div className="TV">
-      <p>okdwad</p>
+    <div className="TV-container">
     </div>
+    </div>
+    <button onClick={()=>this.context.turnTV(false)} class="tv-button">done</button>
+    </>
     )
   }
 }

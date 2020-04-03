@@ -4,7 +4,7 @@ const PersonContext= React.createContext({
     starter:{},
     error: null,
     name: '',
-    day:1,
+    day:0,
     dailyActivities: 0,
     location: 'home',
     dead:'',
