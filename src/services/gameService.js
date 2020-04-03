@@ -24,6 +24,15 @@ const gameService = {
                 ? res.json().then(e => Promise.reject(e))
                 : res.json() 
         })
+    },
+
+    getMeme(){
+        return fetch(`${config.API_ENDPOINT}/memes`)
+        .then(res =>{
+            return (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json() 
+        })
     }
 }
 
