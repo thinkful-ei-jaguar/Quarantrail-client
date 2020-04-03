@@ -33,13 +33,10 @@ export default class ParkPage extends Component {
         <Stock />
         <div className="map">
           <Link to="/">
-            {/* <button disabled={disabled} onClick={this.updateLocation}><FontAwesomeIcon icon="home" /></button> */}
-            <button onClick={this.updateLocation}>
-              <FontAwesomeIcon icon="home" />
-            </button>
+            <button disabled={disabled} onClick={this.updateLocation}><FontAwesomeIcon icon="home" /></button>
           </Link>
         </div>
-        {/*this.context.renderCurve && <Curveball />*/}
+        {this.context.renderCurve && <Curveball />}
         <PetActivities />
         <Music song={Song} />
       </section>

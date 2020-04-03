@@ -50,16 +50,16 @@ export default class GamePage extends Component {
     }
   };
 
-  // updateLocationP = () => {
-  //   this.context.updateLocation('park')
-  //   this.context.addToHealth(5)
-  //   if(this.context.curveball === false) {
-  //     const rand = Math.random()
-  //     if(rand < 0.5) {
-  //       this.context.updateRenderCurve(true)
-  //     }
-  //   }
-  // }
+  updateLocationP = () => {
+    this.context.updateLocation('park')
+    this.context.addToHealth(5)
+    if(this.context.curveball === false) {
+      const rand = Math.random()
+      if(rand < 0.5) {
+        this.context.updateRenderCurve(true)
+      }
+    }
+  }
 
   checkIfYadied = () => {
     const rand = Math.floor(Math.random() * 100) + 1;
@@ -116,10 +116,7 @@ export default class GamePage extends Component {
             </button>
           </Link>
           <Link to="/park">
-            {/* <button disabled={disabled} onClick={this.updateLocationP}>
-              <FontAwesomeIcon icon="tree" />
-            </button> */}
-            <button disabled={disabled}>
+            <button disabled={disabled} onClick={this.updateLocationP}>
               <FontAwesomeIcon icon="tree" />
             </button>
           </Link>
