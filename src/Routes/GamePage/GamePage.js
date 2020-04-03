@@ -107,9 +107,9 @@ export default class GamePage extends Component {
           <StatusBar />
           <Day />
         </div>
-        {this.context.day === 0 ? <TV /> : <></>}
-        <Character active={this.state.active} />
+        {this.context.TVon===true ? <TV /> : <></>}
         <Pet/>
+        <Character active={this.state.active} />
         <Stock />
         <Activities />
         <div className="map">

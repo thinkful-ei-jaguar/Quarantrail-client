@@ -30,6 +30,7 @@ export default class Activities extends Component {
 
   handleVideoGame = () => {
     this.context.addToBoredom(-10);
+    this.context.turnTV(true);
     this.context.incrementActivity();
     if (this.context.dailyActivities === 2) {
       this.renderSleep();
