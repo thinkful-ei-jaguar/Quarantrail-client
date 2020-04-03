@@ -31,7 +31,6 @@ export default class GamePage extends Component {
         .getGameinfo()
         .then(info => {
           this.context.setPersonInfo(info);
-          console.log(this.context);
         })
         .catch(this.context.setError);
     }
@@ -69,15 +68,12 @@ export default class GamePage extends Component {
       this.setState({ lose: true });
     }
     if (this.context.starter.health >= 100) {
-      console.log("dead");
       this.context.setDeath("you caught the disease gg");
       this.setState({ lose: true });
     } else if (this.context.starter.boredom >= 100) {
-      console.log("dead2");
       this.context.setDeath("you literally died of boredom");
       this.setState({ lose: true });
     } else if (this.context.starter.food === 0) {
-      console.log("dead3");
       this.context.setDeath(
         "you ran out of food had to go home and got the disease during the trip"
       );
@@ -86,7 +82,7 @@ export default class GamePage extends Component {
       this.context.setDeath(
         "you ran out of toilet paper you have been stuck in the bathroom for days"
       );
-      console.log("dead4");
+
       this.setState({ lose: true });
     }
   };

@@ -17,6 +17,7 @@ export default class Activities extends Component {
   };
 
   handleWashHands = () => {
+    this.context.updateActivityTracker({ washHands: 1 });
     this.context.addToHealth(-5);
     this.context.setWash(true);
     this.context.incrementActivity();
