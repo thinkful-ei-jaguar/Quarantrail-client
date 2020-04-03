@@ -4,9 +4,9 @@ import PersonContext from "../../Context/PersonContext";
 import StatusBar from "../../Components/StatusBar/StatusBar";
 import Day from "../../Components/Day/Day";
 import Stock from "../../Components/Stock/Stock";
+import Music from "../../Components/Music/Music";
 import Curveball from "../../Components/Curveball.js/Curveball";
-import Sound from "react-sound";
-import soundPark from "../../Sound/morningmagic.mp3";
+import Song from "../../Sound/morningmagic.mp3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PetActivities from "../../Components/PetActivities/PetActivities";
 
@@ -31,15 +31,17 @@ export default class ParkPage extends Component {
           <Day />
         </div>
         <Stock />
-        <div className='map'>
+        <div className="map">
           <Link to="/">
             {/* <button disabled={disabled} onClick={this.updateLocation}><FontAwesomeIcon icon="home" /></button> */}
-            <button onClick={this.updateLocation}><FontAwesomeIcon icon="home" /></button>
+            <button onClick={this.updateLocation}>
+              <FontAwesomeIcon icon="home" />
+            </button>
           </Link>
         </div>
         {/*this.context.renderCurve && <Curveball />*/}
         <PetActivities />
-        <Sound url={soundPark} playStatus={Sound.status.PLAYING} loop={true} />
+        <Music song={Song} />
       </section>
     );
   }

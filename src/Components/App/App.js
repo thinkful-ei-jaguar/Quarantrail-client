@@ -32,7 +32,9 @@ import {
   faVirus,
   faFlushed,
   faIcons,
-  faComment
+  faComment,
+  faVolumeUp,
+  faVolumeMute
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
@@ -56,7 +58,9 @@ library.add(
   faVirus,
   faFlushed,
   faIcons,
-  faComment
+  faComment,
+  faVolumeUp,
+  faVolumeMute
 );
 
 class App extends Component {
