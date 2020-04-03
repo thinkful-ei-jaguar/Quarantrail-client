@@ -16,18 +16,16 @@ button {
 button:hover {
   background-color: rgb(148, 148, 148);
   color: rgb(255, 255, 255);
-  border: 2px solid rgb(224, 224, 224);
-  font-size: 30px;
+  /* border: 2px solid rgb(224, 224, 224); */
+  /* font-size: 30px; */
 }
 
-@media screen and (min-width: 320px) and (max-width: 600px) and (orientation: landscape) {
-  html {
+/* @media (orientation: portrait) {
+  body {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
-    transform-origin: left top;
-    width: 100vh;
-    overflow-x: hidden;
-    position: absolute;
-    top: 100%;
-    left: 0;
   }
-}
+} */

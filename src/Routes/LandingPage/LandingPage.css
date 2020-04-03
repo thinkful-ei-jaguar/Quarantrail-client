@@ -1,32 +1,44 @@
-.landingpage {
+.landingPage {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: rgb(236, 228, 160);
+  background-color: rgb(224, 163, 163);
+  height: 90vh;
 }
 
-.landingpage img {
-  width: 200px;
+.landingPage img {
+  width: 180px;
   margin-bottom: 20px;
 }
 
-.landingpage h1 {
-  font-size: 35px;
+.landingPage .intro h1 {
+  font-size: 16px;
   text-align: center;
   margin-bottom: 5px;
 }
 
-.landingpage p {
-  font-size: 25px;
+.landingPage .intro p {
+  font-size: 14px;
+  text-align: center;
 }
 
-.landingpage button {
+.landingPage button {
   margin-top: 20px;
 }
 
-.landingpage .player {
+.landingPage .player {
   margin-top: 50px;
   font-size: 18px;
+}
+
+@media screen and (min-width: 720px) {
+  .landingPage img {
+    width: 500px;
+    margin-bottom: 20px;
+  }
 }
