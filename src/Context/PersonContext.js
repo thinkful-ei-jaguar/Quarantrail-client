@@ -14,6 +14,7 @@ const PersonContext = React.createContext({
   washHands: false,
   buyOnce: false,
   renderPhone: false,
+  TV:false,
   updatePhone: () => {},
   updateBuy: () => {},
   updateCurve: () => {},
@@ -43,13 +44,8 @@ export class PersonProvider extends Component {
   state = {
     starter: {},
     error: null,
-<<<<<<< HEAD
     name: '',
     day:0,
-=======
-    name: "",
-    day: 0,
->>>>>>> e37e5951151b59f9ce48670ff9f92f81b96a6118
     dailyActivities: 0,
     activityTracker: {},
     location: "home",
@@ -58,7 +54,8 @@ export class PersonProvider extends Component {
     renderCurve: false,
     washHands: false,
     buyOnce: false,
-    renderPhone: false
+    renderPhone: false,
+    TV:false,
   };
 
   updatePhone = bool => {
@@ -176,6 +173,11 @@ export class PersonProvider extends Component {
       }
     });
   };
+  turnTV = bool => {
+    this.setState({
+      TV: bool
+    });
+  };
 
   dailyTakeAwayFoodandToilet = (f, t) => {
     // let F=parseInt(f);
@@ -262,6 +264,7 @@ export class PersonProvider extends Component {
       washHands: this.state.washHands,
       buyOnce: this.state.buyOnce,
       renderPhone: this.state.renderPhone,
+      TV:this.state.TV,
       updatePhone: this.updatePhone,
       updateBuy: this.updateBuy,
       updateCurve: this.updateCurve,
@@ -283,7 +286,8 @@ export class PersonProvider extends Component {
       resetDay: this.resetDay,
       setWash: this.setWash,
       clearActivites: this.clearActivites,
-      updateActivityTracker: this.updateActivityTracker
+      updateActivityTracker: this.updateActivityTracker,
+      turnTV:this.turnTV,
     };
 
     return (

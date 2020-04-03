@@ -10,8 +10,8 @@ export default class Pet extends Component {
     <> 
     <div className="TV">
     <div className="TV-container">
-    </div>
-    </div>
+      </div>
+      </div>
     <button onClick={()=>this.context.turnTV(false)} class="tv-button">done</button>
     </>
     )
