@@ -9,6 +9,7 @@ import Curveball from "../../Components/Curveball.js/Curveball";
 import Song from "../../Sound/morningmagic.mp3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PetActivities from "../../Components/PetActivities/PetActivities";
+import "./ParkPage.css";
 
 export default class ParkPage extends Component {
   static contextType = PersonContext;
