@@ -11,17 +11,16 @@ import "./Character.css";
 // `;
 
 export default class Character extends Component {
-  render(){
-  let className = 'character';
-  if (this.props.active) {
-    className += ' character-active';
-  }
-  return (  
-    <div className={className}>
-      <img src={femaleChar} alt="character" />
-    </div>
-    )
+  render() {
+    let className = "character";
+    if (this.props.active) {
+      className += " character-active";
+    }
+    return (
+      <div className={className}>
+        <img src={femaleChar} alt="female character" />
+        <img src={femaleChar} alt="male character" />
+      </div>
+    );
   }
 }
-
-

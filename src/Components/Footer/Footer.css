@@ -23,3 +23,9 @@ footer {
   cursor: pointer;
   color: rgb(255, 255, 255);
 }
+
+@media screen and (min-width: 720px) {
+  .footer-item {
+    font-size: 18px;
+  }
+}
