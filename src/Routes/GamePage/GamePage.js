@@ -64,7 +64,7 @@ export default class GamePage extends Component {
   checkIfYadied = () => {
     const rand = Math.floor(Math.random() * 100) + 1;
     if (this.context.day > 5 && rand < this.context.starter.health) {
-      this.context.setDeath("you caught the disease gg");
+      this.context.setDeath(`you caught the disease from a ${this.context.starter.health}% chance`);
       this.setState({ lose: true });
     }
     if (this.context.starter.health >= 100) {
