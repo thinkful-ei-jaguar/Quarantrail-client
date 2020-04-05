@@ -14,7 +14,7 @@ import Curveball from "../../Components/Curveball.js/Curveball";
 import Character from "../../Components/Character/Character";
 import Song from "../../Sound/8bitsurf.mp3";
 import Pet from "../../Components/Pet/Pet";
-import TV from '../../Components/TV/TV'
+import TV from "../../Components/TV/TV";
 import Phone from "../../Components/Phone/Phone";
 export default class GamePage extends Component {
   static contextType = PersonContext;
@@ -51,15 +51,15 @@ export default class GamePage extends Component {
   };
 
   updateLocationP = () => {
-    this.context.updateLocation('park')
-    this.context.addToHealth(5)
-    if(this.context.curveball === false) {
-      const rand = Math.random()
-      if(rand < 0.5) {
-        this.context.updateRenderCurve(true)
+    this.context.updateLocation("park");
+    this.context.addToHealth(5);
+    if (this.context.curveball === false) {
+      const rand = Math.random();
+      if (rand < 0.5) {
+        this.context.updateRenderCurve(true);
       }
     }
-  }
+  };
 
   checkIfYadied = () => {
     const rand = Math.floor(Math.random() * 100) + 1;
@@ -105,8 +105,8 @@ export default class GamePage extends Component {
           <Day />
         </div>
         {this.context.renderPhone && <Phone />}
-        {this.context.TV &&<TV/>}
-        <Character active={this.state.active} />
+        {this.context.TV && <TV />}
+        <Character selectCharacter={false} />
         <Pet />
         <Stock />
         <Activities />

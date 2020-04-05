@@ -19,3 +19,16 @@
 form {
   height: 50px;
 }
+
+.startPage-inputbox input {
+  height: 20px;
+  width: 120px;
+}
+
+@media screen and (min-width: 720px) {
+  .startPage-inputbox input {
+    height: 25px;
+    width: 160px;
+    font-size: 18px;
+  }
+}

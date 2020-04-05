@@ -19,22 +19,19 @@ export default class Character extends Component {
   };
 
   selectFemale = event => {
-    this.context.setCharacter(event.target);
+    this.context.setCharacter("female");
     this.setState({ character: "female" });
   };
 
   selectMale = event => {
-    this.context.setCharacter(event.target);
+    this.context.setCharacter("male");
     this.setState({ character: "male" });
   };
 
-  render() {
-    let className = "char";
-
+  selectCharacter = () => {
     return (
       <div className="character">
         <h1>Select your player</h1>
-
         <ul>
           <li
             onClick={this.selectFemale}
@@ -52,6 +49,22 @@ export default class Character extends Component {
           </li>
         </ul>
       </div>
+    );
+  };
+
+  renderCharacter = () => {
+    if (this.context.character === "female") {
+      return <img src={femaleChar} alt="female character" />;
+    }
+    return <img src={femaleChar} alt="male character" />;
+  };
+
+  render() {
+    return (
+      <>
+        {this.props.selectCharacter && this.selectCharacter()}
+        {!this.props.selectCharacter && this.renderCharacter()}
+      </>
     );
   }
 }

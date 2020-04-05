@@ -6,8 +6,8 @@ import Day from "../../Components/Day/Day";
 import Stock from "../../Components/Stock/Stock";
 import Music from "../../Components/Music/Music";
 import Store from "../../Components/Store/Store";
-import Curveball from "../../Components/Curveball.js/Curveball";
 import Character from "../../Components/Character/Character";
+import Curveball from "../../Components/Curveball.js/Curveball";
 import Song from "../../Sound/feelsgood.mp3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MarketPage.css";
@@ -41,7 +41,7 @@ export default class MarketPage extends Component {
           <StatusBar />
           <Day />
         </div>
-        <Character />
+        <Character selectCharacter={false} />
         <Stock />
         <div className="map">
           <Link to="/">

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import StatusBar from "../../Components/StatusBar/StatusBar";
 import Day from "../../Components/Day/Day";
+import Character from "../../Components/Character/Character";
 import Stock from "../../Components/Stock/Stock";
 import Music from "../../Components/Music/Music";
 import Curveball from "../../Components/Curveball.js/Curveball";
@@ -30,10 +31,13 @@ export default class ParkPage extends Component {
           <StatusBar />
           <Day />
         </div>
+        <Character selectCharacter={false} />
         <Stock />
         <div className="map">
           <Link to="/">
-            <button disabled={disabled} onClick={this.updateLocation}><FontAwesomeIcon icon="home" /></button>
+            <button disabled={disabled} onClick={this.updateLocation}>
+              <FontAwesomeIcon icon="home" />
+            </button>
           </Link>
         </div>
         {this.context.renderCurve && <Curveball />}

@@ -1,0 +1,24 @@
+.grassField {
+  position: relative;
+  margin: 50px auto;
+  width: 600px;
+  height: 600px;
+  border: 5px solid rgb(153, 140, 148);
+  background-color: rgb(157, 235, 157);
+}
+
+.catLength {
+  position: absolute;
+  width: 4%;
+  height: 4%;
+  background-color: rgb(83, 71, 65);
+  border: 1px solid white;
+  z-index: 2;
+}
+
+.catTreat {
+  position: absolute;
+  width: 4%;
+  height: 4%;
+  z-index: 1;
+}

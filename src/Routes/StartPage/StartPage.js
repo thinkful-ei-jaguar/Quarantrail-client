@@ -13,7 +13,11 @@ export default class StartPage extends Component {
 
   handleStartGame = event => {
     event.preventDefault();
-    this.props.context.renderGame();
+    if (!this.context.character) {
+      alert("Please select a player");
+    } else {
+      this.props.context.renderGame();
+    }
   };
 
   updateName = event => {
@@ -24,7 +28,7 @@ export default class StartPage extends Component {
   render() {
     return (
       <div className="startPage">
-        <Character />
+        <Character selectCharacter={true} />
         <form className="nameForm" onSubmit={e => this.handleStartGame(e)}>
           <div className="startPage-inputbox">
             <label htmlFor="name">Name </label>
