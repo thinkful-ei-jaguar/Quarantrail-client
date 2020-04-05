@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import femaleChar from "../../Images/FemaleChar.svg";
-import boyChar from "../../Images/boyChar.svg";
+import MaleChar from "../../Images/MaleChar.svg";
 import "./Character.css";
 // import styled, { keyframes } from 'styled-components';
 // import { bounce } from 'react-animations';
@@ -20,7 +20,7 @@ export default class Character extends Component {
   
   return (  
     <div className={className}>
-      <img className='boy' src={boyChar} alt="character" />
+      <img className='boy' src={MaleChar} alt="character" />
       <img src={femaleChar} alt="character" />
     </div>
     )

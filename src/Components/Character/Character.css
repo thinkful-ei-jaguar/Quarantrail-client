@@ -1,7 +1,3 @@
-.boy {
-  opacity: 70%;
-}
-
 .character-active{
   animation-name: myfirst;
   animation-duration: 6s;
