@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import femaleChar from "../../Images/FemaleChar.svg";
+import boyChar from "../../Images/boyChar.svg";
 import "./Character.css";
 // import styled, { keyframes } from 'styled-components';
 // import { bounce } from 'react-animations';
@@ -16,8 +17,10 @@ export default class Character extends Component {
   if (this.props.active) {
     className += ' character-active';
   }
+  
   return (  
     <div className={className}>
+      <img className='boy' src={boyChar} alt="character" />
       <img src={femaleChar} alt="character" />
     </div>
     )

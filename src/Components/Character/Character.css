@@ -1,3 +1,6 @@
+.boy {
+  opacity: 70%;
+}
 
 .character-active{
   animation-name: myfirst;
@@ -7,9 +10,6 @@
   position: initial;
   border:1px solid black;
 }
-
-
-
 
 @keyframes myfirst {
   0%  {margin-left: 45%; margin-right: 0%;}
