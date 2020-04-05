@@ -4,6 +4,10 @@
   height: 90vh;
 }
 
+.startPage {
+  background-color: rgb(224, 163, 163);
+}
+
 .startPage,
 .nameForm {
   display: flex;
@@ -13,5 +17,5 @@
 }
 
 form {
-  height: 100px;
+  height: 50px;
 }

@@ -6,7 +6,6 @@
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: rgb(236, 228, 160);
   background-color: rgb(224, 163, 163);
   height: 90vh;
 }
@@ -32,7 +31,7 @@
   text-align: center;
 }
 
-.landingPage button {
+.introButton {
   margin-top: 20px;
   background-color: rgb(236, 228, 160);
   font-size: 20px;
@@ -40,7 +39,7 @@
   cursor: pointer;
 }
 
-.landingPage button:hover {
+.introButton:hover {
   background-color: rgb(209, 192, 41);
   color: rgb(255, 255, 255);
 }
@@ -72,7 +71,7 @@
     font-size: 18px;
   }
 
-  .landingPage button {
+  .introButton {
     margin-top: 60px;
     font-size: 26px;
     width: 130px;
@@ -94,7 +93,7 @@
     line-height: 35px;
   }
 
-  .landingPage button {
+  .introButton {
     margin-top: 10px;
   }
 }

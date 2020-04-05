@@ -22,7 +22,9 @@ export default class LandingPage extends Component {
             boredom and risk in QuaranTrail.
           </p>
         </div>
-        <button onClick={this.context.renderUser}>Start</button>
+        <button className="introButton" onClick={this.context.renderUser}>
+          Start
+        </button>
         {/* <p className="player">1 Player</p> */}
         <Music song={Song} />
       </div>

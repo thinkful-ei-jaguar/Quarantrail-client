@@ -36,7 +36,7 @@ export default class StartPage extends Component {
               required
             ></input>
           </div>
-          <button>Submit</button>
+          <button className="introButton">Submit</button>
         </form>
         <Music song={Song} />
       </div>

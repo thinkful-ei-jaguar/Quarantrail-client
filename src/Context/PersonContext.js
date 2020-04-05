@@ -4,6 +4,7 @@ const PersonContext = React.createContext({
   starter: {},
   error: null,
   name: "",
+  character: null,
   day: 1,
   dailyActivities: 0,
   activityTracker: {},
@@ -14,13 +15,14 @@ const PersonContext = React.createContext({
   washHands: false,
   buyOnce: false,
   renderPhone: false,
-  TV:false,
+  TV: false,
   updatePhone: () => {},
   updateBuy: () => {},
   updateCurve: () => {},
   updateRenderCurve: () => {},
   setDeath: () => {},
   setName: () => {},
+  setCharacter: () => {},
   setPersonInfo: () => {},
   setError: () => {},
   clearError: () => {},
@@ -44,8 +46,9 @@ export class PersonProvider extends Component {
   state = {
     starter: {},
     error: null,
-    name: '',
-    day:0,
+    name: "",
+    character: null,
+    day: 0,
     dailyActivities: 0,
     activityTracker: {},
     location: "home",
@@ -55,7 +58,7 @@ export class PersonProvider extends Component {
     washHands: false,
     buyOnce: false,
     renderPhone: false,
-    TV:false,
+    TV: false
   };
 
   updatePhone = bool => {
@@ -72,6 +75,10 @@ export class PersonProvider extends Component {
 
   setName = user => {
     this.setState({ name: user });
+  };
+
+  setCharacter = character => {
+    this.setState({ character });
   };
 
   setPersonInfo = info => {
@@ -254,6 +261,7 @@ export class PersonProvider extends Component {
       starter: this.state.starter,
       error: this.state.error,
       name: this.state.name,
+      character: this.state.character,
       dailyActivities: this.state.dailyActivities,
       activityTracker: this.state.activityTracker,
       location: this.state.location,
@@ -264,7 +272,7 @@ export class PersonProvider extends Component {
       washHands: this.state.washHands,
       buyOnce: this.state.buyOnce,
       renderPhone: this.state.renderPhone,
-      TV:this.state.TV,
+      TV: this.state.TV,
       updatePhone: this.updatePhone,
       updateBuy: this.updateBuy,
       updateCurve: this.updateCurve,
@@ -272,6 +280,7 @@ export class PersonProvider extends Component {
       incrementActivity: this.incrementActivity,
       setDeath: this.setDeath,
       setName: this.setName,
+      setCharacter: this.setCharacter,
       setPersonInfo: this.setPersonInfo,
       setError: this.setError,
       clearError: this.clearError,
@@ -287,7 +296,7 @@ export class PersonProvider extends Component {
       setWash: this.setWash,
       clearActivites: this.clearActivites,
       updateActivityTracker: this.updateActivityTracker,
-      turnTV:this.turnTV,
+      turnTV: this.turnTV
     };
 
     return (
