@@ -26,6 +26,8 @@ export default class GamePage extends Component {
     };
   }
   componentDidMount() {
+    console.log(this.state);
+    console.log(this.context);
     if (this.context.day === 0) {
       gameService
         .getGameinfo()
@@ -73,12 +75,12 @@ export default class GamePage extends Component {
     } else if (this.context.starter.boredom >= 100) {
       this.context.setDeath("you literally died of boredom");
       this.setState({ lose: true });
-    } else if (this.context.starter.food === 0) {
+    } else if (this.context.starter.food <= 0) {
       this.context.setDeath(
         "you ran out of food had to go home and got the disease during the trip"
       );
       this.setState({ lose: true });
-    } else if (this.context.starter.toiletpaper === 0) {
+    } else if (this.context.starter.toiletpaper <= 0) {
       this.context.setDeath(
         "you ran out of toilet paper you have been stuck in the bathroom for days"
       );
