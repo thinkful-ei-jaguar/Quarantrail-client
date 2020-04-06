@@ -32,3 +32,8 @@ form {
     font-size: 18px;
   }
 }
+
+.characters {
+  display: flex;
+  flex-direction: row;
+}
