@@ -13,14 +13,14 @@ export default class WashGame extends Component {
   }
 
   render() {
-    let hands_class = this.state.wash ? 'hand rotateRight' : 'hand rotateLeft';
+    let hands_class = this.state.wash ? 'rotateRight' : 'rotateLeft';
     return(
       <>
       <div className='hands'>
-        <div className={hands_class}></div>
-        <div className={hands_class}></div>
+        <div className={hands_class} id='left-hand'></div>
+        <div className={hands_class} id='right-hand'></div>
       </div>
-      <button onClick={this.wash}>Wash</button>
+      <button className='wash-button' onClick={this.wash}>Wash</button>
       </>
     )
   }

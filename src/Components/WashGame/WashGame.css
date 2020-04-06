@@ -1,8 +1,19 @@
-.hand {
-  width: 50px;
-  height: 200px;
-  border: 1px solid black;
-  background-color: peachpuff;
+#left-hand {
+  background-image: url("../../Images/left-hand.svg");
+  width: 75px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+}
+
+#right-hand {
+  background-image: url("../../Images/right-hand.svg");
+  width: 75px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
 }
 
 .rotateRight {
@@ -18,7 +29,15 @@
 .hands {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   margin: 20px;
   width: 100%;
+  position: absolute;
+  top: 38%;
+  left: 42%
+}
+
+.wash-button {
+  position: absolute;
+  bottom: 20%;
+  left: 43%;
 }

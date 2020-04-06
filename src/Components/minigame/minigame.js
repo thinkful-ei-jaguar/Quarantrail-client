@@ -86,14 +86,14 @@ export default class BestGameEver extends Component {
   render() {
     const { ready, done } = this.state
     return (
-      <>
+      <section className='mini-game-section'>
       <div className='mini-game-timer-container'>
         <div id='myBar' className='mini-game-timer-filler'></div>
       </div>
-      {!ready && <button onClick={this.ready}>Ready</button>}
+      {!ready && <button className='ready-button' onClick={this.ready}>Ready</button>}
       {ready && <WashGame changeCount={this.changeCount}/>}
       {done && this.doneScreen()}
-      </>
+      </section>
     )
   }
 }
