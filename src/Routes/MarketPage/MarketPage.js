@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link ,Redirect} from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import StatusBar from "../../Components/StatusBar/StatusBar";
 import Day from "../../Components/Day/Day";
@@ -15,8 +15,32 @@ import "./MarketPage.css";
 export default class MarketPage extends Component {
   static contextType = PersonContext;
 
-  state = {
-    shopping: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      lose: false,
+      shopping:false
+    };
+  }
+
+  checkIfYadied = () => {
+    if (this.context.starter.health >= 100) {
+      this.context.setDeath("you caught the disease gg");
+      this.setState({ lose: true });
+    } else if (this.context.starter.boredom >= 100) {
+      this.context.setDeath("you literally died of boredom");
+      this.setState({ lose: true });
+    } else if (this.context.starter.food <= 0) {
+      this.context.setDeath(
+        "you ran out of food had to go home and got the disease during the trip"
+      );
+      this.setState({ lose: true });
+    } else if (this.context.starter.toiletpaper <= 0) {
+      this.context.setDeath(
+        "you ran out of toilet paper you have been stuck in the bathroom for days"
+      );
+      this.setState({ lose: true });
+    }
   };
 
   handleShop = () => {
@@ -28,6 +52,11 @@ export default class MarketPage extends Component {
   };
 
   render() {
+    this.checkIfYadied();
+    if (this.state.lose === true) {
+      this.setState({lose:false});
+      return <Redirect to="/end" />;
+    }
     let disabled;
     if (this.context.renderCurve) {
       disabled = true;
