@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import PersonContext from "../../Context/PersonContext";
 import "./StartPage.css";
 import Music from "../../Components/Music/Music";
-import CharacterMale from "../../Components/CharacterMale/CharacterMale";
-import CharacterFemale from "../../Components/CharacterFemale/CharacterFemale";
+import Character from "../../Components/Character/Character";
 import Song from "../../Sound/8bitmenu.mp3";
 import keyboard from "../../Sound/keyboard.mp3";
 import UIfx from "uifx";
@@ -39,14 +38,7 @@ export default class StartPage extends Component {
   render() {
     return (
       <div className="startPage">
-<<<<<<< HEAD
         <Character selectCharacter={true} />
-=======
-        <div className='characters'>
-          <div onClick={this.toggleMaleChar}><CharacterMale /></div>
-          <div onClick={this.toggleFemaleChar}><CharacterFemale /></div>
-        </div>
->>>>>>> jaye/features
         <form className="nameForm" onSubmit={e => this.handleStartGame(e)}>
           <div className="startPage-inputbox">
             <label htmlFor="name">Name </label>
