@@ -7,7 +7,8 @@ import Stock from "../../Components/Stock/Stock";
 import Music from "../../Components/Music/Music";
 import Store from "../../Components/Store/Store";
 import Curveball from "../../Components/Curveball.js/Curveball";
-import Character from "../../Components/Character/Character";
+import CharacterMale from "../../Components/CharacterMale/CharacterMale";
+import CharacterFemale from "../../Components/CharacterFemale/CharacterFemale";
 import Song from "../../Sound/feelsgood.mp3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MarketPage.css";
@@ -41,7 +42,7 @@ export default class MarketPage extends Component {
           <StatusBar />
           <Day />
         </div>
-        <Character />
+        {this.context.character === 'male' ? <CharacterMale active={this.state.active} /> : <CharacterFemale active={this.state.active} />}
         <Stock />
         <div className="map">
           <Link to="/">

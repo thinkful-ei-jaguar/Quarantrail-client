@@ -11,7 +11,8 @@ import FirstDay from "../../Components/FirstDay/FirstDay";
 import Day from "../../Components/Day/Day";
 import gameService from "../../services/gameService";
 import Curveball from "../../Components/Curveball.js/Curveball";
-import Character from "../../Components/Character/Character";
+import CharacterMale from "../../Components/CharacterMale/CharacterMale";
+import CharacterFemale from "../../Components/CharacterFemale/CharacterFemale";
 import Song from "../../Sound/8bitsurf.mp3";
 import Pet from "../../Components/Pet/Pet";
 import TV from '../../Components/TV/TV'
@@ -106,7 +107,7 @@ export default class GamePage extends Component {
         </div>
         {this.context.renderPhone && <Phone />}
         {this.context.TV &&<TV/>}
-        <Character active={this.state.active} />
+        {this.context.character === 'male' ? <CharacterMale active={this.state.active} /> : <CharacterFemale active={this.state.active} />}
         <Pet />
         <Stock />
         <Activities />

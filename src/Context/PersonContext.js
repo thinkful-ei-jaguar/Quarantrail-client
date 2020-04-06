@@ -15,6 +15,8 @@ const PersonContext = React.createContext({
   buyOnce: false,
   renderPhone: false,
   TV:false,
+  character: "male",
+  updateChar: () => {},
   updatePhone: () => {},
   updateBuy: () => {},
   updateCurve: () => {},
@@ -56,7 +58,12 @@ export class PersonProvider extends Component {
     buyOnce: false,
     renderPhone: false,
     TV:false,
+    character: 'male',
   };
+
+  updateChar = char => {
+    this.setState({character: char})
+  }
 
   updatePhone = bool => {
     this.setState({ renderPhone: bool });
@@ -265,6 +272,8 @@ export class PersonProvider extends Component {
       buyOnce: this.state.buyOnce,
       renderPhone: this.state.renderPhone,
       TV:this.state.TV,
+      character: this.state.character,
+      updateChar: this.updateChar,
       updatePhone: this.updatePhone,
       updateBuy: this.updateBuy,
       updateCurve: this.updateCurve,
