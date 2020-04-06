@@ -18,7 +18,10 @@
 .mini-game-timer-container {
   border: 1px solid black;
   border-radius: 10px;
-  width: 80%;
+  width: 75%;
+  margin: 0 auto;
+  position: relative;
+  top: 1%;
 }
 
 .minigame-end-screen {
@@ -32,4 +35,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.mini-game-section {
+  background-image: url("../../Images/sink.svg");
+  background-size: cover;
+  width: 100vw;
+  height: 90vh;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+
+.ready-button {
+  position: absolute;
+  top: 50%;
+  left: 45%;
 }

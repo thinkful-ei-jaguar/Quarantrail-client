@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Activities.css";
@@ -86,9 +86,37 @@ export default class Activities extends Component {
     this.context.setWash(false);
   };
 
+  renderwashHandsButton = () => {
+    const { washHands } = this.context
+    const { disabled } = this.state
+    let button;
+    if (washHands) {
+      button = 
+      <button
+      className="mybutton"
+      disabled = {washHands || disabled}
+      onClick={this.handleWashHands}
+    >
+      <FontAwesomeIcon icon="soap" />
+    </button>
+    } else {
+      button = 
+      <Link
+      to='/washHands'>
+      <button
+        className="mybutton"
+        disabled = {washHands || disabled}
+        onClick={this.handleWashHands}
+      >
+        <FontAwesomeIcon icon="soap" />
+      </button>
+    </Link>
+    }
+    return button
+  }
+
   render() {
     const { disabled, viewActivities } = this.state;
-    const { washHands } = this.context;
     return (
       <div className="activityBar">
         <button onClick={this.handleClickViewActivities}>
@@ -125,13 +153,7 @@ export default class Activities extends Component {
             >
               <FontAwesomeIcon icon="utensils" />
             </button>
-            <button
-              className="mybutton"
-              disabled={washHands || disabled}
-              onClick={this.handleWashHands}
-            >
-              <FontAwesomeIcon icon="soap" />
-            </button>
+            {this.renderwashHandsButton()}
             <button
               className="mybutton"
               disabled={!disabled}
