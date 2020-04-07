@@ -22,6 +22,7 @@ export default class Phone extends Component {
 
   close = () => {
     this.context.updatePhone(false)
+    this.context.updateFeedback(true)
   }
 
   render() {

@@ -1,22 +1,50 @@
-import React, { PureComponent } from "react";
-import { GameEngine } from "react-game-engine";
-import { Box } from "../../renderers/Box";
-import { MoveBox } from "../../systems/boxMove"
+import React, { Component } from "react";
 import './Runner.css'
  
-export default class Runner extends PureComponent {
+export default class Runner extends Component {
+  
+  playerBox = () => {
+    return <div className='player'></div>
+  }
+
+  enemyBox = () => {
+    return <div className='enemy'></div>
+  }
+
+  renderEnemies = () => {
+    let enemy = new this.enemy()
+  }
+
+  movement = event => {
+    switch (event.key) {
+      case 'ArrowLeft':
+          console.log('left')
+          break;
+      case 'ArrowUp':
+          console.log('up')
+          break;
+      case 'ArrowRight':
+          console.log('right')
+          break;
+      case 'ArrowDown':
+          console.log('down')
+          break;
+      default: break;
+    }
+  }
+
   render() {
     return (
-      <GameEngine
-        style={{ width: 800, height: 600, backgroundColor: "blue" }}
-        systems={[MoveBox]}
-        entities={{
-          //-- Notice that each entity has a unique id (required)
-          //-- and a renderer property (optional). If no renderer
-          //-- is supplied with the entity - it won't get displayed.
-          box1: { x: 100,  y: 100, renderer: <Box />}
-        }}>
-      </GameEngine>
+      <section className='runner'>
+        <div className='player' onKeyDown={e => this.movement(e)} tabIndex="0" ></div>
+      </section>
     );
+  }
+}
+
+function enemy() {
+  this.newPos = function() {
+    this.x += 3;
+    this.y -= 3;
   }
 }

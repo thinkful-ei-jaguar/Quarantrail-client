@@ -10,6 +10,7 @@ import EndPage from "../../Routes/EndPage/EndPage";
 import SimpleGame from "../../Components/SimpleGame/SimpleGame";
 import miniGame from "../../Components/minigame/minigame";
 import FeedTreatGame from "../../Components/FeedTreatGame/FeedTreatGame";
+import Runner from '../../Components/Runner/Runner'
 
 import BooleanContext from "../../Context/BooleanContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -87,6 +88,7 @@ class App extends Component {
             <Route exact path={"/game"} component={SimpleGame} />
             <Route exact path={"/washHands"} component={miniGame} />
             <Route exact path={"/feedTreats"} component={FeedTreatGame} />
+            <Route exact path={"/runner"} component={Runner} />
           </Switch>
           {this.context.leader && <LeaderBoard />}
           {this.context.instructions && <Instruction />}
