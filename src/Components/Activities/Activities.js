@@ -117,6 +117,7 @@ export default class Activities extends Component {
 
   render() {
     const { disabled, viewActivities } = this.state;
+    const activitytrack =3 -this.context.dailyActivities;
     return (
       <div className="activityBar">
         <button onClick={this.handleClickViewActivities}>
@@ -124,7 +125,9 @@ export default class Activities extends Component {
         </button>
         {viewActivities && (
           <div>
-            <p>Activities</p>
+            <p>Activities
+              left: {(activitytrack===0)?0:activitytrack}
+            </p>
             <button
               className="mybutton"
               disabled={disabled}
