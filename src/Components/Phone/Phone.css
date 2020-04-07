@@ -1,28 +1,30 @@
 .phone {
   margin: auto;
-  background-color: white;
-  height: 450px;
-  width: 400px;
+  background-color: rgb(241, 248, 137);
+  height: 90%;
+  width: 50%;
   background-image: url("../../Images/phoneMockUpCopy.svg");
-  background-size: 260px 410px;
+  background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  bottom: 25%;
+  
 }
 
 .phonebutt {
   top: 0px;
   right: 0px;
-  width: 40px;
+  height: 10%;
+  width: 10%;
+  font-size: 40px;
   text-align: center;
   position: absolute;
 }
 
 .phone img {
-  width: 225px;
-  margin-left: 22%;
-  margin-top: 13%;
+  width: 42%;
+  height: 58%;
+  margin-left: 29%;
+  margin-top: 14%;
   border-radius: 5%;
-
 }

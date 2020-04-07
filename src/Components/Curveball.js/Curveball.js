@@ -47,7 +47,7 @@ export default class Curveball extends Component {
       render: false
     });
     this.context.updateRenderCurve(false);
-    if (this.context.location === "market") {
+    if (this.context.location === "market" || this.context.location === "park") {
       this.context.updateCurve(true);
     } else {
       this.context.updateCurve(false);
@@ -79,7 +79,7 @@ export default class Curveball extends Component {
       render: false
     });
     this.context.updateRenderCurve(false);
-    if (this.context.location === "market") {
+    if (this.context.location === "market" || this.context.location === "park") {
       this.context.updateCurve(true);
     } else {
       this.context.updateCurve(false);
