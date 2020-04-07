@@ -24,6 +24,10 @@ export default class MarketPage extends Component {
   }
 
   checkIfYadied = () => {
+    const rand = Math.floor(Math.random() * 100) + 1;
+    if (this.context.day > 5 && rand < this.context.starter.health) {
+      this.context.setDeath(`you caught the disease with a ${this.context.starter.health}% chance`);
+    }
     if (this.context.starter.health >= 100) {
       this.context.setDeath("you caught the disease gg");
       this.setState({ lose: true });

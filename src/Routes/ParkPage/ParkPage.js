@@ -10,6 +10,7 @@ import Curveball from "../../Components/Curveball.js/Curveball";
 import Song from "../../Sound/morningmagic.mp3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PetActivities from "../../Components/PetActivities/PetActivities";
+import Feedback from '../../Components/Feedback/Feedback'
 import "./ParkPage.css";
 
 export default class ParkPage extends Component {
@@ -25,7 +26,12 @@ export default class ParkPage extends Component {
   updateLocation = () => {
     this.context.updateLocation("home");
   };
+
   checkIfYadied = () => {
+    const rand = Math.floor(Math.random() * 100) + 1;
+    if (this.context.day > 5 && rand < this.context.starter.health) {
+      this.context.setDeath(`you caught the disease with a ${this.context.starter.health}% chance`);
+    }
     if (this.context.starter.health >= 100) {
       this.context.setDeath("you caught the disease gg");
       this.setState({ lose: true });
@@ -72,6 +78,7 @@ export default class ParkPage extends Component {
           </Link>
         </div>
         {this.context.renderCurve && <Curveball />}
+        {this.context.renderFeedback && <Feedback />}
         <PetActivities />
         <Music song={Song} />
       </section>

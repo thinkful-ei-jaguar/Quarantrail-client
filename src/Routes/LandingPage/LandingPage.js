@@ -26,7 +26,6 @@ export default class LandingPage extends Component {
           Start
         </button>
         {/* <p className="player">1 Player</p> */}
-        <Music song={Song} />
       </div>
     );
   }

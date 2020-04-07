@@ -4,6 +4,11 @@ import './TV.css'
 
 export default class Pet extends Component {
   static contextType = PersonContext;
+
+  close = () => {
+    this.context.turnTV(false)
+    this.context.updateFeedback(true)
+  }
   
   render(){
   return ( 
@@ -12,7 +17,7 @@ export default class Pet extends Component {
     <div className="TV-container">
       </div>
       </div>
-    <button onClick={()=>this.context.turnTV(false)} class="tv-button">done</button>
+    <button onClick={this.close} class="tv-button">done</button>
     </>
     )
   }

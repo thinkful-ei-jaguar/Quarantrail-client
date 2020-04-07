@@ -16,6 +16,7 @@ import Song from "../../Sound/8bitsurf.mp3";
 import Pet from "../../Components/Pet/Pet";
 import TV from "../../Components/TV/TV";
 import Phone from "../../Components/Phone/Phone";
+import Feedback from '../../Components/Feedback/Feedback'
 export default class GamePage extends Component {
   static contextType = PersonContext;
   constructor(props) {
@@ -66,7 +67,7 @@ export default class GamePage extends Component {
   checkIfYadied = () => {
     const rand = Math.floor(Math.random() * 100) + 1;
     if (this.context.day > 5 && rand < this.context.starter.health) {
-      this.context.setDeath("you caught the disease gg");
+      this.context.setDeath(`you caught the disease with a ${this.context.starter.health}% chance`);
       this.setState({ lose: true });
     }
     if (this.context.starter.health >= 100) {
@@ -125,6 +126,7 @@ export default class GamePage extends Component {
           </Link>
         </div>
         {this.context.renderCurve && <Curveball />}
+        {this.context.renderFeedback && <Feedback />}
         <Music song={Song} />
       </section>
     );
