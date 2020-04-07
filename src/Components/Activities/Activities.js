@@ -87,33 +87,34 @@ export default class Activities extends Component {
   };
 
   renderwashHandsButton = () => {
-    const { washHands } = this.context
-    const { disabled } = this.state
+    const { washHands } = this.context;
+    const { disabled } = this.state;
     let button;
     if (washHands) {
-      button = 
-      <button
-      className="mybutton"
-      disabled = {washHands || disabled}
-      onClick={this.handleWashHands}
-    >
-      <FontAwesomeIcon icon="soap" />
-    </button>
+      button = (
+        <button
+          className="mybutton"
+          disabled={washHands || disabled}
+          onClick={this.handleWashHands}
+        >
+          <FontAwesomeIcon icon="soap" />
+        </button>
+      );
     } else {
-      button = 
-      <Link
-      to='/washHands'>
-      <button
-        className="mybutton"
-        disabled = {washHands || disabled}
-        onClick={this.handleWashHands}
-      >
-        <FontAwesomeIcon icon="soap" />
-      </button>
-    </Link>
+      button = (
+        <Link to="/washHands">
+          <button
+            className="mybutton"
+            disabled={washHands || disabled}
+            onClick={this.handleWashHands}
+          >
+            <FontAwesomeIcon icon="soap" />
+          </button>
+        </Link>
+      );
     }
-    return button
-  }
+    return button;
+  };
 
   render() {
     const { disabled, viewActivities } = this.state;
