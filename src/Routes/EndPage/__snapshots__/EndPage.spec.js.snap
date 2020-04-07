@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EndPage Route renders by default 1`] = `
+<section
+  className="EndPage"
+>
+  <div
+    class="middle1"
+  >
+    <div
+      class="box2"
+    >
+      <h1 />
+      <h2>
+        you have survived: 
+         days
+      </h2>
+      <Link
+        to="/"
+      >
+        <button
+          onClick={[Function]}
+        >
+          Try again
+        </button>
+      </Link>
+      <Music
+        song="seeyouagain.mp3"
+      />
+    </div>
+  </div>
+</section>
+`;

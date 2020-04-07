@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LandingPage Route renders by default 1`] = `
+<div
+  className="landingPage"
+>
+  <img
+    alt="quaran trail - stay home"
+    src="logo.svg"
+  />
+  <div
+    className="intro"
+  >
+    <h1>
+      The year was 2020...
+    </h1>
+    <p>
+      ...in a world so similar to ours it was pretty much the same world, a global pandemic swept across the planet and forced everyone to be put in quarantine. It may be easy on day 1 or 2, but a whole week? Month? How long can you last? Find out as you journey through boredom and risk in QuaranTrail.
+    </p>
+  </div>
+  <button
+    className="introButton"
+  >
+    Start
+  </button>
+  <Music
+    song="8bitmenu.mp3"
+  />
+</div>
+`;

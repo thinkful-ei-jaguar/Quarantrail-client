@@ -12,6 +12,8 @@ export default class Activities extends Component {
     viewActivities: false
   };
 
+  
+
   handleClickViewActivities = () => {
     this.setState({ viewActivities: !this.state.viewActivities });
   };

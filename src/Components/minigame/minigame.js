@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import WashGame from '../../Components/WashGame/WashGame'
 import PersonContext from "../../Context/PersonContext";
+import Music from '../../Components/Music/Music'
+import Song from '../../Sound/washHands.mp3'
 import './minigame.css'
 
 export default class BestGameEver extends Component {
@@ -93,6 +95,7 @@ export default class BestGameEver extends Component {
       {!ready && <button className='ready-button' onClick={this.ready}>Ready</button>}
       {ready && <WashGame changeCount={this.changeCount}/>}
       {done && this.doneScreen()}
+      <Music song={Song} />
       </section>
     )
   }
