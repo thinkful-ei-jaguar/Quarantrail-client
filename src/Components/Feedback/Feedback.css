@@ -1,0 +1,22 @@
+.feedback {
+  padding: 20px;
+  top: 50%;
+  left: 20%;
+  background-color: rgb(241, 248, 137);
+  color: rgb(134, 133, 133);
+  border: 1px solid rgb(158, 158, 158);
+  position: absolute;
+}
+
+.feedbackButt {
+  top: 0px;
+  right: 0px;
+  width: 40px;
+  text-align: center;
+}
+
+@media screen and (min-width: 720px) {
+  .feedback {
+    border: 3px solid rgb(158, 158, 158);
+  }
+}

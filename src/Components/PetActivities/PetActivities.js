@@ -28,30 +28,39 @@ export default class PetActivities extends Component {
   handleExercise = () => {
     this.context.addToHealth(10);
     this.context.addToBoredom(-10);
+    this.context.setIncrease({infection: 10, boredom: -10})
+    this.context.updateFeedback(true)
     this.performActivity();
   };
 
   handleTreat = () => {
     this.context.addToHealth(10);
     this.context.addToBoredom(-10);
+    this.context.setIncrease({infection: 10, boredom: -10})
+    this.context.updateFeedback(true)
     this.performActivity();
   };
 
   handleFetch = () => {
     this.context.addToBoredom(-10);
-    this.context.incrementActivity();
+    this.context.setIncrease({infection: 0, boredom: -10})
+    this.context.updateFeedback(true)
     this.performActivity();
   };
 
   handleChat = () => {
     this.context.addToBoredom(-15);
     this.context.addToHealth(50);
+    this.context.setIncrease({infection: 50, boredom: -15})
+    this.context.updateFeedback(true)
     this.performActivity();
   };
 
   handleRowing = () => {
     this.context.addToBoredom(-15);
     this.context.addToHealth(20);
+    this.context.setIncrease({infection: 20, boredom: -15})
+    this.context.updateFeedback(true)
     this.performActivity();
   };
 

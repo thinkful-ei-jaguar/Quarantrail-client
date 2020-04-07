@@ -27,14 +27,6 @@ export default class StartPage extends Component {
     this.context.setName(event.currentTarget.value);
   };
 
-  toggleFemaleChar = () => {
-    this.context.updateChar('female')
-  }
-
-  toggleMaleChar = () => {
-    this.context.updateChar('male')
-  }
-
   render() {
     return (
       <div className="startPage">
