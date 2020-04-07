@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
-
-export default class Box extends Component {
+export default class Wall extends Component {
     render() {
         const width = this.props.size[0];
         const height = this.props.size[1];
