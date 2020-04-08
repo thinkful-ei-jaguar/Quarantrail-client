@@ -8,7 +8,7 @@ import './minigame.css'
 
 export default class BestGameEver extends Component {
 
-  staticContext = PersonContext
+  static contextType = PersonContext
 
   state = {
     ready: false,
@@ -36,8 +36,24 @@ export default class BestGameEver extends Component {
     this.move()
   }
 
+  updateHealth = () => {
+    const { count } = this.state
+    let score = -1
+    if( count>=90 ) {
+      score = -20
+    } else if( count >=80 ) {
+      score = -15
+    } else if( count>=70 ) {
+      score = -10
+    } else if(count >= 60 ) {
+      score = -5
+    }
+    this.context.addToHealth(score)
+  }
+
   doneScreen = () => {
     let disabled;
+    
     if (this.context.renderCurve) {
       disabled = true;
     } else {
@@ -58,8 +74,10 @@ export default class BestGameEver extends Component {
       phrase = 'Could do better...'
     }
     else if (count<60){
-      phrase = 'Dirty af.'
+      phrase = 'Did you even use soap?'
     }
+    
+    
     return (
       <div className='minigame-end-screen'>
         <div className='display-box'>
@@ -72,7 +90,7 @@ export default class BestGameEver extends Component {
                 washHands: true
               }
             }}>
-            <button disabled={disabled} onClick={this.updateLocation}>
+            <button disabled={disabled} onClick={this.updateHealth}>
               Done
             </button>
           </Link>

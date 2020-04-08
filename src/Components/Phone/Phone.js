@@ -27,9 +27,11 @@ export default class Phone extends Component {
 
   render() {
     return (
-      <section className='phone'>
+      <section className='phone-section'>
+      <div className='phone'>
         <button className='phonebutt' onClick={this.close}> X </button>
         <img src={this.state.img} alt="one of many memes"></img>
+      </div>
       </section>
     )
   }
