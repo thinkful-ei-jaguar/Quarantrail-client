@@ -21,8 +21,8 @@ export default class Activities extends Component {
     this.context.addToHealth(-5);
     this.context.setWash(true);
     this.context.incrementActivity();
-    this.context.setIncrease({infection: -5, boredom: 0})
-    this.context.updateFeedback(true)
+    this.context.setIncrease({ infection: -5, boredom: 0 });
+    this.context.updateFeedback(true);
     if (this.context.dailyActivities === 2) {
       this.renderSleep();
     }
@@ -32,8 +32,8 @@ export default class Activities extends Component {
     this.context.addToHealth(10);
     this.context.addToBoredom(-10);
     this.context.incrementActivity();
-    this.context.setIncrease({infection: 10, boredom: -10})
-    this.context.updateFeedback(true)
+    this.context.setIncrease({ infection: 10, boredom: -10 });
+    this.context.updateFeedback(true);
     if (this.context.dailyActivities === 2) {
       this.renderSleep();
     }
@@ -43,7 +43,7 @@ export default class Activities extends Component {
     this.context.addToBoredom(-10);
     this.context.turnTV(true);
     this.context.incrementActivity();
-    this.context.setIncrease({infection: 0, boredom: -10})
+    this.context.setIncrease({ infection: 0, boredom: -10 });
     if (this.context.dailyActivities === 2) {
       this.renderSleep();
     }
@@ -53,7 +53,7 @@ export default class Activities extends Component {
     this.context.addToBoredom(-10);
     this.context.incrementActivity();
     this.context.updatePhone(true);
-    this.context.setIncrease({infection: 0, boredom: -10})
+    this.context.setIncrease({ infection: 0, boredom: -10 });
     if (this.context.dailyActivities === 2) {
       this.renderSleep();
     }
@@ -63,8 +63,8 @@ export default class Activities extends Component {
     this.context.addToHealth(10);
     this.context.addToBoredom(-20);
     this.context.incrementActivity();
-    this.context.setIncrease({infection: 10, boredom: -20})
-    this.context.updateFeedback(true)
+    this.context.setIncrease({ infection: 10, boredom: -20 });
+    this.context.updateFeedback(true);
     if (this.context.dailyActivities === 2) {
       this.renderSleep();
     }
@@ -92,7 +92,8 @@ export default class Activities extends Component {
     this.context.updateBuy(false);
     this.context.setPersonInfo(newData);
     this.context.setWash(false);
-    this.context.updateFeedback(false)
+    this.context.setFeedTreat(false);
+    this.context.updateFeedback(false);
   };
 
   renderwashHandsButton = () => {
@@ -129,12 +130,15 @@ export default class Activities extends Component {
     const { disabled, viewActivities } = this.state;
     return (
       <div className="activityBar">
-        <button onClick={this.handleClickViewActivities}>
+        <button
+          className="interactiveButton"
+          onClick={this.handleClickViewActivities}
+        >
           <FontAwesomeIcon icon="icons" />
         </button>
         {viewActivities && (
           <div>
-            <p>Activities</p>
+            <p className="header">Activities</p>
             <button
               className="mybutton"
               disabled={disabled}

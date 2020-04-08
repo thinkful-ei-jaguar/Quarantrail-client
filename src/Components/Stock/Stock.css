@@ -1,20 +1,13 @@
 .stock {
   position: absolute;
-  bottom: 25%;
+  bottom: 21%;
   left: 1%;
   border-radius: 3px;
   display: flex;
 }
 
-.stock button {
-  width: 60px;
-  height: 60px;
-  border-radius: 3px;
-  background-color: rgb(241, 248, 137);
-}
-
-.stock button:hover {
-  background-color: rgb(216, 140, 70);
+.supplies {
+  font-size: 10px;
 }
 
 .stock div {
@@ -35,5 +28,13 @@
 
   .stock div {
     font-size: 16px;
+  }
+
+  .stock {
+    bottom: 25%;
+  }
+
+  .supplies {
+    font-size: 18px;
   }
 }

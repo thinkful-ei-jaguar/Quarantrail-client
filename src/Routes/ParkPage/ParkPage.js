@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link ,Redirect} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import StatusBar from "../../Components/StatusBar/StatusBar";
 import Day from "../../Components/Day/Day";
@@ -10,7 +10,7 @@ import Curveball from "../../Components/Curveball.js/Curveball";
 import Song from "../../Sound/morningmagic.mp3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PetActivities from "../../Components/PetActivities/PetActivities";
-import Feedback from '../../Components/Feedback/Feedback'
+import Feedback from "../../Components/Feedback/Feedback";
 import "./ParkPage.css";
 
 export default class ParkPage extends Component {
@@ -18,10 +18,9 @@ export default class ParkPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lose: false,
+      lose: false
     };
   }
-
 
   updateLocation = () => {
     this.context.updateLocation("home");
@@ -30,7 +29,9 @@ export default class ParkPage extends Component {
   checkIfYadied = () => {
     const rand = Math.floor(Math.random() * 100) + 1;
     if (this.context.day > 5 && rand < this.context.starter.health) {
-      this.context.setDeath(`you caught the disease with a ${this.context.starter.health}% chance`);
+      this.context.setDeath(
+        `you caught the disease with a ${this.context.starter.health}% chance`
+      );
     }
     if (this.context.starter.health >= 100) {
       this.context.setDeath("you caught the disease gg");
@@ -72,7 +73,12 @@ export default class ParkPage extends Component {
         <Stock />
         <div className="map">
           <Link to="/">
-            <button disabled={disabled} onClick={this.updateLocation}>
+            <button
+              id="first"
+              className="interactiveButton"
+              disabled={disabled}
+              onClick={this.updateLocation}
+            >
               <FontAwesomeIcon icon="home" />
             </button>
           </Link>
