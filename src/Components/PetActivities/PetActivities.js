@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Frisbee from "../../Images/frisbee.svg";
@@ -9,7 +10,6 @@ export default class PetActivities extends Component {
   static contextType = PersonContext;
 
   state = {
-    activites: 0,
     disabled: false,
     viewActivities: false,
     previousAct: '',
@@ -43,7 +43,7 @@ export default class PetActivities extends Component {
     }
     this.context.addToHealth(health);
     this.context.incrementActivity();
-    if (this.state.activites === 2) {
+    if (this.context.dailyActivities === 0) {
       this.renderSleep();
     }
   };
@@ -79,21 +79,54 @@ export default class PetActivities extends Component {
     this.context.updateFeedback(true)
   };
 
+  renderhandleTreatButton = () => {
+    const { feedTreat } = this.context;
+    const { disabled } = this.state;
+    let button;
+    if (feedTreat) {
+      button = (
+        <button
+          className="mybutton"
+          disabled={disabled}
+          onClick={this.handleTreat}
+        >
+          <FontAwesomeIcon icon="bone" />
+        </button>
+      );
+    } else {
+      button = (
+        <Link to="/feedTreats">
+          <button
+            className="mybutton"
+            disabled={feedTreat || disabled}
+            onClick={this.feedTreat}
+          >
+            <FontAwesomeIcon icon="bone" />
+          </button>
+        </Link>
+      );
+    }
+    return button;
+  };
+
   renderSleep = () => {
-    this.setState({ activites: 0, disabled: true });
+    this.setState({disabled: true });
   };
 
   render() {
     const { disabled, viewActivities } = this.state;
-    // run, give treats,chat, row boats, frisbee, feed birds
     return (
       <div className="activityBar">
-        <button onClick={this.handleClickViewActivities}>
+        <button
+          className="interactiveButton"
+          onClick={this.handleClickViewActivities}
+        >
           <FontAwesomeIcon icon="icons" />
         </button>
         {viewActivities && (
           <div>
-            <p>Activities</p>
+            <p className="header">Activities
+              left: {this.context.dailyActivities +1}</p>
             <button
               className="mybutton"
               disabled={disabled}
@@ -101,13 +134,8 @@ export default class PetActivities extends Component {
             >
               <FontAwesomeIcon icon="running" />
             </button>
-            <button
-              className="mybutton"
-              disabled={disabled}
-              onClick={this.handleTreat}
-            >
-              <FontAwesomeIcon icon="bone" />
-            </button>
+            {this.renderhandleTreatButton()}
+
             <button
               className="mybutton"
               disabled={disabled}

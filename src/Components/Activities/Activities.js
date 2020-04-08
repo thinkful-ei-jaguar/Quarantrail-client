@@ -44,7 +44,7 @@ export default class Activities extends Component {
     }
     this.context.addToHealth(health);
     this.context.incrementActivity();
-    if (this.context.dailyActivities === 2) {
+    if (this.context.dailyActivities === 0) {
       this.renderSleep();
     }
   }
@@ -78,7 +78,6 @@ export default class Activities extends Component {
 
   renderSleep = () => {
     this.setState({ disabled: true });
-    this.context.clearActivites();
   };
 
   handleNextDay = () => {
@@ -102,14 +101,17 @@ export default class Activities extends Component {
     this.context.updateBuy(false);
     this.context.setPersonInfo(newData);
     this.context.setWash(false);
-    this.context.updateFeedback(false)
+    this.context.setFeedTreat(false);
+    this.context.updateFeedback(false);
+ 
+    this.context.clearActivites();
   };
 
   renderwashHandsButton = () => {
     const { washHands } = this.context;
     const { disabled } = this.state;
     let button;
-    if (washHands) {
+    if (washHands || disabled) {
       button = (
         <button
           className="mybutton"
@@ -139,12 +141,17 @@ export default class Activities extends Component {
     const { disabled, viewActivities } = this.state;
     return (
       <div className="activityBar">
-        <button onClick={this.handleClickViewActivities}>
+        <button
+          className="interactiveButton"
+          onClick={this.handleClickViewActivities}
+        >
           <FontAwesomeIcon icon="icons" />
         </button>
         {viewActivities && (
           <div>
-            <p>Activities</p>
+            <p className="header">Activities
+              left: {this.context.dailyActivities+1}
+            </p>
             <button
               className="mybutton"
               disabled={disabled}

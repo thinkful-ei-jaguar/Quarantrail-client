@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link ,Redirect} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import StatusBar from "../../Components/StatusBar/StatusBar";
 import Day from "../../Components/Day/Day";
@@ -19,14 +19,16 @@ export default class MarketPage extends Component {
     super(props);
     this.state = {
       lose: false,
-      shopping:false
+      shopping: false
     };
   }
 
   checkIfYadied = () => {
     const rand = Math.floor(Math.random() * 100) + 1;
     if (this.context.day > 5 && rand < this.context.starter.health) {
-      this.context.setDeath(`you caught the disease with a ${this.context.starter.health}% chance`);
+      this.context.setDeath(
+        `you caught the disease with a ${this.context.starter.health}% chance`
+      );
     }
     if (this.context.starter.health >= 100) {
       this.context.setDeath("you caught the disease gg");
@@ -58,7 +60,7 @@ export default class MarketPage extends Component {
   render() {
     this.checkIfYadied();
     if (this.state.lose === true) {
-      this.setState({lose:false});
+      this.setState({ lose: false });
       return <Redirect to="/end" />;
     }
     let disabled;
@@ -78,7 +80,12 @@ export default class MarketPage extends Component {
         <Stock />
         <div className="map">
           <Link to="/">
-            <button disabled={disabled} onClick={this.updateLocation}>
+            <button
+              id="first"
+              className="interactiveButton"
+              disabled={disabled}
+              onClick={this.updateLocation}
+            >
               <FontAwesomeIcon icon="home" />
             </button>
           </Link>
@@ -86,13 +93,16 @@ export default class MarketPage extends Component {
         {this.context.renderCurve && <Curveball />}
         <div className="cart">
           <button
+            className="interactiveButton"
             disabled={disabled || this.context.buyOnce}
             onClick={this.handleShop}
           >
             <FontAwesomeIcon icon="shopping-cart" />
           </button>
         </div>
-        <div className="store-section">{(this.context.buyOnce) ? null : shopping && <Store />}</div>
+        <div className="store-section">
+          {this.context.buyOnce ? null : shopping && <Store />}
+        </div>
         <Music song={Song} />
       </section>
     );

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StartPage Route renders by default 1`] = `
+<div
+  className="startPage"
+>
+  <Character
+    selectCharacter={true}
+  />
+  <form
+    className="nameForm"
+    onSubmit={[Function]}
+  >
+    <div
+      className="startPage-inputbox"
+    >
+      <label
+        htmlFor="name"
+      >
+        Name 
+      </label>
+      <input
+        id="name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+      />
+    </div>
+    <button
+      className="introButton"
+    >
+      Submit
+    </button>
+  </form>
+  <Music
+    song="8bitmenu.mp3"
+  />
+</div>
+`;

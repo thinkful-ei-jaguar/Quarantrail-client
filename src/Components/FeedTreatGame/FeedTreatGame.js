@@ -6,8 +6,8 @@ import "./FeedTreatGame.css";
 const getRandomPosition = () => {
   let min = 1;
   let max = 78;
-  let x = Math.floor((Math.random() * (max - min + 1) + min) / 4) * 4;
-  let y = Math.floor((Math.random() * (max - min + 1) + min) / 4) * 4;
+  let x = Math.floor((Math.random() * (max - min + 1) + min) / 6) * 6;
+  let y = Math.floor((Math.random() * (max - min + 1) + min) / 6) * 6;
   return [x, y];
 };
 
@@ -17,7 +17,7 @@ const initialState = {
   treat: getRandomPosition(),
   catLength: [
     [0, 0],
-    [4, 0]
+    [6, 0]
   ]
 };
 
@@ -62,16 +62,16 @@ export default class FeedTreatGame extends Component {
 
     switch (this.state.direction) {
       case "RIGHT":
-        head = [head[0] + 4, head[1]];
+        head = [head[0] + 6, head[1]];
         break;
       case "LEFT":
-        head = [head[0] - 4, head[1]];
+        head = [head[0] - 6, head[1]];
         break;
       case "UP":
-        head = [head[0], head[1] - 4];
+        head = [head[0], head[1] - 6];
         break;
       case "DOWN":
-        head = [head[0], head[1] + 4];
+        head = [head[0], head[1] + 6];
         break;
     }
     cat.push(head);
@@ -123,16 +123,18 @@ export default class FeedTreatGame extends Component {
   }
 
   endGame() {
-    alert(`Cat is full now.`);
+    // alert(`Cat is full now.`);
     this.setState(initialState);
   }
 
   render() {
     return (
-      <div className="grassField">
-        <CatSize catLength={this.state.catLength} />
-        <CatTreat position={this.state.treat} />
-      </div>
+      <section className="feedTreatGame">
+        <div className="grassField">
+          <CatSize catLength={this.state.catLength} />
+          <CatTreat position={this.state.treat} />
+        </div>
+      </section>
     );
   }
 }

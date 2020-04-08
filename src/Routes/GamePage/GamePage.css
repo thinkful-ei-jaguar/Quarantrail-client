@@ -21,30 +21,40 @@
   height: 60px;
 }
 
-.map {
+#first {
   position: absolute;
-  bottom: 25%;
-  right: 1%;
+  bottom: 28%;
+  left: 1%;
   border-radius: 3px;
 }
 
-.map button {
-  width: 60px;
-  height: 60px;
+#second {
+  position: absolute;
+  bottom: 35%;
+  left: 1%;
   border-radius: 3px;
-  background-color: rgb(241, 248, 137);
-}
-
-.map button:hover {
-  background-color: rgb(216, 140, 70);
 }
 
 @media screen and (min-width: 720px) {
   .gameSetting .top {
     height: 80px;
   }
-  .map button {
-    width: 80px;
+
+  #first {
+    position: absolute;
+    bottom: 38%;
+    left: 1%;
+    border-radius: 3px;
     height: 80px;
+    width: 80px;
+  }
+
+  #second {
+    position: absolute;
+    bottom: 51%;
+    left: 1%;
+    border-radius: 3px;
+    height: 80px;
+    width: 80px;
   }
 }

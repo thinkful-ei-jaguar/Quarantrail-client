@@ -1,3 +1,16 @@
+.phone-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .phone {
   margin: auto;
   background-color: rgb(241, 248, 137);
@@ -23,7 +36,6 @@
     height: 450px;
     width: 270px;
     background-size: 230px;
-    bottom: 20%;
   }
 
   .phonebutt {
@@ -45,7 +57,6 @@
     height: 550px;
     width: 400px;
     background-size: 300px;
-    bottom: 12%;
   }
 
   .phonebutt {
@@ -67,7 +78,6 @@
     height: 650px;
     width: 700px;
     background-size: 400px;
-    bottom: 12%;
   }
 
   .phonebutt {

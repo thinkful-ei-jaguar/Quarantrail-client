@@ -1,8 +1,29 @@
 .parkpage {
-    background-image: url("../../Images/park.svg");
-    background-size: cover;
-    width: 100vw;
-    height: 90vh;
-    background-repeat: no-repeat;
-    background-position: bottom center;
+  background-image: url("../../Images/park.svg");
+  background-size: cover;
+  width: 100vw;
+  height: 90vh;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+
+.interactiveButton {
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: rgb(230, 230, 250);
+  box-shadow: 2px 5px 5px #888888;
+}
+
+.interactiveButton:hover {
+  cursor: pointer;
+  background-color: rgb(99, 89, 95);
+  color: rgb(255, 255, 255);
+}
+
+@media screen and (min-width: 720px) {
+  .interactiveButton {
+    font-size: 40px;
   }
+}
