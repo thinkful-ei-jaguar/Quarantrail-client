@@ -11,11 +11,38 @@ export default class PetActivities extends Component {
   state = {
     activites: 0,
     disabled: false,
-    viewActivities: false
+    viewActivities: false,
+    previousAct: '',
+    previousCount: 0,
   };
 
-  performActivity = () => {
+  performActivity = (name, health, boredom) => {
     this.setState({ activites: this.state.activites + 1 });
+    if(this.state.previousAct === name) {
+      this.setState({
+        previousCount: this.state.previousCount + 1
+      })
+
+      if(this.state.previousCount === 0) {
+        this.context.addToBoredom(boredom * .8);
+        this.context.setIncrease({infection: health, boredom: boredom * .8})
+      }
+
+      if(this.state.previousCount === 1) {
+        this.context.addToBoredom(boredom * .6);
+        this.context.setIncrease({infection: health, boredom: boredom * .6})
+      }
+    }
+    else {
+      this.setState({
+        previousAct: name,
+        previousCount: 0
+      })
+      this.context.addToBoredom(boredom);
+      this.context.setIncrease({infection: health, boredom: boredom})
+    }
+    this.context.addToHealth(health);
+    this.context.incrementActivity();
     if (this.state.activites === 2) {
       this.renderSleep();
     }
@@ -26,42 +53,30 @@ export default class PetActivities extends Component {
   };
 
   handleExercise = () => {
-    this.context.addToHealth(10);
-    this.context.addToBoredom(-10);
-    this.context.setIncrease({infection: 10, boredom: -10})
+    this.performActivity('exercise', 10, -10)
     this.context.updateFeedback(true)
-    this.performActivity();
+
   };
 
   handleTreat = () => {
-    this.context.addToHealth(10);
-    this.context.addToBoredom(-10);
-    this.context.setIncrease({infection: 10, boredom: -10})
+    this.performActivity('treat', 10, -10)
     this.context.updateFeedback(true)
-    this.performActivity();
+
   };
 
   handleFetch = () => {
-    this.context.addToBoredom(-10);
-    this.context.setIncrease({infection: 0, boredom: -10})
+    this.performActivity('fetch', 0, -10)
     this.context.updateFeedback(true)
-    this.performActivity();
   };
 
   handleChat = () => {
-    this.context.addToBoredom(-15);
-    this.context.addToHealth(50);
-    this.context.setIncrease({infection: 50, boredom: -15})
+    this.performActivity('chat', 50, -15)
     this.context.updateFeedback(true)
-    this.performActivity();
   };
 
   handleRowing = () => {
-    this.context.addToBoredom(-15);
-    this.context.addToHealth(20);
-    this.context.setIncrease({infection: 20, boredom: -15})
+    this.performActivity('rowing', 20, -15)
     this.context.updateFeedback(true)
-    this.performActivity();
   };
 
   renderSleep = () => {

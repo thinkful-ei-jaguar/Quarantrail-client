@@ -9,65 +9,71 @@ export default class Activities extends Component {
 
   state = {
     disabled: false,
-    viewActivities: false
+    viewActivities: false,
+    previousAct: '',
+    previousCount: 0,
   };
 
   handleClickViewActivities = () => {
     this.setState({ viewActivities: !this.state.viewActivities });
   };
 
-  handleWashHands = () => {
-    this.context.updateActivityTracker({ washHands: 1 });
-    this.context.addToHealth(-5);
-    this.context.setWash(true);
+  doActivityStuff = (name, health, boredom) => {
+    if(this.state.previousAct === name) {
+      this.setState({
+        previousCount: this.state.previousCount + 1
+      })
+
+      if(this.state.previousCount === 0) {
+        this.context.addToBoredom(boredom * .8);
+        this.context.setIncrease({infection: health, boredom: boredom * .8})
+      }
+
+      if(this.state.previousCount === 1) {
+        this.context.addToBoredom(boredom * .6);
+        this.context.setIncrease({infection: health, boredom: boredom * .6})
+      }
+    }
+    else {
+      this.setState({
+        previousAct: name,
+        previousCount: 0
+      })
+      this.context.addToBoredom(boredom);
+      this.context.setIncrease({infection: health, boredom: boredom})
+    }
+    this.context.addToHealth(health);
     this.context.incrementActivity();
-    this.context.setIncrease({infection: -5, boredom: 0})
-    this.context.updateFeedback(true)
     if (this.context.dailyActivities === 2) {
       this.renderSleep();
     }
+  }
+
+  handleWashHands = () => {
+    this.context.updateActivityTracker({ washHands: 1 });
+    this.doActivityStuff('washhands', -5, 0)
+    this.context.setWash(true);
+    this.context.updateFeedback(true)
   };
 
   handleTakeout = () => {
-    this.context.addToHealth(10);
-    this.context.addToBoredom(-10);
-    this.context.incrementActivity();
-    this.context.setIncrease({infection: 10, boredom: -10})
+    this.doActivityStuff('takeout', 10, -10)
     this.context.updateFeedback(true)
-    if (this.context.dailyActivities === 2) {
-      this.renderSleep();
-    }
   };
 
   handleVideoGame = () => {
-    this.context.addToBoredom(-10);
+    this.doActivityStuff('videogame', 0, -10)
     this.context.turnTV(true);
-    this.context.incrementActivity();
-    this.context.setIncrease({infection: 0, boredom: -10})
-    if (this.context.dailyActivities === 2) {
-      this.renderSleep();
-    }
   };
 
   handlePhone = () => {
-    this.context.addToBoredom(-10);
-    this.context.incrementActivity();
+    this.doActivityStuff('phone', 0, -10)
     this.context.updatePhone(true);
-    this.context.setIncrease({infection: 0, boredom: -10})
-    if (this.context.dailyActivities === 2) {
-      this.renderSleep();
-    }
   };
 
   handleFriends = () => {
-    this.context.addToHealth(10);
-    this.context.addToBoredom(-20);
-    this.context.incrementActivity();
-    this.context.setIncrease({infection: 10, boredom: -20})
+    this.doActivityStuff('friends', 10, -20)
     this.context.updateFeedback(true)
-    if (this.context.dailyActivities === 2) {
-      this.renderSleep();
-    }
   };
 
   renderSleep = () => {
@@ -76,7 +82,11 @@ export default class Activities extends Component {
   };
 
   handleNextDay = () => {
-    this.setState({ disabled: false });
+    this.setState({ 
+      disabled: false,
+      previousAct: '',
+      previousCount: 0
+    });
     if (this.context.curveball === false) {
       this.context.updateRenderCurve(true);
     }
