@@ -22,6 +22,7 @@
   border-radius: 10px;
   margin-bottom: 15px;
   padding: 3px;
+  border: 3px solid rgb(189, 187, 167);
 }
 
 .char img {
@@ -70,6 +71,10 @@
   .char img {
     width: 200px;
   }
+
+  #mainChar {
+    width: 350px;
+  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -79,5 +84,9 @@
 
   .char img {
     width: 250px;
+  }
+
+  #mainChar {
+    width: 400px;
   }
 }

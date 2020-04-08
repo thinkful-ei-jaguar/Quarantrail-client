@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Frisbee from "../../Images/frisbee.svg";
@@ -28,40 +29,71 @@ export default class PetActivities extends Component {
   handleExercise = () => {
     this.context.addToHealth(10);
     this.context.addToBoredom(-10);
-    this.context.setIncrease({infection: 10, boredom: -10})
-    this.context.updateFeedback(true)
-    this.performActivity();
-  };
-
-  handleTreat = () => {
-    this.context.addToHealth(10);
-    this.context.addToBoredom(-10);
-    this.context.setIncrease({infection: 10, boredom: -10})
-    this.context.updateFeedback(true)
+    this.context.setIncrease({ infection: 10, boredom: -10 });
+    this.context.updateFeedback(true);
     this.performActivity();
   };
 
   handleFetch = () => {
     this.context.addToBoredom(-10);
-    this.context.setIncrease({infection: 0, boredom: -10})
-    this.context.updateFeedback(true)
+    this.context.setIncrease({ infection: 0, boredom: -10 });
+    this.context.updateFeedback(true);
     this.performActivity();
   };
 
   handleChat = () => {
     this.context.addToBoredom(-15);
     this.context.addToHealth(50);
-    this.context.setIncrease({infection: 50, boredom: -15})
-    this.context.updateFeedback(true)
+    this.context.setIncrease({ infection: 50, boredom: -15 });
+    this.context.updateFeedback(true);
     this.performActivity();
   };
 
   handleRowing = () => {
     this.context.addToBoredom(-15);
     this.context.addToHealth(20);
-    this.context.setIncrease({infection: 20, boredom: -15})
-    this.context.updateFeedback(true)
+    this.context.setIncrease({ infection: 20, boredom: -15 });
+    this.context.updateFeedback(true);
     this.performActivity();
+  };
+
+  handleTreat = () => {
+    this.context.addToHealth(10);
+    this.context.addToBoredom(-10);
+    this.context.setFeedTreat(true);
+    this.context.setIncrease({ infection: 10, boredom: -10 });
+    this.context.updateFeedback(true);
+    this.performActivity();
+  };
+
+  renderhandleTreatButton = () => {
+    const { feedTreat } = this.context;
+    const { disabled } = this.state;
+    let button;
+    if (feedTreat) {
+      button = (
+        <button
+          className="mybutton"
+          disabled={disabled}
+          onClick={this.handleTreat}
+        >
+          <FontAwesomeIcon icon="bone" />
+        </button>
+      );
+    } else {
+      button = (
+        <Link to="/feedTreats">
+          <button
+            className="mybutton"
+            disabled={feedTreat || disabled}
+            onClick={this.feedTreat}
+          >
+            <FontAwesomeIcon icon="bone" />
+          </button>
+        </Link>
+      );
+    }
+    return button;
   };
 
   renderSleep = () => {
@@ -70,15 +102,17 @@ export default class PetActivities extends Component {
 
   render() {
     const { disabled, viewActivities } = this.state;
-    // run, give treats,chat, row boats, frisbee, feed birds
     return (
       <div className="activityBar">
-        <button onClick={this.handleClickViewActivities}>
+        <button
+          className="interactiveButton"
+          onClick={this.handleClickViewActivities}
+        >
           <FontAwesomeIcon icon="icons" />
         </button>
         {viewActivities && (
           <div>
-            <p>Activities</p>
+            <p className="header">Activities</p>
             <button
               className="mybutton"
               disabled={disabled}
@@ -86,13 +120,8 @@ export default class PetActivities extends Component {
             >
               <FontAwesomeIcon icon="running" />
             </button>
-            <button
-              className="mybutton"
-              disabled={disabled}
-              onClick={this.handleTreat}
-            >
-              <FontAwesomeIcon icon="bone" />
-            </button>
+            {this.renderhandleTreatButton()}
+
             <button
               className="mybutton"
               disabled={disabled}

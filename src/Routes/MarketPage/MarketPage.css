@@ -9,21 +9,10 @@
 
 .cart {
   position: absolute;
-  bottom: 12%;
+  bottom: 14%;
   left: 1%;
   border-radius: 3px;
   display: flex;
-}
-
-.cart button {
-  width: 60px;
-  height: 60px;
-  border-radius: 3px;
-  background-color: rgb(241, 248, 137);
-}
-
-.cart button:hover {
-  background-color: rgb(216, 140, 70);
 }
 
 @media screen and (min-width: 720px) {

@@ -22,9 +22,11 @@ export default class Stock extends Component {
   stockFormat() {
     return (
       <div>
-        <h1>Stocks</h1>
-        <p>Food: {this.context.starter.food}</p>
-        <p>Toilet paper: {this.context.starter.toiletpaper}</p>
+        <p className="header">Stocks</p>
+        <p className="supplies">Food: {this.context.starter.food}</p>
+        <p className="supplies">
+          Toilet paper: {this.context.starter.toiletpaper}
+        </p>
       </div>
     );
   }
@@ -32,7 +34,7 @@ export default class Stock extends Component {
   render() {
     return (
       <div className="stock">
-        <button onClick={this.handleClick}>
+        <button className="interactiveButton" onClick={this.handleClick}>
           <FontAwesomeIcon icon="box-open" />
         </button>
         {this.state.showStocks ? this.stockFormat() : <></>}

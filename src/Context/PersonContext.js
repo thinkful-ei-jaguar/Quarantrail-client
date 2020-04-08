@@ -12,6 +12,7 @@ const PersonContext = React.createContext({
   dead: "",
   curveball: false,
   renderCurve: false,
+  feedTreat: false,
   washHands: false,
   buyOnce: false,
   renderPhone: false,
@@ -39,6 +40,7 @@ const PersonContext = React.createContext({
   dailyTakeAwayFoodandToilet: () => {},
   updateLocation: () => {},
   resetDay: () => {},
+  setFeedTreat: () => {},
   setWash: () => {},
   clearActivites: () => {},
   updateActivityTracker: () => {}
@@ -59,21 +61,22 @@ export class PersonProvider extends Component {
     dead: "",
     curveball: false,
     renderCurve: false,
+    feedTreat: false,
     washHands: false,
     buyOnce: false,
     renderPhone: false,
     TV: false,
     renderFeedback: false,
-    increaseRate: {},
+    increaseRate: {}
   };
 
   setIncrease = rate => {
-    this.setState({increaseRate: rate})
-  }
+    this.setState({ increaseRate: rate });
+  };
 
   updateFeedback = bool => {
-    this.setState({renderFeedback: bool})
-  }
+    this.setState({ renderFeedback: bool });
+  };
 
   updatePhone = bool => {
     this.setState({ renderPhone: bool });
@@ -111,6 +114,12 @@ export class PersonProvider extends Component {
   setWash = bool => {
     this.setState({
       washHands: bool
+    });
+  };
+
+  setFeedTreat = bool => {
+    this.setState({
+      feedTreat: bool
     });
   };
 
@@ -228,6 +237,7 @@ export class PersonProvider extends Component {
       day: newday
     });
   };
+
   resetDay = () => {
     let restartday = 0;
     this.setState({ day: restartday });
@@ -284,6 +294,7 @@ export class PersonProvider extends Component {
       dead: this.state.dead,
       curveball: this.state.curveball,
       renderCurve: this.state.renderCurve,
+      feedTreat: this.state.feedTreat,
       washHands: this.state.washHands,
       buyOnce: this.state.buyOnce,
       renderPhone: this.state.renderPhone,
@@ -313,6 +324,7 @@ export class PersonProvider extends Component {
       updateLocation: this.updateLocation,
       resetDay: this.resetDay,
       setWash: this.setWash,
+      setFeedTreat: this.setFeedTreat,
       clearActivites: this.clearActivites,
       updateActivityTracker: this.updateActivityTracker,
       turnTV: this.turnTV

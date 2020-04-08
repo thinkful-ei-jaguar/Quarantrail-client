@@ -16,7 +16,7 @@ import Song from "../../Sound/8bitsurf.mp3";
 import Pet from "../../Components/Pet/Pet";
 import TV from "../../Components/TV/TV";
 import Phone from "../../Components/Phone/Phone";
-import Feedback from '../../Components/Feedback/Feedback'
+import Feedback from "../../Components/Feedback/Feedback";
 export default class GamePage extends Component {
   static contextType = PersonContext;
   constructor(props) {
@@ -67,7 +67,9 @@ export default class GamePage extends Component {
   checkIfYadied = () => {
     const rand = Math.floor(Math.random() * 100) + 1;
     if (this.context.day > 5 && rand < this.context.starter.health) {
-      this.context.setDeath(`you caught the disease with a ${this.context.starter.health}% chance`);
+      this.context.setDeath(
+        `you caught the disease with a ${this.context.starter.health}% chance`
+      );
       this.setState({ lose: true });
     }
     if (this.context.starter.health >= 100) {
@@ -115,12 +117,22 @@ export default class GamePage extends Component {
         <Activities />
         <div className="map">
           <Link to="/market">
-            <button disabled={disabled} onClick={this.updateLocationM}>
+            <button
+              id="first"
+              className="interactiveButton"
+              disabled={disabled}
+              onClick={this.updateLocationM}
+            >
               <FontAwesomeIcon icon="store" />
             </button>
           </Link>
           <Link to="/park">
-            <button disabled={disabled} onClick={this.updateLocationP}>
+            <button
+              id="second"
+              className="interactiveButton"
+              disabled={disabled}
+              onClick={this.updateLocationP}
+            >
               <FontAwesomeIcon icon="tree" />
             </button>
           </Link>

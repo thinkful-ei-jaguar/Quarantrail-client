@@ -55,17 +55,17 @@ export default class Character extends Component {
 
   renderCharacter = () => {
     if (this.context.character === "female") {
-      return <img src={femaleChar} alt="female character" />;
+      return <img id="mainChar" src={femaleChar} alt="female character" />;
     }
-    return <img src={MaleChar} alt="male character" />;
+    return <img id="mainChar" src={MaleChar} alt="male character" />;
   };
 
   render() {
     return (
-      <>
+      <div>
         {this.props.selectCharacter && this.selectCharacter()}
         {!this.props.selectCharacter && this.renderCharacter()}
-      </>
+      </div>
     );
   }
 }

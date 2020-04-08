@@ -6,17 +6,6 @@
   display: flex;
 }
 
-.activityBar > button {
-  width: 60px;
-  height: 60px;
-  border-radius: 3px;
-  background-color: rgb(241, 248, 137);
-}
-
-.activityBar > button:hover {
-  background-color: rgb(216, 140, 70);
-}
-
 .activityBar div {
   color: rgb(116, 116, 116);
   background-color: rgba(255, 255, 255, 0.582);
@@ -26,15 +15,15 @@
   padding-right: 20px;
 }
 
-.activityBar div p {
-  margin-bottom: 4px;
+.header {
+  font-size: 14px;
 }
 
 .activityBar div button {
   border: none;
   border-radius: 3px;
   width: 30px;
-  font-size: 20px;
+  font-size: 18px;
   background-color: transparent;
 }
 
@@ -57,16 +46,20 @@
     width: 80px;
     height: 80px;
   }
-
+  /* 
   .activityBar div p {
     font-size: 24px;
     margin-bottom: 6px;
-  }
+  } */
 
   .activityBar div button {
     width: 50px;
     font-size: 30px;
     margin: 0 10px;
+  }
+
+  .header {
+    font-size: 24px;
   }
 }
 
