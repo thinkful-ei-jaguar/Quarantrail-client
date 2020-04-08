@@ -15,6 +15,13 @@ export default class PetActivities extends Component {
     previousAct: '',
     previousCount: 0,
   };
+  componentDidMount =()=>{
+    if(this.context.dailyActivities===-1){
+      this.renderSleep();
+    }
+  }
+
+
 
   performActivity = (name, health, boredom) => {
     this.setState({ activites: this.state.activites + 1 });

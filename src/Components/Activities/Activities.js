@@ -13,6 +13,12 @@ export default class Activities extends Component {
     previousAct: '',
     previousCount: 0,
   };
+  componentDidMount =()=>{
+    if(this.context.dailyActivities===-1){
+      this.renderSleep();
+    }
+  }
+
 
   handleClickViewActivities = () => {
     this.setState({ viewActivities: !this.state.viewActivities });
