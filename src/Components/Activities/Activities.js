@@ -12,13 +12,14 @@ export default class Activities extends Component {
     viewActivities: false
   };
 
+  
+
   handleClickViewActivities = () => {
     this.setState({ viewActivities: !this.state.viewActivities });
   };
 
   handleWashHands = () => {
     this.context.updateActivityTracker({ washHands: 1 });
-    this.context.addToHealth(-5);
     this.context.setWash(true);
     this.context.incrementActivity();
     this.context.setIncrease({infection: -5, boredom: 0})
@@ -99,7 +100,7 @@ export default class Activities extends Component {
     const { washHands } = this.context;
     const { disabled } = this.state;
     let button;
-    if (washHands) {
+    if (washHands || disabled) {
       button = (
         <button
           className="mybutton"
