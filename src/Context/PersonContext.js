@@ -53,7 +53,7 @@ export class PersonProvider extends Component {
     name: "",
     character: null,
     day: 0,
-    dailyActivities: 0,
+    dailyActivities: 2,
     activityTracker: {},
     location: "home",
     dead: "",
@@ -234,7 +234,7 @@ export class PersonProvider extends Component {
 
   incrementActivity = () => {
     let newCount = this.state.dailyActivities;
-    newCount += 1;
+    newCount -= 1;
     this.setState({
       dailyActivities: newCount
     });
@@ -242,7 +242,7 @@ export class PersonProvider extends Component {
 
   clearActivites = () => {
     this.setState({
-      dailyActivities: 0
+      dailyActivities: 2
     });
   };
 
