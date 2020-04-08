@@ -16,9 +16,10 @@ export default class PetActivities extends Component {
   };
 
   performActivity = () => {
-    this.setState({ activites: this.state.activites + 1 });
-    if (this.state.activites === 2) {
+    this.context.incrementActivity();
+    if (this.context.dailyActivities === -1) {
       this.renderSleep();
+      this.setState({disabled:true})
     }
   };
 
@@ -112,7 +113,8 @@ export default class PetActivities extends Component {
         </button>
         {viewActivities && (
           <div>
-            <p className="header">Activities</p>
+            <p className="header">Activities
+              left: {this.context.dailyActivities +1}</p>
             <button
               className="mybutton"
               disabled={disabled}

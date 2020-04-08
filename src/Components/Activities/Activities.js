@@ -11,6 +11,12 @@ export default class Activities extends Component {
     disabled: false,
     viewActivities: false
   };
+  performActivity = () => {
+    this.context.incrementActivity();
+    if (this.context.dailyActivities === 0) {
+      this.renderSleep();
+    }
+  };
 
   
 
@@ -22,58 +28,48 @@ export default class Activities extends Component {
     this.context.updateActivityTracker({ washHands: 1 });
     this.context.setWash(true);
     this.context.incrementActivity();
-    this.context.setIncrease({ infection: -5, boredom: 0 });
-    this.context.updateFeedback(true);
-    if (this.context.dailyActivities === 2) {
-      this.renderSleep();
-    }
+    this.context.setIncrease({infection: -5, boredom: 0})
+    this.context.updateFeedback(true)
+    this.performActivity();
   };
 
   handleTakeout = () => {
     this.context.addToHealth(10);
     this.context.addToBoredom(-10);
     this.context.incrementActivity();
-    this.context.setIncrease({ infection: 10, boredom: -10 });
-    this.context.updateFeedback(true);
-    if (this.context.dailyActivities === 2) {
-      this.renderSleep();
-    }
+    this.context.setIncrease({infection: 10, boredom: -10})
+    this.context.updateFeedback(true)
+    this.performActivity();
   };
 
   handleVideoGame = () => {
     this.context.addToBoredom(-10);
     this.context.turnTV(true);
     this.context.incrementActivity();
-    this.context.setIncrease({ infection: 0, boredom: -10 });
-    if (this.context.dailyActivities === 2) {
-      this.renderSleep();
-    }
+    this.context.setIncrease({infection: 0, boredom: -10})
+    this.performActivity();
   };
 
   handlePhone = () => {
     this.context.addToBoredom(-10);
     this.context.incrementActivity();
     this.context.updatePhone(true);
-    this.context.setIncrease({ infection: 0, boredom: -10 });
-    if (this.context.dailyActivities === 2) {
-      this.renderSleep();
-    }
+    this.context.setIncrease({infection: 0, boredom: -10})
+    this.performActivity();
   };
 
   handleFriends = () => {
     this.context.addToHealth(10);
     this.context.addToBoredom(-20);
     this.context.incrementActivity();
-    this.context.setIncrease({ infection: 10, boredom: -20 });
-    this.context.updateFeedback(true);
-    if (this.context.dailyActivities === 2) {
-      this.renderSleep();
-    }
+    this.context.setIncrease({infection: 10, boredom: -20})
+    this.context.updateFeedback(true)
+    this.performActivity();
   };
 
   renderSleep = () => {
     this.setState({ disabled: true });
-    this.context.clearActivites();
+   
   };
 
   handleNextDay = () => {
@@ -95,6 +91,8 @@ export default class Activities extends Component {
     this.context.setWash(false);
     this.context.setFeedTreat(false);
     this.context.updateFeedback(false);
+ 
+    this.context.clearActivites();
   };
 
   renderwashHandsButton = () => {
@@ -129,7 +127,6 @@ export default class Activities extends Component {
 
   render() {
     const { disabled, viewActivities } = this.state;
-    const activitytrack =3 -this.context.dailyActivities;
     return (
       <div className="activityBar">
         <button
@@ -140,7 +137,9 @@ export default class Activities extends Component {
         </button>
         {viewActivities && (
           <div>
-            <p className="header">Activities</p>
+            <p className="header">Activities
+              left: {this.context.dailyActivities+1}
+            </p>
             <button
               className="mybutton"
               disabled={disabled}
