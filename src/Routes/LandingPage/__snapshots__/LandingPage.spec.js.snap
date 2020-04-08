@@ -23,8 +23,5 @@ exports[`LandingPage Route renders by default 1`] = `
   >
     Start
   </button>
-  <Music
-    song="8bitmenu.mp3"
-  />
 </div>
 `;
