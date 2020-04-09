@@ -83,8 +83,7 @@ export class BooleanProvider extends Component {
         game: false,
         endgame: false,
         renderCurve: false
-      },
-      () => console.log(this.state)
+      }
     );
   };
 

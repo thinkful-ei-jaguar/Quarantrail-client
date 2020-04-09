@@ -13,7 +13,6 @@ export default class Stock extends Component {
   }
 
   handleClick = () => {
-    console.log(this.state);
     let show = !this.state.showStocks;
     this.setState({
       showStocks: show
