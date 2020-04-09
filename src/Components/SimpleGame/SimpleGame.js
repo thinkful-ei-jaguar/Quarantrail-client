@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { GameEngine } from "react-game-engine";
 import  Box  from "./Box";
 import  Wall  from "./Wall";
@@ -6,8 +7,10 @@ import { MoveBox } from "./boxMove"
 import {generatePipes} from "./Pipes"
 import Matter from "matter-js";
 import Constants from './Constants';
+import parkback from "../../Images/park.svg";
 
 
+import "./SimpleGame.css"
  
 export default class SimpleGame extends Component {
   constructor(props){
@@ -60,8 +63,8 @@ setupWorld = () => {
   return {
       physics: { engine: engine, world: world },
       box: { body: box, size: [50, 50], color: 'red', renderer: Box},
-      floor: { body: floor, size: [Constants.MAX_WIDTH*8, 50], color: "green", renderer: Wall },
-      ceiling: { body: ceiling, size: [Constants.MAX_WIDTH*8, 50], color: "green", renderer: Wall },
+      floor: { body: floor, size: [Constants.MAX_WIDTH, 50], color: "green", renderer: Wall },
+      ceiling: { body: ceiling, size: [Constants.MAX_WIDTH, 50], color: "green", renderer: Wall },
       pipe1: { body: pipe1, size: [Constants.PIPE_WIDTH, pipe1Height], color: "green", renderer: Wall },
       pipe2: { body: pipe2, size: [Constants.PIPE_WIDTH, pipe2Height], color: "green", renderer: Wall },
       pipe3: { body: pipe3, size: [Constants.PIPE_WIDTH, pipe3Height], color: "green", renderer: Wall },
@@ -87,7 +90,6 @@ reset = () => {
       running: true
   });
 }
-
   render() {
     return (
       <div style={
@@ -102,13 +104,10 @@ reset = () => {
       <GameEngine
          ref={(ref) => { this.gameEngine = ref; }}
          style={{
-          position: 'absolute', 
-          top: 0,
-          bottom: 0,
-          left: 200,
-          right: 0,
-          z:0,
+          width: Constants.MAX_WIDTH,
+          height: Constants.MAX_HEIGHT,
           }}
+          className="game"
           systems={[MoveBox]}
           onEvent={this.onEvent}
          running={this.state.running}
@@ -123,22 +122,15 @@ reset = () => {
         flex: 1
       }} 
     onClick={this.reset}>
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-        backgroundColor: 'blue',
-        opacity: 0.8,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }}>
+      <div class="middle2">
     <p style={{
         color: 'red',
-        fontSize: 50
+        fontSize: 50,
     }}>Game Over
     </p>
+    <Link to="/">
+    <button>back home</button>
+    </Link>
       </div>
     </div>}
   </div>
