@@ -109,7 +109,6 @@ export default class Activities extends Component {
     this.context.setWash(false);
     this.context.setFeedTreat(false);
     this.context.updateFeedback(false);
- 
     this.context.clearActivites();
   };
 

@@ -21,6 +21,10 @@ In this playful and lighthearted game, the world was struck with an awful pandem
 - Firebase
 - React-Game-Engine
 
+### Screenshots
+![image of start page](src/Images/ScreenStart.JPG)
+![image of game page](src/Images/ScreenGame.JPG)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
