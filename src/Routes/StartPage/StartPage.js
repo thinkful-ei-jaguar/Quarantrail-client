@@ -10,9 +10,6 @@ import UIfx from "uifx";
 const beep = new UIfx({ asset: keyboard });
 export default class StartPage extends Component {
   static contextType = PersonContext;
-  componentDidMount=()=>{
-    console.log(this.context);
-  }
   handleStartGame = event => {
     event.preventDefault();
     if (!this.context.character) {

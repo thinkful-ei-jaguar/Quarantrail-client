@@ -38,7 +38,6 @@ export default class FeedTreatGame extends Component {
 
   onKeyDown = e => {
     // Handling of browser differences
-    console.log("running key down");
     e = e || window.event;
     switch (e.keyCode) {
       case 38:
