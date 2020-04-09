@@ -12,41 +12,38 @@ export default class PetActivities extends Component {
   state = {
     disabled: false,
     viewActivities: false,
-    previousAct: '',
-    previousCount: 0,
+    previousAct: "",
+    previousCount: 0
   };
-  componentDidMount =()=>{
-    if(this.context.dailyActivities===-1){
+  componentDidMount = () => {
+    if (this.context.dailyActivities === -1) {
       this.renderSleep();
     }
-  }
-
-
+  };
 
   performActivity = (name, health, boredom) => {
     this.setState({ activites: this.state.activites + 1 });
-    if(this.state.previousAct === name) {
+    if (this.state.previousAct === name) {
       this.setState({
         previousCount: this.state.previousCount + 1
-      })
+      });
 
-      if(this.state.previousCount === 0) {
-        this.context.addToBoredom(boredom * .8);
-        this.context.setIncrease({infection: health, boredom: boredom * .8})
+      if (this.state.previousCount === 0) {
+        this.context.addToBoredom(boredom * 0.8);
+        this.context.setIncrease({ infection: health, boredom: boredom * 0.8 });
       }
 
-      if(this.state.previousCount === 1) {
-        this.context.addToBoredom(boredom * .6);
-        this.context.setIncrease({infection: health, boredom: boredom * .6})
+      if (this.state.previousCount === 1) {
+        this.context.addToBoredom(boredom * 0.6);
+        this.context.setIncrease({ infection: health, boredom: boredom * 0.6 });
       }
-    }
-    else {
+    } else {
       this.setState({
         previousAct: name,
         previousCount: 0
-      })
+      });
       this.context.addToBoredom(boredom);
-      this.context.setIncrease({infection: health, boredom: boredom})
+      this.context.setIncrease({ infection: health, boredom: boredom });
     }
     this.context.addToHealth(health);
     this.context.incrementActivity();
@@ -60,30 +57,28 @@ export default class PetActivities extends Component {
   };
 
   handleExercise = () => {
-    this.performActivity('exercise', 10, -10)
-    this.context.updateFeedback(true)
-
+    this.performActivity("exercise", 10, -10);
+    this.context.updateFeedback(true);
   };
 
   handleTreat = () => {
-    this.performActivity('treat', 10, -10)
-    this.context.updateFeedback(true)
-
+    this.performActivity("treat", 10, -10);
+    this.context.updateFeedback(true);
   };
 
   handleFetch = () => {
-    this.performActivity('fetch', 0, -10)
-    this.context.updateFeedback(true)
+    this.performActivity("fetch", 0, -10);
+    this.context.updateFeedback(true);
   };
 
   handleChat = () => {
-    this.performActivity('chat', 50, -15)
-    this.context.updateFeedback(true)
+    this.performActivity("chat", 50, -15);
+    this.context.updateFeedback(true);
   };
 
   handleRowing = () => {
-    this.performActivity('rowing', 20, -15)
-    this.context.updateFeedback(true)
+    this.performActivity("rowing", 20, -15);
+    this.context.updateFeedback(true);
   };
 
   renderhandleTreatButton = () => {
@@ -106,7 +101,7 @@ export default class PetActivities extends Component {
           <button
             className="mybutton"
             disabled={feedTreat || disabled}
-            onClick={this.feedTreat}
+            onClick={this.handleTreat}
           >
             <FontAwesomeIcon icon="bone" />
           </button>
@@ -117,7 +112,7 @@ export default class PetActivities extends Component {
   };
 
   renderSleep = () => {
-    this.setState({disabled: true });
+    this.setState({ disabled: true });
   };
 
   render() {
@@ -132,8 +127,9 @@ export default class PetActivities extends Component {
         </button>
         {viewActivities && (
           <div>
-            <p className="header">Activities
-              left: {this.context.dailyActivities +1}</p>
+            <p className="header">
+              Activities left: {this.context.dailyActivities + 1}
+            </p>
             <button
               className="mybutton"
               disabled={disabled}
