@@ -27,8 +27,6 @@ export default class GamePage extends Component {
     };
   }
   componentDidMount() {
-    console.log(this.state);
-    console.log(this.context);
     if (this.context.day === 0) {
       gameService
         .getGameinfo()

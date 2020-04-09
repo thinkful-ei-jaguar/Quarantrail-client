@@ -124,7 +124,6 @@ export class PersonProvider extends Component {
   };
 
   addToHealth = health => {
-    console.log('did run with ', health)
     let newHealth = this.state.starter.health;
     if (health > 0 && newHealth === 100) {
       return;

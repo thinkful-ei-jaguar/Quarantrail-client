@@ -25,6 +25,7 @@ export default class Activities extends Component {
   };
 
   doActivityStuff = (name, health, boredom) => {
+    console.log('called it...')
     if(this.state.previousAct === name) {
       this.setState({
         previousCount: this.state.previousCount + 1
@@ -57,9 +58,9 @@ export default class Activities extends Component {
 
   handleWashHands = () => {
     this.context.updateActivityTracker({ washHands: 1 });
-    this.doActivityStuff('washhands', -5, 0)
+    // this.doActivityStuff('washhands', -5, 0)
     this.context.setWash(true);
-    this.context.updateFeedback(true)
+    // this.context.updateFeedback(true)
   };
 
   handleTakeout = () => {
