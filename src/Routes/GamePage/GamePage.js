@@ -34,6 +34,7 @@ export default class GamePage extends Component {
           this.context.setPersonInfo(info);
         })
         .catch(this.context.setError);
+      this.context.clearActivites();
     }
     this.setState({
       active: true

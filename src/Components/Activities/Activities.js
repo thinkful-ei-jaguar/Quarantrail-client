@@ -10,51 +10,48 @@ export default class Activities extends Component {
   state = {
     disabled: false,
     viewActivities: false,
-    previousAct: '',
-    previousCount: 0,
+    previousAct: "",
+    previousCount: 0
   };
-  componentDidMount =()=>{
-    if(this.context.dailyActivities===-1){
+  componentDidMount = () => {
+    if (this.context.dailyActivities === -1) {
       this.renderSleep();
     }
-  }
-
+  };
 
   handleClickViewActivities = () => {
     this.setState({ viewActivities: !this.state.viewActivities });
   };
 
   doActivityStuff = (name, health, boredom) => {
-    console.log('called it...')
-    if(this.state.previousAct === name) {
+    if (this.state.previousAct === name) {
       this.setState({
         previousCount: this.state.previousCount + 1
-      })
+      });
 
-      if(this.state.previousCount === 0) {
-        this.context.addToBoredom(boredom * .8);
-        this.context.setIncrease({infection: health, boredom: boredom * .8})
+      if (this.state.previousCount === 0) {
+        this.context.addToBoredom(boredom * 0.8);
+        this.context.setIncrease({ infection: health, boredom: boredom * 0.8 });
       }
 
-      if(this.state.previousCount === 1) {
-        this.context.addToBoredom(boredom * .6);
-        this.context.setIncrease({infection: health, boredom: boredom * .6})
+      if (this.state.previousCount === 1) {
+        this.context.addToBoredom(boredom * 0.6);
+        this.context.setIncrease({ infection: health, boredom: boredom * 0.6 });
       }
-    }
-    else {
+    } else {
       this.setState({
         previousAct: name,
         previousCount: 0
-      })
+      });
       this.context.addToBoredom(boredom);
-      this.context.setIncrease({infection: health, boredom: boredom})
+      this.context.setIncrease({ infection: health, boredom: boredom });
     }
     this.context.addToHealth(health);
     this.context.incrementActivity();
     if (this.context.dailyActivities === 0) {
       this.renderSleep();
     }
-  }
+  };
 
   handleWashHands = () => {
     this.context.updateActivityTracker({ washHands: 1 });
@@ -64,23 +61,23 @@ export default class Activities extends Component {
   };
 
   handleTakeout = () => {
-    this.doActivityStuff('takeout', 10, -10)
-    this.context.updateFeedback(true)
+    this.doActivityStuff("takeout", 10, -10);
+    this.context.updateFeedback(true);
   };
 
   handleVideoGame = () => {
-    this.doActivityStuff('videogame', 0, -10)
+    this.doActivityStuff("videogame", 0, -10);
     this.context.turnTV(true);
   };
 
   handlePhone = () => {
-    this.doActivityStuff('phone', 0, -10)
+    this.doActivityStuff("phone", 0, -10);
     this.context.updatePhone(true);
   };
 
   handleFriends = () => {
-    this.doActivityStuff('friends', 10, -20)
-    this.context.updateFeedback(true)
+    this.doActivityStuff("friends", 10, -20);
+    this.context.updateFeedback(true);
   };
 
   renderSleep = () => {
@@ -88,9 +85,9 @@ export default class Activities extends Component {
   };
 
   handleNextDay = () => {
-    this.setState({ 
+    this.setState({
       disabled: false,
-      previousAct: '',
+      previousAct: "",
       previousCount: 0
     });
     if (this.context.curveball === false) {
@@ -110,7 +107,6 @@ export default class Activities extends Component {
     this.context.setWash(false);
     this.context.setFeedTreat(false);
     this.context.updateFeedback(false);
- 
     this.context.clearActivites();
   };
 
@@ -156,8 +152,8 @@ export default class Activities extends Component {
         </button>
         {viewActivities && (
           <div>
-            <p className="header">Activities
-              left: {this.context.dailyActivities+1}
+            <p className="header">
+              Activities left: {this.context.dailyActivities + 1}
             </p>
             <button
               className="mybutton"
