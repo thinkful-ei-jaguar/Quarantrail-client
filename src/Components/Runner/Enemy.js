@@ -21,7 +21,8 @@ class Enemy extends Component {
             <Box 
                 size={size}
                 position={{ top, left }}
-                color='firebrick' />
+                color='firebrick' 
+                />
         );
     }
 }

@@ -15,6 +15,7 @@ export default class PetActivities extends Component {
     previousAct: "",
     previousCount: 0
   };
+
   componentDidMount = () => {
     if (this.context.dailyActivities === -1) {
       this.renderSleep();
@@ -56,8 +57,8 @@ export default class PetActivities extends Component {
     this.setState({ viewActivities: !this.state.viewActivities });
   };
 
-  handleExercise = () => {
-    this.performActivity("exercise", 10, -10);
+  handleRunning = () => {
+    this.performActivity("running", 5, -10);
     this.context.updateFeedback(true);
   };
 
@@ -130,13 +131,24 @@ export default class PetActivities extends Component {
             <p className="header">
               Activities left: {this.context.dailyActivities + 1}
             </p>
+
             <button
-              className="mybutton"
-              disabled={disabled}
-              onClick={this.handleExercise}
-            >
-              <FontAwesomeIcon icon="running" />
-            </button>
+                className="mybutton mobileOnly"
+                disabled={disabled}
+                onClick={this.handleRunning}
+              >
+                <FontAwesomeIcon icon="running" />
+              </button>
+
+            <Link to="/Runner">
+              <button
+                className="mybutton desktopOnly"
+                disabled={disabled}
+              >
+                <FontAwesomeIcon icon="running" />
+              </button>
+            </Link>
+
             {this.renderhandleTreatButton()}
 
             <button
@@ -144,8 +156,9 @@ export default class PetActivities extends Component {
               disabled={disabled}
               onClick={this.handleChat}
             >
-              <FontAwesomeIcon icon="comment" />
+            <FontAwesomeIcon icon="comment" />
             </button>
+
             <button
               className="mybutton"
               disabled={disabled}

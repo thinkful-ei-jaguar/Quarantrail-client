@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Box from './Box';
+import rocky from '../../Images/Rocky.svg'
 
 class Player extends Component {    
     handleKeyDown = (e) => {
@@ -26,16 +27,19 @@ class Player extends Component {
     }
     
     render() {        
-        const { size, position: { top, left }} = this.props;
-        
+        const { position: { top, left }} = this.props;
+        const styleBox = {
+            width: '50px',
+            height: '50px',
+            position: 'absolute',
+            top: top + 'px',
+            left: left + 'px',
+            transition: 'all 0.1s ease'
+        }
         return (
-            <div ref={ n => { this.player = n }} >
-                <Box 
-                    size={size}
-                    position={{ top, left }}
-                    color='darkgray' />
-            </div>
-            
+            <img src={rocky} alt='a cat'  ref={ n => { this.player = n }} 
+                style = {styleBox}
+            />
         );
     }
     

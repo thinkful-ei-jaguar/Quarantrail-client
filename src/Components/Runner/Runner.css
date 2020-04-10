@@ -1,3 +1,26 @@
 .runner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   text-align: center;
+  height: 680px;
+  width: 1440px;
+  border: 3px solid black;
+  background-image: url("../../Images/gamePark.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.runnerEnd {
+  z-index: 2;
+  height: 400px;
+}
+
+.runnerEnd button {
+  margin-top: 15px;
+}
+
+.gameInfo h1 {
+  padding: 20px;
 }
