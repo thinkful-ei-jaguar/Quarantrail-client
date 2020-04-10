@@ -40,6 +40,7 @@ export default class StartPage extends Component {
               value={this.context.name}
               onChange={this.updateName}
               required
+              maxlength="3"
             ></input>
           </div>
           <button className="introButton">Submit</button>

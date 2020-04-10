@@ -13,7 +13,7 @@
 }
 
 .leaderboard-list {
-  width: 500px;
+  width: 80vw;
   border-top: 1px solid black;
   counter-reset: li;
 }
@@ -29,24 +29,40 @@
 .leaderboard {
   background-color: hsla(120, 100%, 88%, 0.75);
   border: 1px solid black;
+  height: 30vh;
+  width: 80vw;
 }
 
 .leaderboard h2 {
   text-align: center;
   padding: 5px 0;
-  width: 500px;
+  width: 80vw;
   border-bottom: 1px solid black;
 }
 
 .leaderboard-top-three {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: flex-end;
-  width: 500px;
-  padding: 5px 0;
+  width: 80vw;
+  height: 60%;
+  padding: 5px 5px;
+  padding-bottom: 20px;
 }
 
 .leaderboard-first {
+  text-align: center;
+  align-self: flex-start;
+  padding-top: 10px;
+}
+
+.leaderboard-second {
+  padding-bottom: 25px;
+}
+
+.leaderboard-first,
+.leaderboard-second,
+.leaderboard-third {
   text-align: center;
 }
 
