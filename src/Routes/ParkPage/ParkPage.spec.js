@@ -51,7 +51,6 @@ describe(`Market Route`, () => {
       incrementDay: () => {},
       addToFoodandToilet: () => {},
       addToBoredom: () => {},
-      dailyTakeAwayFoodandToilet: () => {},
       updateLocation: () => {},
       resetDay: () => {},
       setWash: () => {},

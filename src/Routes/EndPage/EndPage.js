@@ -15,7 +15,7 @@ export default class EndPage extends Component {
       score: this.context.day
     };
     this.context.updateRenderCurve(false);
-    //LeaderboardService.postScore(post)
+    LeaderboardService.postScore(post)
     this.props.renderRestart();
     return <Redirect to="/"/>;
   };

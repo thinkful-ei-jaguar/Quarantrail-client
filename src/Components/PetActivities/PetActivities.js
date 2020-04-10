@@ -4,7 +4,7 @@ import PersonContext from "../../Context/PersonContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Frisbee from "../../Images/frisbee.svg";
 import "./PetActivities.css";
-import { tsImportEqualsDeclaration } from "@babel/types";
+//import { tsImportEqualsDeclaration } from "@babel/types";
 
 export default class PetActivities extends Component {
   static contextType = PersonContext;

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import BooleanContext from "../../Context/BooleanContext";
 import "./LandingPage.css";
 import Logo from "../../Images/logo.svg";
-import Music from "../../Components/Music/Music";
-import Song from "../../Sound/8bitmenu.mp3";
+// import Music from "../../Components/Music/Music";
+// import Song from "../../Sound/8bitmenu.mp3";
 
 export default class LandingPage extends Component {
   static contextType = BooleanContext;

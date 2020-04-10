@@ -55,7 +55,6 @@ describe(`GamePage Route`, () => {
       incrementDay: () => {},
       addToFoodandToilet: () => {},
       addToBoredom: () => {},
-      dailyTakeAwayFoodandToilet: () => {},
       updateLocation: () => {},
       resetDay: () => {},
       setWash: () => {},

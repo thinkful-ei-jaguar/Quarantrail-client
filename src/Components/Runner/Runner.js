@@ -12,7 +12,7 @@ export default class Runner extends Component {
   }
 
   renderEnemies = () => {
-    let enemy = new this.enemy()
+    //let enemy = new this.enemy()
   }
 
   movement = event => {
@@ -38,9 +38,9 @@ export default class Runner extends Component {
   }
 }
 
-function enemy() {
-  this.newPos = function() {
-    this.x += 3;
-    this.y -= 3;
-  }
-}
+// function enemy() {
+//   this.newPos = function() {
+//     this.x += 3;
+//     this.y -= 3;
+//   }
+// }
