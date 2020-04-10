@@ -1,23 +1,30 @@
 import React, { Component, PropTypes } from 'react';
 import Box from './Box';
-import rocky from '../../Images/Rocky.svg'
+import rocky from '../../Images/gameCat.svg'
 
-class Player extends Component {    
+class Player extends Component {   
+    state = {
+        imgDir: ''
+    }
+    
     handleKeyDown = (e) => {
         let newDirection;
-        
         switch(e.keyCode) {
             case 37:
                 newDirection = { top: 0, left: -1 , dir: 'LEFT'};
+                this.setState({imgDir: 'left'})
                 break;
             case 38:
                 newDirection = { top: -1, left: 0 , dir: 'UP'};
+                this.setState({imgDir: 'up'})
                 break;
             case 39:
                 newDirection = { top: 0, left: 1, dir: 'RIGHT'};
+                this.setState({imgDir: 'right'})
                 break;
             case 40:
                 newDirection = { top: 1, left: 0, dir: 'DOWN' };
+                this.setState({imgDir: 'down'})
                 break;
             default:
                 return;
@@ -28,6 +35,7 @@ class Player extends Component {
     
     render() {        
         const { position: { top, left }} = this.props;
+        const { imgDir } = this.state
         const styleBox = {
             width: '50px',
             height: '50px',
@@ -37,7 +45,7 @@ class Player extends Component {
             transition: 'all 0.1s ease'
         }
         return (
-            <img src={rocky} alt='a cat'  ref={ n => { this.player = n }} 
+            <img src={rocky} alt='a cat' className={imgDir} ref={ n => { this.player = n }} 
                 style = {styleBox}
             />
         );
