@@ -63,6 +63,7 @@ export default class PetActivities extends Component {
   handleTreat = () => {
     this.performActivity("treat", 10, -10);
     this.context.updateFeedback(true);
+    this.context.setFeedTreat(true);
     this.props.history.push("/feedTreats");
   };
 
@@ -83,34 +84,6 @@ export default class PetActivities extends Component {
 
   handleRunningOnDesktop = () => {
     this.props.history.push("/Runner");
-  };
-
-  renderhandleTreatButton = () => {
-    const { feedTreat } = this.context;
-    const { disabled } = this.state;
-    let button;
-    if (feedTreat) {
-      button = (
-        <button
-          className="mybutton"
-          disabled={disabled}
-          onClick={this.handleTreat}
-        >
-          <FontAwesomeIcon icon="bone" />
-        </button>
-      );
-    } else {
-      button = (
-        <button
-          className="mybutton"
-          disabled={feedTreat || disabled}
-          onClick={this.handleTreat}
-        >
-          <FontAwesomeIcon icon="bone" />
-        </button>
-      );
-    }
-    return button;
   };
 
   renderSleep = () => {
@@ -149,7 +122,13 @@ export default class PetActivities extends Component {
               <FontAwesomeIcon icon="running" />
             </button>
 
-            {this.renderhandleTreatButton()}
+            <button
+              className="mybutton"
+              disabled={this.context.feedTreat || disabled}
+              onClick={this.handleTreat}
+            >
+              <FontAwesomeIcon icon="bone" />
+            </button>
 
             <button
               className="mybutton"

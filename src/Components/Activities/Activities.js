@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PersonContext from "../../Context/PersonContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Music from "../../Components/Music/Music";
 import "./Activities.css";
 
 export default class Activities extends Component {
@@ -113,62 +112,6 @@ export default class Activities extends Component {
     this.context.clearActivites();
   };
 
-  renderwashHandsButton = () => {
-    const { washHands } = this.context;
-    const { disabled } = this.state;
-    let button;
-    if (washHands || disabled) {
-      button = (
-        <button
-          className="mybutton"
-          disabled={washHands || disabled}
-          onClick={this.handleWashHands}
-        >
-          <FontAwesomeIcon icon="soap" />
-        </button>
-      );
-    } else {
-      button = (
-        <button
-          className="mybutton"
-          disabled={washHands || disabled}
-          onClick={this.handleWashHands}
-        >
-          <FontAwesomeIcon icon="soap" />
-        </button>
-      );
-    }
-    return button;
-  };
-
-  renderflappyButton = () => {
-    const { TV } = this.context;
-    const { disabled } = this.state;
-    let button;
-    if (TV || disabled) {
-      button = (
-        <button
-          className="mybutton"
-          disabled={TV || disabled}
-          onClick={this.handleVideoGame}
-        >
-          <FontAwesomeIcon icon="gamepad" />
-        </button>
-      );
-    } else {
-      button = (
-        <button
-          className="mybutton"
-          disabled={TV || disabled}
-          onClick={this.handleVideoGame}
-        >
-          <FontAwesomeIcon icon="gamepad" />
-        </button>
-      );
-    }
-    return button;
-  };
-
   render() {
     const { disabled, viewActivities } = this.state;
     return (
@@ -184,7 +127,13 @@ export default class Activities extends Component {
             <p className="header">
               Activities left: {this.context.dailyActivities + 1}
             </p>
-            {this.renderflappyButton()}
+            <button
+              className="mybutton"
+              disabled={this.context.TV || disabled}
+              onClick={this.handleVideoGame}
+            >
+              <FontAwesomeIcon icon="gamepad" />
+            </button>
             <button
               className="mybutton"
               disabled={disabled}
@@ -206,7 +155,13 @@ export default class Activities extends Component {
             >
               <FontAwesomeIcon icon="utensils" />
             </button>
-            {this.renderwashHandsButton()}
+            <button
+              className="mybutton"
+              disabled={this.context.washHands || disabled}
+              onClick={this.handleWashHands}
+            >
+              <FontAwesomeIcon icon="soap" />
+            </button>
             <button
               className="mybutton"
               disabled={!disabled}

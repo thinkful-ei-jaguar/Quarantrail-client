@@ -164,16 +164,15 @@ export class PersonProvider extends Component {
 
   addToFood = foods => {
     let newerFood = this.state.starter.food;
-  
+
     newerFood += foods;
-   
+
     this.setState({
       starter: {
         ...this.state.starter,
         food: newerFood
       }
     });
-  ;
   };
 
   addToToilet = toilet => {
@@ -218,12 +217,12 @@ export class PersonProvider extends Component {
 
   resetDay = () => {
     let restartday = 0;
-    let newstarter={};
-    this.setState({ 
+    let newstarter = {};
+    this.setState({
       day: restartday,
-      starter:newstarter,
-      dailyActivities:2,
-      renderFeedback:false,
+      starter: newstarter,
+      dailyActivities: 2,
+      renderFeedback: false
     });
   };
 

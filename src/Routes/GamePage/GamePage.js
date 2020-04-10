@@ -113,7 +113,6 @@ export default class GamePage extends Component {
           <Day />
         </div>
         {this.context.renderPhone && <Phone />}
-
         <Character selectCharacter={false} />
         <Pet />
         <Stock />
