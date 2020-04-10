@@ -6,9 +6,6 @@ import BooleanContext from "../../Context/BooleanContext";
 
 export default class HomePage extends Component {
   static contextType = BooleanContext;
-  componentDidMount=()=>{
-  console.log(this.context)
-  }
   render() {
     return (
       <div className="homePage">

@@ -27,8 +27,6 @@ export default class GamePage extends Component {
     };
   }
   componentDidMount() {
-    console.log(this.state);
-    console.log(this.context);
     if (this.context.day === 0) {
       gameService
         .getGameinfo()
@@ -88,13 +86,15 @@ export default class GamePage extends Component {
       this.context.setDeath(
         "you ran out of toilet paper you have been stuck in the bathroom for days"
       );
-
       this.setState({ lose: true });
     }
   };
   render() {
     this.checkIfYadied();
+ 
     if (this.state.lose === true) {
+      this.setState({ lose: false });
+   
       return <Redirect to="/end" />;
     }
     let disabled;

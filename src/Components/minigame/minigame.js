@@ -39,16 +39,19 @@ export default class BestGameEver extends Component {
   updateHealth = () => {
     const { count } = this.state
     let score = -1
-    if( count>=90 ) {
+    if( count >= 90 ) {
       score = -20
-    } else if( count >=80 ) {
+    } else if( count >= 80 ) {
       score = -15
-    } else if( count>=70 ) {
+    } else if( count >= 70 ) {
       score = -10
-    } else if(count >= 60 ) {
+    } else if( count >= 60 ) {
       score = -5
     }
     this.context.addToHealth(score)
+    this.context.setIncrease({infection: score, boredom: 0})
+    this.context.incrementActivity();
+    this.context.updateFeedback(true)
   }
 
   doneScreen = () => {

@@ -1,0 +1,31 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<rect width="1600" height="980" fill="white"/>
+<path d="M1602 0H-2V698H1602V0Z" fill="#BFEDEF"/>
+<path d="M1599.5 722H-4V980H1599.5V722Z" fill="#BBBBBB"/>
+<path d="M1600 690H-4V722H1600V690Z" fill="#C3E5AC"/>
+<ellipse cx="377" cy="79.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="454" cy="100.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="454" cy="100.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="950" cy="191.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="875" cy="191.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="815" cy="175.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="950" cy="154.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="875" cy="154.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="1000" cy="174.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="1409" cy="170.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="1361" cy="207.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="1332" cy="155" rx="48" ry="38" fill="white"/>
+<ellipse cx="1284" cy="193.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="377" cy="100.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="406" cy="154.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="340" cy="154.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="281" cy="137.5" rx="48" ry="37.5" fill="white"/>
+<ellipse cx="310" cy="100.5" rx="48" ry="37.5" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="1600" height="980" fill="white"/>
+</clipPath>
+</defs>
+</svg>

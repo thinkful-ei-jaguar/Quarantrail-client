@@ -5,8 +5,8 @@ const PersonContext = React.createContext({
   error: null,
   name: "",
   character: null,
-  day: 1,
-  dailyActivities: 0,
+  day: 0,
+  dailyActivities: 2,
   activityTracker: {},
   location: "home",
   dead: "",
@@ -124,7 +124,6 @@ export class PersonProvider extends Component {
   };
 
   addToHealth = health => {
-    console.log('did run with ', health)
     let newHealth = this.state.starter.health;
     if (health > 0 && newHealth === 100) {
       return;
@@ -166,16 +165,16 @@ export class PersonProvider extends Component {
 
   addToFood = foods => {
     let newerFood = this.state.starter.food;
-    console.log(newerFood);
+  
     newerFood += foods;
-    console.log("newerFood(after adding to old food):", newerFood);
+   
     this.setState({
       starter: {
         ...this.state.starter,
         food: newerFood
       }
     });
-    console.log("state(after):", this.state.starter.food);
+  ;
   };
 
   addToToilet = toilet => {
@@ -217,7 +216,7 @@ export class PersonProvider extends Component {
     let nF = this.state.starter.food;
     nT -= t;
     nF -= f;
-    console.log(nT + "and" + nF);
+
     this.setState(
       {
         starter: {
@@ -225,8 +224,7 @@ export class PersonProvider extends Component {
           toiletpaper: this.nT,
           food: nF
         }
-      },
-      () => console.log(this.state)
+      }
     );
   };
 
@@ -240,7 +238,13 @@ export class PersonProvider extends Component {
 
   resetDay = () => {
     let restartday = 0;
-    this.setState({ day: restartday });
+    let newstarter={};
+    this.setState({ 
+      day: restartday,
+      starter:newstarter,
+      dailyActivities:2,
+      renderFeedback:false,
+    });
   };
 
   incrementActivity = () => {
