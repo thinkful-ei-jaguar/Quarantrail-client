@@ -1,12 +1,3 @@
-.player {
-  height: 50px;
-  width: 50px;
-  background-color: blue;
-  position: absolute;
-}
-
-.enemy {
-  height: 50px;
-  width: 50px;
-  background-color: red;
+.runner {
+  text-align: center;
 }
