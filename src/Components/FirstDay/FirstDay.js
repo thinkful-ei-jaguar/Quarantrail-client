@@ -59,7 +59,7 @@ export default class FirstDay extends Component {
         <div classNameName="box">
           <h1>You have too much</h1>
           <p>
-            You have too much and you're neighbors decided to rob you so bye-bye
+            You have too much and your neighbors decided to rob you so bye-bye
             good luck
           </p>
           <button

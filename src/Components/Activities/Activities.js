@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Music from "../../Components/Music/Music";
@@ -59,6 +58,7 @@ export default class Activities extends Component {
     // this.doActivityStuff('washhands', -5, 0)
     this.context.setWash(true);
     // this.context.updateFeedback(true)
+    this.props.history.push("/washHands");
   };
 
   handleTakeout = () => {
@@ -69,6 +69,7 @@ export default class Activities extends Component {
   handleVideoGame = () => {
     this.doActivityStuff("videogame", 0, -10);
     this.context.turnTV(true);
+    this.props.history.push("/game");
   };
 
   handlePhone = () => {
@@ -128,15 +129,13 @@ export default class Activities extends Component {
       );
     } else {
       button = (
-        <Link to="/washHands">
-          <button
-            className="mybutton"
-            disabled={washHands || disabled}
-            onClick={this.handleWashHands}
-          >
-            <FontAwesomeIcon icon="soap" />
-          </button>
-        </Link>
+        <button
+          className="mybutton"
+          disabled={washHands || disabled}
+          onClick={this.handleWashHands}
+        >
+          <FontAwesomeIcon icon="soap" />
+        </button>
       );
     }
     return button;
@@ -158,21 +157,17 @@ export default class Activities extends Component {
       );
     } else {
       button = (
-        <Link to="/game">
-          <button
-            className="mybutton"
-            disabled={TV || disabled}
-            onClick={this.handleVideoGame}
-          >
-            <FontAwesomeIcon icon="gamepad" />
-          </button>
-        </Link>
+        <button
+          className="mybutton"
+          disabled={TV || disabled}
+          onClick={this.handleVideoGame}
+        >
+          <FontAwesomeIcon icon="gamepad" />
+        </button>
       );
     }
     return button;
   };
-
-
 
   render() {
     const { disabled, viewActivities } = this.state;

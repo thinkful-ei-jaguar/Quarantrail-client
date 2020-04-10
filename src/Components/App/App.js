@@ -7,10 +7,10 @@ import LeaderBoard from "../LeaderBoard/LeaderBoard";
 import Instruction from "../Instruction/Instruction";
 import Footer from "../Footer/Footer";
 import EndPage from "../../Routes/EndPage/EndPage";
-import SimpleGame from "../../Components/SimpleGame/SimpleGame";
+// import SimpleGame from "../../Components/SimpleGame/SimpleGame";
 import miniGame from "../../Components/minigame/minigame";
 import FeedTreatGame from "../../Components/FeedTreatGame/FeedTreatGame";
-import Runner from '../../Components/Runner/Runner'
+import Runner from "../../Components/Runner/Runner";
 
 import BooleanContext from "../../Context/BooleanContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -73,9 +73,25 @@ class App extends Component {
       <div className="App">
         <main>
           <Switch>
-            <Route exact path={"/"} component={HomePage} />
-            <Route path={"/market"} component={MarketPage} />
-            <Route path={"/park"} component={ParkPage} />
+            <Route
+              exact
+              path={"/"}
+              render={props => {
+                return <HomePage {...props} />;
+              }}
+            />
+            <Route
+              path={"/market"}
+              render={props => {
+                return <MarketPage {...props} />;
+              }}
+            />
+            <Route
+              path={"/park"}
+              render={props => {
+                return <ParkPage {...props} />;
+              }}
+            />
             <Route
               path={"/end"}
               render={props => (
@@ -85,7 +101,7 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path={"/game"} component={SimpleGame} />
+            {/* <Route exact path={"/game"} component={SimpleGame} /> */}
             <Route exact path={"/washHands"} component={miniGame} />
             <Route exact path={"/feedTreats"} component={FeedTreatGame} />
             <Route exact path={"/runner"} component={Runner} />

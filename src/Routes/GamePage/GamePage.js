@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Stock from "../../Components/Stock/Stock";
 import Music from "../../Components/Music/Music";
 import Activities from "../../Components/Activities/Activities";
@@ -50,6 +50,7 @@ export default class GamePage extends Component {
         this.context.updateRenderCurve(true);
       }
     }
+    this.props.history.push("/market");
   };
 
   updateLocationP = () => {
@@ -61,6 +62,7 @@ export default class GamePage extends Component {
         this.context.updateRenderCurve(true);
       }
     }
+    this.props.history.push("/park");
   };
 
   checkIfYadied = () => {
@@ -91,10 +93,10 @@ export default class GamePage extends Component {
   };
   render() {
     this.checkIfYadied();
- 
+
     if (this.state.lose === true) {
       this.setState({ lose: false });
-   
+
       return <Redirect to="/end" />;
     }
     let disabled;
@@ -111,33 +113,27 @@ export default class GamePage extends Component {
           <Day />
         </div>
         {this.context.renderPhone && <Phone />}
-        
+
         <Character selectCharacter={false} />
         <Pet />
         <Stock />
-        <Activities />
-        <div className="map">
-          <Link to="/market">
-            <button
-              id="first"
-              className="interactiveButton"
-              disabled={disabled}
-              onClick={this.updateLocationM}
-            >
-              <FontAwesomeIcon icon="store" />
-            </button>
-          </Link>
-          <Link to="/park">
-            <button
-              id="second"
-              className="interactiveButton"
-              disabled={disabled}
-              onClick={this.updateLocationP}
-            >
-              <FontAwesomeIcon icon="tree" />
-            </button>
-          </Link>
-        </div>
+        <Activities {...this.props} />
+        <button
+          id="first"
+          className="interactiveButton"
+          disabled={disabled}
+          onClick={this.updateLocationM}
+        >
+          <FontAwesomeIcon icon="store" />
+        </button>
+        <button
+          id="second"
+          className="interactiveButton"
+          disabled={disabled}
+          onClick={this.updateLocationP}
+        >
+          <FontAwesomeIcon icon="tree" />
+        </button>
         {this.context.renderCurve && <Curveball />}
         {this.context.renderFeedback && <Feedback />}
         <Music song={Song} />

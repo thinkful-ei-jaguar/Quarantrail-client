@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Frisbee from "../../Images/frisbee.svg";
@@ -65,6 +64,7 @@ export default class PetActivities extends Component {
   handleTreat = () => {
     this.performActivity("treat", 10, -10);
     this.context.updateFeedback(true);
+    this.props.history.push("/feedTreats");
   };
 
   handleFetch = () => {
@@ -80,6 +80,10 @@ export default class PetActivities extends Component {
   handleRowing = () => {
     this.performActivity("rowing", 20, -15);
     this.context.updateFeedback(true);
+  };
+
+  handleRunningOnDesktop = () => {
+    this.props.history.push("/Runner");
   };
 
   renderhandleTreatButton = () => {
@@ -98,15 +102,13 @@ export default class PetActivities extends Component {
       );
     } else {
       button = (
-        <Link to="/feedTreats">
-          <button
-            className="mybutton"
-            disabled={feedTreat || disabled}
-            onClick={this.handleTreat}
-          >
-            <FontAwesomeIcon icon="bone" />
-          </button>
-        </Link>
+        <button
+          className="mybutton"
+          disabled={feedTreat || disabled}
+          onClick={this.handleTreat}
+        >
+          <FontAwesomeIcon icon="bone" />
+        </button>
       );
     }
     return button;
@@ -133,21 +135,20 @@ export default class PetActivities extends Component {
             </p>
 
             <button
-                className="mybutton mobileOnly"
-                disabled={disabled}
-                onClick={this.handleRunning}
-              >
-                <FontAwesomeIcon icon="running" />
-              </button>
+              className="mybutton mobileOnly"
+              disabled={disabled}
+              onClick={this.handleRunning}
+            >
+              <FontAwesomeIcon icon="running" />
+            </button>
 
-            <Link to="/Runner">
-              <button
-                className="mybutton desktopOnly"
-                disabled={disabled}
-              >
-                <FontAwesomeIcon icon="running" />
-              </button>
-            </Link>
+            <button
+              className="mybutton desktopOnly"
+              disabled={disabled}
+              onClick={this.handleRunningOnDesktop}
+            >
+              <FontAwesomeIcon icon="running" />
+            </button>
 
             {this.renderhandleTreatButton()}
 
@@ -156,7 +157,7 @@ export default class PetActivities extends Component {
               disabled={disabled}
               onClick={this.handleChat}
             >
-            <FontAwesomeIcon icon="comment" />
+              <FontAwesomeIcon icon="comment" />
             </button>
 
             <button

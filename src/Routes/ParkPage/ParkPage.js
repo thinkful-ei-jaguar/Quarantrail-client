@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import StatusBar from "../../Components/StatusBar/StatusBar";
 import Day from "../../Components/Day/Day";
@@ -24,6 +24,7 @@ export default class ParkPage extends Component {
 
   updateLocation = () => {
     this.context.updateLocation("home");
+    this.props.history.push("/home");
   };
 
   checkIfYadied = () => {
@@ -71,21 +72,17 @@ export default class ParkPage extends Component {
         </div>
         <Character selectCharacter={false} />
         <Stock />
-        <div className="map">
-          <Link to="/">
-            <button
-              id="first"
-              className="interactiveButton"
-              disabled={disabled}
-              onClick={this.updateLocation}
-            >
-              <FontAwesomeIcon icon="home" />
-            </button>
-          </Link>
-        </div>
+        <button
+          id="first"
+          className="interactiveButton"
+          disabled={disabled}
+          onClick={this.updateLocation}
+        >
+          <FontAwesomeIcon icon="home" />
+        </button>
         {this.context.renderCurve && <Curveball />}
         {this.context.renderFeedback && <Feedback />}
-        <PetActivities />
+        <PetActivities {...this.props} />
         <Music song={Song} />
       </section>
     );

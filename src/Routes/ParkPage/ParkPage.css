@@ -22,6 +22,12 @@
   color: rgb(255, 255, 255);
 }
 
+.interactiveButton:disabled {
+  cursor: default;
+  background-color: rgb(230, 230, 250);
+  color: rgb(170, 170, 170);
+}
+
 @media screen and (min-width: 720px) {
   .interactiveButton {
     font-size: 40px;

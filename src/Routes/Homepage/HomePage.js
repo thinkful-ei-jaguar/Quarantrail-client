@@ -11,7 +11,7 @@ export default class HomePage extends Component {
       <div className="homePage">
         {this.context.start && <LandingPage />}
         {this.context.userPage && <StartPage context={this.context} />}
-        {this.context.game && <GamePage />}
+        {this.context.game && <GamePage {...this.props} />}
       </div>
     );
   }
