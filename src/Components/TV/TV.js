@@ -17,7 +17,7 @@ export default class Pet extends Component {
     <div className="TV-container">
       </div>
       </div>
-    <button onClick={this.close} class="tv-button">done</button>
+    <button onClick={this.close} className="tv-button">done</button>
     </div>
     )
   }
