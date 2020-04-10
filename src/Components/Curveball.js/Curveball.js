@@ -47,7 +47,10 @@ export default class Curveball extends Component {
       render: false
     });
     this.context.updateRenderCurve(false);
-    if (this.context.location === "market" || this.context.location === "park") {
+    if (
+      this.context.location === "market" ||
+      this.context.location === "park"
+    ) {
       this.context.updateCurve(true);
     } else {
       this.context.updateCurve(false);
@@ -79,7 +82,10 @@ export default class Curveball extends Component {
       render: false
     });
     this.context.updateRenderCurve(false);
-    if (this.context.location === "market" || this.context.location === "park") {
+    if (
+      this.context.location === "market" ||
+      this.context.location === "park"
+    ) {
       this.context.updateCurve(true);
     } else {
       this.context.updateCurve(false);
@@ -91,8 +97,12 @@ export default class Curveball extends Component {
       <section className="curveball middle">
         <h2>{this.state.curveball.question}</h2>
         <div className="curveballButtons">
-          <button onClick={this.accept}>YES</button>
-          <button onClick={this.reject}>NO</button>
+          <button className="popupButton" onClick={this.accept}>
+            YES
+          </button>
+          <button className="popupButton" onClick={this.reject}>
+            NO
+          </button>
         </div>
       </section>
     ) : null;

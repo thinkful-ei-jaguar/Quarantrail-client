@@ -35,18 +35,12 @@
   background-color: rgb(157, 235, 157);
 }
 
-.catLength {
+.catSize {
   position: absolute;
-  background-image: url(../../Images/gameCat.svg);
   width: 6%;
   height: 6%;
-  background-color: rgb(83, 71, 65);
   z-index: 2;
 }
-/* 
-.catHead {
-  background-color: white;
-} */
 
 .hide {
   display: none;
@@ -54,8 +48,8 @@
 
 .catTreat {
   position: relative;
-  width: 6%;
-  height: 6%;
+  width: 2%;
+  height: 2%;
   z-index: 1;
 }
 
@@ -88,6 +82,18 @@
 
 .arrowKeys {
   width: 100px;
+}
+
+.up {
+  transform: rotate(-90deg);
+}
+
+.down {
+  transform: rotate(90deg);
+}
+
+.left {
+  transform: rotate(180deg);
 }
 
 @media screen and (min-width: 720px) {

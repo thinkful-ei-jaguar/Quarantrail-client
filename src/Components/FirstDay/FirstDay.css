@@ -14,13 +14,19 @@
   display: flex;
   flex: 1 1;
   align-items: center;
-  background-color: rgb(241, 248, 137);
-  color: rgb(134, 133, 133);
+  background-color: rgb(153, 140, 148);
+  border: 3px solid rgb(99, 89, 95);
+  color: rgb(255, 255, 255);
   width: 75%;
   height: 100%;
   flex-direction: column;
   justify-content: space-evenly;
-  border: 1px solid rgb(158, 158, 158);
+}
+
+.box h1,
+.box h2 {
+  text-align: center;
+  font-size: 14px;
 }
 
 .slidecontainer {
@@ -60,7 +66,8 @@
 }
 
 @media screen and (min-width: 720px) {
-  .box {
-    border: 3px solid rgb(158, 158, 158);
+  .box h1,
+  .box h2 {
+    font-size: 20px;
   }
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Music from "../../Components/Music/Music";
 import "./Activities.css";
 
 export default class Activities extends Component {
