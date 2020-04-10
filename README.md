@@ -1,6 +1,7 @@
 # QuaranTrail
 
 ## Written by QuaranTeam
+
 - Nghi Tran
 - Taylor Piccarreto
 - Robert Perez
@@ -11,9 +12,11 @@
 ## API Repo Link: [Api Repo](https://github.com/thinkful-ei-jaguar/Coronatrail-server)
 
 ### About
-In this playful and lighthearted game, the world was struck with an awful pandemic and the player has to stay indoors. The goal is to live for as many days as possible. There are two guages to keep an eye on, the chance of infection and boredom. Every choice and action can increase or decrease these guages so tread carefully. The player must also need to keep track of, and maintain, their supply of food and toilet paper, but you may not want to get too much...
+
+In this playful and lighthearted game, the world was struck with an awful pandemic and the player has to stay indoors. The goal is to practice social distancing and self quarantine while keeping one's boredom level bar low for as many days as possible. As such, the two guages to keep an eye on are the chance of infection and boredom. Every choice and action can increase or decrease these guages so tread carefully. The player must also need to keep track of, and maintain, their supply of food and toilet paper, but you may not want to get too much...
 
 ### Tech Stacks
+
 - React
 - Javascript
 - HTML5
@@ -22,6 +25,7 @@ In this playful and lighthearted game, the world was struck with an awful pandem
 - React-Game-Engine
 
 ### Screenshots
+
 ![image of start page](src/Images/ScreenStart.JPG)
 ![image of game page](src/Images/ScreenGame.JPG)
 
