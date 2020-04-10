@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PersonContext from "../../Context/PersonContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Frisbee from "../../Images/frisbee.svg";
 import "./PetActivities.css";
 //import { tsImportEqualsDeclaration } from "@babel/types";
 
@@ -183,7 +182,7 @@ export default class PetActivities extends Component {
               disabled={disabled}
               onClick={this.handleFetch}
             >
-              <img src={Frisbee} alt="frisbee" />
+              <FontAwesomeIcon icon="baseball-ball" />
             </button>
           </div>
         )}

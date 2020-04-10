@@ -1,21 +1,62 @@
-.EndPage {
-  background-image: url(../../Images/gamePark.svg);
-  background-size: cover;
-  width: 100vw;
+.display-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 90vh;
-  background-repeat: no-repeat;
-  background-position: bottom center;
+  width: 100vw;
+  background-color: rgb(153, 140, 148);
 }
 
-.EndPage h1,
-.EndPage h2 {
+.display {
+  display: flex;
+  align-items: center;
+  width: 80vw;
+  min-height: 50vh;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 5px;
+  background-color: rgb(224, 163, 163);
+  border-radius: 5px;
+}
+
+.display-button {
+  background-color: rgb(236, 228, 160);
+  height: 30px;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.display h1, .display h2 {
   text-align: center;
-  font-size: 14px;
+}
+
+.display h1 {
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
 }
 
 @media screen and (min-width: 720px) {
-  .EndPage h1,
-  .EndPage h2 {
-    font-size: 20px;
+  .display-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+  }
+  
+  .display {
+    display: flex;
+    align-items: center;
+    width: 50vw;
+    min-height: 30vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 5px;
+  }
+  
+  .display h1 {
+    text-align: center;
   }
 }

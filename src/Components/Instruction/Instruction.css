@@ -1,9 +1,9 @@
 .instruction h2, .instruction p {
-  padding: 5px 20px;
+  padding: 10px 30px;
 }
 
 .instruction {
   border: 1px solid black;
   width: 500px;
-  background-color: hsla(120, 100%, 88%, 0.75);
+  background-color: hsla(0, 49.6%, 75.9%, 0.75);
 }
