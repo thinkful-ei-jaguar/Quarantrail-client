@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PersonContext from "../../Context/PersonContext";
 import gameService from "../../services/gameService";
-import reddit from '../../Images/reddit.jpg'
+//import reddit from '../../Images/reddit.jpg'
 import './Phone.css'
 
 export default class Phone extends Component {

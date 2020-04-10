@@ -37,7 +37,6 @@ const PersonContext = React.createContext({
   incrementDay: () => {},
   addToFoodandToilet: () => {},
   addToBoredom: () => {},
-  dailyTakeAwayFoodandToilet: () => {},
   updateLocation: () => {},
   resetDay: () => {},
   setFeedTreat: () => {},
@@ -209,25 +208,6 @@ export class PersonProvider extends Component {
     });
   };
 
-  dailyTakeAwayFoodandToilet = (f, t) => {
-    // let F=parseInt(f);
-    // let T=parseInt(t);
-    let nT = this.state.starter.toiletpaper;
-    let nF = this.state.starter.food;
-    nT -= t;
-    nF -= f;
-
-    this.setState(
-      {
-        starter: {
-          ...this.state.starter,
-          toiletpaper: this.nT,
-          food: nF
-        }
-      }
-    );
-  };
-
   incrementDay = () => {
     let newday = this.state.day;
     newday += 1;
@@ -324,7 +304,6 @@ export class PersonProvider extends Component {
       addToToilet: this.addToToilet,
       incrementDay: this.incrementDay,
       addToBoredom: this.addToBoredom,
-      dailyTakeAwayFoodandToilet: this.dailyTakeAwayFoodandToilet,
       updateLocation: this.updateLocation,
       resetDay: this.resetDay,
       setWash: this.setWash,

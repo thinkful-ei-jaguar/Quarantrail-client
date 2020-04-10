@@ -6,9 +6,9 @@ import "./Music.css";
 
 export default class Music extends Component {
   static contextType = BooleanContext;
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     return (
@@ -24,6 +24,7 @@ export default class Music extends Component {
             this.context.mute ? Sound.status.PAUSED : Sound.status.PLAYING
           }
           loop={true}
+          debug={false}
         />
       </div>
     );

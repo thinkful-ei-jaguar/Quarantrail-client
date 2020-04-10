@@ -14,7 +14,7 @@ import Curveball from "../../Components/Curveball.js/Curveball";
 import Character from "../../Components/Character/Character";
 import Song from "../../Sound/8bitsurf.mp3";
 import Pet from "../../Components/Pet/Pet";
-import TV from "../../Components/TV/TV";
+//import TV from "../../Components/TV/TV";
 import Phone from "../../Components/Phone/Phone";
 import Feedback from "../../Components/Feedback/Feedback";
 export default class GamePage extends Component {
@@ -111,7 +111,7 @@ export default class GamePage extends Component {
           <Day />
         </div>
         {this.context.renderPhone && <Phone />}
-        {this.context.TV && <TV />}
+        
         <Character selectCharacter={false} />
         <Pet />
         <Stock />
@@ -145,3 +145,4 @@ export default class GamePage extends Component {
     );
   }
 }
+//{this.context.TV && <TV />}

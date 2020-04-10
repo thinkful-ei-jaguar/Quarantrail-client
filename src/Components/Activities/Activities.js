@@ -107,6 +107,7 @@ export default class Activities extends Component {
     this.context.setPersonInfo(newData);
     this.context.setWash(false);
     this.context.setFeedTreat(false);
+    this.context.turnTV(false);
     this.context.updateFeedback(false);
     this.context.clearActivites();
   };
@@ -141,6 +142,38 @@ export default class Activities extends Component {
     return button;
   };
 
+  renderflappyButton = () => {
+    const { TV } = this.context;
+    const { disabled } = this.state;
+    let button;
+    if (TV || disabled) {
+      button = (
+        <button
+          className="mybutton"
+          disabled={TV || disabled}
+          onClick={this.handleVideoGame}
+        >
+          <FontAwesomeIcon icon="gamepad" />
+        </button>
+      );
+    } else {
+      button = (
+        <Link to="/game">
+          <button
+            className="mybutton"
+            disabled={TV || disabled}
+            onClick={this.handleVideoGame}
+          >
+            <FontAwesomeIcon icon="gamepad" />
+          </button>
+        </Link>
+      );
+    }
+    return button;
+  };
+
+
+
   render() {
     const { disabled, viewActivities } = this.state;
     return (
@@ -156,13 +189,7 @@ export default class Activities extends Component {
             <p className="header">
               Activities left: {this.context.dailyActivities + 1}
             </p>
-            <button
-              className="mybutton"
-              disabled={disabled}
-              onClick={this.handleVideoGame}
-            >
-              <FontAwesomeIcon icon="gamepad" />
-            </button>
+            {this.renderflappyButton()}
             <button
               className="mybutton"
               disabled={disabled}

@@ -55,7 +55,6 @@ describe(`App Route`, () => {
       incrementDay: () => {},
       addToFoodandToilet: () => {},
       addToBoredom: () => {},
-      dailyTakeAwayFoodandToilet: () => {},
       updateLocation: () => {},
       resetDay: () => {},
       setWash: () => {},
