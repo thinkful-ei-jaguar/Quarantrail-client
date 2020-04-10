@@ -15,3 +15,15 @@
     height: auto;
   }
 }
+
+@media screen and (max-width: 1439px) {
+  .desktopOnly {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mobileOnly {
+    display: none;
+  }
+}
