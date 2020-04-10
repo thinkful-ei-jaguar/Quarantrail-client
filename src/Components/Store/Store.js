@@ -15,7 +15,7 @@ export default class Store extends Component {
   };
 
   handlePlusFood = () => {
-    if (this.state.foodCounter + this.context.starter.food === 6) {
+    if (this.state.foodCounter + this.context.starter.food >= 6) {
       return;
     }
     this.setState({ foodCounter: this.state.foodCounter + 1 });
@@ -30,7 +30,7 @@ export default class Store extends Component {
 
   handlePlusTp = () => {
     if (
-      this.state.toiletPaperCounter + this.context.starter.toiletpaper ===
+      this.state.toiletPaperCounter + this.context.starter.toiletpaper >=
       6
     ) {
       return;
@@ -45,27 +45,43 @@ export default class Store extends Component {
     this.setState({ toiletPaperCounter: this.state.toiletPaperCounter - 0.5 });
   };
 
-  handleCheckout = () => {
+  checkTooMuch = () => {
     const { foodCounter, toiletPaperCounter } = this.state;
     const { food, toiletpaper } = this.context.starter;
     if (foodCounter + food >= 6) {
-      this.setState({ tooMuch: true });
+      
+      this.setState({ tooMuch: true })
+      return
     }
     if (toiletPaperCounter + toiletpaper >= 6) {
-      this.setState({ tooMuch: true });
+      
+      this.setState({ tooMuch: true })
+      return
     }
+  }
+
+  handleCheckout = () => {
+    const { foodCounter, toiletPaperCounter } = this.state;
+    const { food, toiletpaper } = this.context.starter;
+
+    this.checkTooMuch()
     this.context.addToFoodandToilet(foodCounter, toiletPaperCounter);
     this.setState({
       foodCounter: 0,
       toiletPaperCounter: 0,
       disabled: true
     });
-    this.context.updateBuy(true)
+    if(foodCounter + food >= 6 || toiletPaperCounter + toiletpaper >= 6) {
+    }
+    else{
+      this.props.shopping()
+      this.context.updateBuy(true)
+    }
   };
 
   tooMuch = () => {
     return (
-      <div class="middle">
+      <div className="middle">
         <div className="box">
           <h1>You have too much</h1>
           <p>
@@ -80,8 +96,10 @@ export default class Store extends Component {
 
   handleSubmitforTooMuch = e => {
     e.preventDefault();
-    this.context.addToFoodandToilet(-4, -4);
+    this.context.addToFoodandToilet(-2, -2);
     this.setState({ tooMuch: false });
+    this.props.shopping()
+    this.context.updateBuy(true)
   };
 
   original = () => {

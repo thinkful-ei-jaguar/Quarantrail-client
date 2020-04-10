@@ -81,7 +81,7 @@ export default class GamePage extends Component {
       this.setState({ lose: true });
     } else if (this.context.starter.food <= 0) {
       this.context.setDeath(
-        "you ran out of food had to go home and got the disease during the trip"
+        "you ran out of food and are too scared to go out and get more"
       );
       this.setState({ lose: true });
     } else if (this.context.starter.toiletpaper <= 0) {

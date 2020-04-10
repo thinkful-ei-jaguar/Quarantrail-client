@@ -12,6 +12,7 @@
     "expo": "^36.0.2",
     "expo-asset": "^8.1.2",
     "fsevents": "^1.2.11",
+    "matter-js": "^0.14.2",
     "react": "^16.13.1",
     "react-animations": "^1.0.0",
     "react-dom": "^16.13.1",

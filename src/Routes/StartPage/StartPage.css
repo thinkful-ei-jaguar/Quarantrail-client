@@ -8,6 +8,14 @@
   background-color: rgb(224, 163, 163);
 }
 
+#name {
+  border: none;
+  border-bottom: 6px dashed black;
+  width: 50px;
+  background: none;
+  letter-spacing: 5px;
+}
+
 .startPage,
 .nameForm {
   display: flex;

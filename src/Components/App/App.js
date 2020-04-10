@@ -36,7 +36,8 @@ import {
   faIcons,
   faComment,
   faVolumeUp,
-  faVolumeMute
+  faVolumeMute,
+  faBaseballBall
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
@@ -62,7 +63,8 @@ library.add(
   faIcons,
   faComment,
   faVolumeUp,
-  faVolumeMute
+  faVolumeMute,
+  faBaseballBall
 );
 
 class App extends Component {
