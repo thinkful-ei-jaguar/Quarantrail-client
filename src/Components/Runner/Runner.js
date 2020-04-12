@@ -12,7 +12,6 @@ export default class Runner extends Component {
   state = {
     direction: "right",
     size: {
-      player: 50,
       height: window.innerHeight,
       width: window.innerWidth
     },
@@ -313,11 +312,18 @@ export default class Runner extends Component {
 
   render() {
     const { 
-      size: { player }, 
       positions: { player: playerPos },
       playerScore,
-      renderScore
+      renderScore,
+      size: { width }
     } = this.state;
+    let player
+    if(width < 720) {
+      player = 25
+    }
+    else {
+      player = 50
+    }
     return (
       <section className="runner">
 

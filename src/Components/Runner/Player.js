@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import Box from './Box';
+import React, { Component } from 'react';
 import rocky from '../../Images/gameCat.svg'
 
 class Player extends Component {   
@@ -34,11 +33,11 @@ class Player extends Component {
     }
     
     render() {        
-        const { position: { top, left }} = this.props;
+        const { size, position: { top, left }} = this.props;
         const { imgDir } = this.state
         const styleBox = {
-            width: '50px',
-            height: '50px',
+            width: size,
+            height: size,
             position: 'absolute',
             top: top + 'px',
             left: left + 'px',
