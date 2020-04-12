@@ -98,6 +98,12 @@ export class PersonProvider extends Component {
   };
 
   setPersonInfo = info => {
+    if(info.health <0){
+      info={...info,health:0}
+    }
+    if(info.boredom <0){
+      info={...info,boredom:0}
+    }
     this.setState({ starter: info });
   };
 

@@ -23,18 +23,18 @@ export default class Activities extends Component {
   };
 
   doActivityStuff = (name, health, boredom) => {
+    let newBoredom =boredom;
     if (this.state.previousAct === name) {
       this.setState({
         previousCount: this.state.previousCount + 1
       });
-
       if (this.state.previousCount === 0) {
-        this.context.addToBoredom(boredom * 0.8);
+        newBoredom *= 0.8;
         this.context.setIncrease({ infection: health, boredom: boredom * 0.8 });
       }
 
       if (this.state.previousCount === 1) {
-        this.context.addToBoredom(boredom * 0.6);
+        newBoredom *= 0.6;
         this.context.setIncrease({ infection: health, boredom: boredom * 0.6 });
       }
     } else {
@@ -42,10 +42,16 @@ export default class Activities extends Component {
         previousAct: name,
         previousCount: 0
       });
-      this.context.addToBoredom(boredom);
       this.context.setIncrease({ infection: health, boredom: boredom });
     }
-    this.context.addToHealth(health);
+    let newData2 = {
+      id: this.context.starter.id,
+      health: this.context.starter.health + health,
+      boredom: this.context.starter.boredom + newBoredom,
+      toiletpaper: this.context.starter.toiletpaper ,
+      food: this.context.starter.food
+    };
+    this.context.setPersonInfo(newData2);
     this.context.incrementActivity();
     if (this.context.dailyActivities === 0) {
       this.renderSleep();
