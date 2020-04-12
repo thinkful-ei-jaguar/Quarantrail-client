@@ -56,7 +56,7 @@ export default class FirstDay extends Component {
   Toomuch = () => {
     return (
       <div className="middle">
-        <div classNameName="box">
+        <div className="box">
           <h1>You have too much</h1>
           <p>
             You have too much and your neighbors decided to rob you so bye-bye
