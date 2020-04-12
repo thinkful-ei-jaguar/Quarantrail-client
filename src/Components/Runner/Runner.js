@@ -12,6 +12,7 @@ export default class Runner extends Component {
   state = {
     direction: "right",
     size: {
+      player: 25,
       height: window.innerHeight,
       width: window.innerWidth
     },
@@ -24,7 +25,7 @@ export default class Runner extends Component {
     },
     playerScore: 0,
     timeElapsed: 0,
-    enemySpeed: 10,
+    enemySpeed: 5,
     enemyIndex: 0,
     activeEnemies: 2,
     baseScore: 10,
@@ -35,6 +36,18 @@ export default class Runner extends Component {
     this.enemyInterval = setInterval(this.updateEnemyPositions, 50);
     this.timeInterval = setInterval(this.updateGame, 1000);
     this.gameInterval = setInterval(this.updateEnemiesInPlay, 250);
+    if(window.innerHeight < 720) {
+      this.setState({
+        size: {...this.state.size, player: 25},
+        enemySpeed: 5
+      }) 
+    }
+    else {
+      this.setState({
+        size: {...this.state.size, player: 50},
+        enemySpeed: 10
+      })
+    }
   }
 
   placeEnemy = () => {
@@ -107,7 +120,7 @@ export default class Runner extends Component {
 
   handlePlayerMovement = (dirObj) => {
     const { top, left } = this.state.positions.player;
-    const { height, width } = this.state.size
+    const { player, height, width } = this.state.size
     // check walls
     switch (dirObj.dir) {
       case 'UP':
@@ -130,8 +143,8 @@ export default class Runner extends Component {
         positions: {
             ...this.state.positions,
             player: {
-                top: top + (50 * dirObj.top),
-                left: left + (50 * dirObj.left)
+                top: top + (player * dirObj.top),
+                left: left + (player * dirObj.left)
             }
         }
     });
@@ -312,18 +325,11 @@ export default class Runner extends Component {
 
   render() {
     const { 
+      size: {player},
       positions: { player: playerPos },
       playerScore,
       renderScore,
-      size: { width }
     } = this.state;
-    let player
-    if(width < 720) {
-      player = 25
-    }
-    else {
-      player = 50
-    }
     return (
       <section className="runner">
 
