@@ -7,7 +7,7 @@ import LeaderBoard from "../LeaderBoard/LeaderBoard";
 import Instruction from "../Instruction/Instruction";
 import Footer from "../Footer/Footer";
 import EndPage from "../../Routes/EndPage/EndPage";
-// import SimpleGame from "../../Components/SimpleGame/SimpleGame";
+import SimpleGame from "../../Components/SimpleGame/SimpleGame";
 import miniGame from "../../Components/minigame/minigame";
 import FeedTreatGame from "../../Components/FeedTreatGame/FeedTreatGame";
 import Runner from "../../Components/Runner/Runner";
@@ -103,7 +103,7 @@ class App extends Component {
                 />
               )}
             />
-            {/* <Route exact path={"/game"} component={SimpleGame} /> */}
+            <Route exact path={"/game"} component={SimpleGame} />
             <Route exact path={"/washHands"} component={miniGame} />
             <Route exact path={"/feedTreats"} component={FeedTreatGame} />
             <Route exact path={"/runner"} component={Runner} />

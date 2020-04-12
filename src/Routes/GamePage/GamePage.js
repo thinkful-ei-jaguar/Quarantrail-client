@@ -140,4 +140,3 @@ export default class GamePage extends Component {
     );
   }
 }
-//{this.context.TV && <TV />}

@@ -56,8 +56,7 @@ export default class PetActivities extends Component {
   };
 
   handleRunning = () => {
-    this.performActivity("running", 5, -10);
-    this.context.updateFeedback(true);
+    this.props.history.push("/runner");
   };
 
   handleTreat = () => {
@@ -82,10 +81,6 @@ export default class PetActivities extends Component {
     this.context.updateFeedback(true);
   };
 
-  handleRunningOnDesktop = () => {
-    this.props.history.push("/Runner");
-  };
-
   renderSleep = () => {
     this.setState({ disabled: true });
   };
@@ -107,17 +102,9 @@ export default class PetActivities extends Component {
             </p>
 
             <button
-              className="mybutton mobileOnly"
+              className="mybutton"
               disabled={disabled}
               onClick={this.handleRunning}
-            >
-              <FontAwesomeIcon icon="running" />
-            </button>
-
-            <button
-              className="mybutton desktopOnly"
-              disabled={disabled}
-              onClick={this.handleRunningOnDesktop}
             >
               <FontAwesomeIcon icon="running" />
             </button>

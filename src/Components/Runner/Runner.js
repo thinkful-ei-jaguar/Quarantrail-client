@@ -13,12 +13,13 @@ export default class Runner extends Component {
     direction: "right",
     size: {
       player: 50,
-      maxDim: 650
+      height: window.innerHeight,
+      width: window.innerWidth
     },
     positions: {
       player: {
-        top: Math.floor(13 / 2) * 50,
-        left: Math.floor(28 / 2) * 50
+        top: window.innerHeight / 2.2,
+        left: window.innerWidth / 2
       },
       enemies: []
     },
@@ -39,7 +40,6 @@ export default class Runner extends Component {
 
   placeEnemy = () => {
     // enemies always launch at player
-    const { player, maxDim } = this.state.size;
     const { player: playerPos } = this.state.positions;
 
     // assign to a random side
@@ -81,24 +81,24 @@ export default class Runner extends Component {
     });
 
     const newEnemy = { key: this.state.enemyIndex, dir: side };
-    const { maxDim, player } = this.state.size;
+    const { height, width } = this.state.size;
 
     switch(side) {
       case 'UP':
-        newEnemy.top = maxDim;
+        newEnemy.top = height - 50;
         newEnemy.left = position.left;
         break;
       case 'DOWN':
-        newEnemy.top = 0 - player;
+        newEnemy.top = 0;
         newEnemy.left = position.left;
         break; 
       case 'LEFT':
         newEnemy.top = position.top;
-        newEnemy.left = 1385;
+        newEnemy.left = width - 50;
         break;
       case 'RIGHT':
         newEnemy.top = position.top;
-        newEnemy.left = 0 - player;
+        newEnemy.left = 0;
         break;
       default: 
         break;
@@ -108,20 +108,20 @@ export default class Runner extends Component {
 
   handlePlayerMovement = (dirObj) => {
     const { top, left } = this.state.positions.player;
-    
+    const { height, width } = this.state.size
     // check walls
     switch (dirObj.dir) {
       case 'UP':
-        if (top === 0) return;
+        if (top <= 0) return;
         break;
       case 'DOWN':
-        if (top > 625) return;
+        if (top >= (height - 150)) return;
         break;
       case 'LEFT':
-        if (left === 0) return;
+        if (left <= 0) return;
         break;
       case 'RIGHT':
-        if (left > 1360) return;
+        if (left >= (width - 100)) return;
         break;
       default:
         break;
@@ -131,8 +131,8 @@ export default class Runner extends Component {
         positions: {
             ...this.state.positions,
             player: {
-                top: top + (30 * dirObj.top),
-                left: left + (30 * dirObj.left)
+                top: top + (50 * dirObj.top),
+                left: left + (50 * dirObj.left)
             }
         }
     });
@@ -211,8 +211,8 @@ export default class Runner extends Component {
     this.setState({    
       positions: {
         player: {
-          top: Math.floor(13 / 2) * 50,
-          left: Math.floor(28 / 2) * 50
+          top: window.innerHeight / 2.2,
+          left: window.innerWidth / 2
         },
         enemies: []
       },
@@ -220,7 +220,7 @@ export default class Runner extends Component {
       enemySpeed: 10,
       enemyIndex: 0,
       activeEnemies: 2,
-      renderScore: true
+      renderScore: true,
     })
   }
 
@@ -244,16 +244,16 @@ export default class Runner extends Component {
   }
 
   updateEnemyPositions = () => {
-    const { enemySpeed, positions: { enemies }, size: { player, maxDim }} = this.state;
+    const { enemySpeed, positions: { enemies }, size: { height, width }} = this.state;
 
     this.setState({
       positions: {
         ...this.state.positions,
         enemies: enemies.filter(enemy => !enemy.remove).map(enemy => {
-          if (enemy.top < (0 - player) || 
-            enemy.top > 625 + player || 
-            enemy.left < (0 - player) || 
-            enemy.left > 1385) {
+          if (enemy.top < 0|| 
+            enemy.top > (height - 50) || 
+            enemy.left < 0 || 
+            enemy.left > (width - 50)) {
             enemy.remove = true;
             return enemy;
           }

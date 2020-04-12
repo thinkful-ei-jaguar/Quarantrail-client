@@ -88,6 +88,7 @@ export default class FeedTreatGame extends Component {
         }
         tmpDirection = "right";
         break;
+      default: break;
     }
     cat.push(head);
     cat.shift();

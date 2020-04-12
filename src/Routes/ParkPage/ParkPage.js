@@ -24,7 +24,7 @@ export default class ParkPage extends Component {
 
   updateLocation = () => {
     this.context.updateLocation("home");
-    this.props.history.push("/home");
+    this.props.history.push("/");
   };
 
   checkIfYadied = () => {

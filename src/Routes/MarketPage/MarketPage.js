@@ -55,7 +55,7 @@ export default class MarketPage extends Component {
 
   updateLocation = () => {
     this.context.updateLocation("home");
-    this.props.history.push("/home");
+    this.props.history.push("/");
   };
 
   render() {

@@ -54,9 +54,7 @@ export default class Activities extends Component {
 
   handleWashHands = () => {
     this.context.updateActivityTracker({ washHands: 1 });
-    // this.doActivityStuff('washhands', -5, 0)
     this.context.setWash(true);
-    // this.context.updateFeedback(true)
     this.props.history.push("/washHands");
   };
 
@@ -69,6 +67,7 @@ export default class Activities extends Component {
     this.doActivityStuff("videogame", 0, -10);
     this.context.turnTV(true);
     this.props.history.push("/game");
+    this.context.updateFeedback(true);
   };
 
   handlePhone = () => {
